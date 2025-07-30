@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Editor - Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="admin-header">
+            <h1>📝 Story Editor</h1>
+            <div class="header-buttons">
+                <button id="back-to-app" class="btn btn-secondary">← Вернуться к приложению</button>
+                <button id="new-story" class="btn btn-primary">+ Новая история</button>
+            </div>
+        </div>
+
+        <!-- Story List Section -->
+        <div id="story-list-section" class="admin-section">
+            <h2>Существующие истории</h2>
+            <div id="existing-stories" class="story-grid">
+                <div class="loading">Загрузка историй...</div>
+            </div>
+        </div>
+
+        <!-- Story Editor Section -->
+        <div id="story-editor-section" class="admin-section" style="display: none;">
+            <div class="editor-header">
+                <button id="back-to-list" class="btn btn-secondary">← К списку историй</button>
+                <h2 id="editor-title">Редактирование истории</h2>
+                <div class="editor-actions">
+                    <button id="preview-story" class="btn btn-info">👁 Предпросмотр</button>
+                    <button id="save-story" class="btn btn-success">💾 Сохранить</button>
+                </div>
+            </div>
+
+            <div class="editor-content">
+                <!-- Story Metadata -->
+                <div class="metadata-section">
+                    <h3>Информация об истории</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="story-id">ID истории:</label>
+                            <input type="text" id="story-id" placeholder="например: space-adventure" pattern="[a-z0-9-]+" title="Только строчные буквы, цифры и дефисы">
+                        </div>
+                        <div class="form-group">
+                            <label for="story-title">Название:</label>
+                            <input type="text" id="story-title" placeholder="The Space Adventure">
+                        </div>
+                        <div class="form-group">
+                            <label for="story-level">Уровень:</label>
+                            <select id="story-level">
+                                <option value="beginner">Начинающий</option>
+                                <option value="intermediate">Средний</option>
+                                <option value="advanced">Продвинутый</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="story-description">Описание:</label>
+                            <textarea id="story-description" placeholder="Краткое описание истории"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Editor -->
+                <div class="text-editor-section">
+                    <h3>Текст истории</h3>
+                    <div class="editor-toolbar">
+                        <button type="button" class="tool-btn" data-action="add-heading">📋 Заголовок</button>
+                        <button type="button" class="tool-btn" data-action="add-paragraph">📝 Параграф</button>
+                        <button type="button" class="tool-btn" data-action="add-verb">🔤 Глагол</button>
+                        <button type="button" class="tool-btn" data-action="add-section-check">✅ Кнопка проверки</button>
+                        <button type="button" class="tool-btn" data-action="clear-editor">🗑 Очистить</button>
+                    </div>
+                    <div id="text-editor" class="text-editor" contenteditable="true" placeholder="Начните вводить текст истории..."></div>
+                </div>
+
+                <!-- Verb Manager -->
+                <div class="verb-manager-section">
+                    <h3>Управление глаголами</h3>
+                    <div id="verb-list" class="verb-list">
+                        <div class="no-verbs">Глаголы будут добавляться автоматически при их вставке в текст</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preview Modal -->
+        <div id="preview-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Предпросмотр истории</h3>
+                    <button id="close-preview" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="preview-content"></div>
+                </div>
+                <div class="modal-footer">
+                    <button id="test-story" class="btn btn-primary">🧪 Тестировать историю</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html> 

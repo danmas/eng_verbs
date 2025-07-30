@@ -8,11 +8,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>The Princess and the Dragon’s Journey</h1>
-        <div id="story-container"></div>
-        <button id="check-answers">Check Answers</button>
-        <div id="score"></div>
+            <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h1>Verb Tense Study</h1>
+            <a href="/admin" class="btn btn-secondary" style="text-decoration: none;">⚙️ Админ-панель</a>
+        </div>
+        
+        <!-- Story selection interface -->
+        <div id="story-selection" class="story-selection">
+            <h2>Выберите историю:</h2>
+            <div id="story-list" class="story-list">
+                <div class="loading">Загрузка историй...</div>
+            </div>
+        </div>
+        
+        <!-- Story content (hidden initially) -->
+        <div id="story-content" class="story-content" style="display: none;">
+            <div class="story-header">
+                <button id="back-to-selection" class="back-button">← Выбрать другую историю</button>
+                <h2 id="current-story-title"></h2>
+            </div>
+            <div id="story-container"></div>
+            <button id="check-answers">Проверить всё</button>
+            <div id="score"></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
