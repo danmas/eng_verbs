@@ -241,7 +241,7 @@ function updateVerbManager() {
                           onclick="toggleCorrectForm('${verb.name}', '${tense}')">${tense}</span>
                 `).join('')}
             </div>
-            <button class="btn btn-secondary" onclick="editVerbForms('${verb.name}')">Редактировать формы</button>
+                         <button class="btn btn-secondary" onclick="editVerbForms('${verb.name}')">➕ Добавить форму</button>
         </div>
     `).join('');
 }
@@ -328,13 +328,25 @@ function collectStoryData() {
     verbPlaceholders.forEach(placeholder => {
         const verbName = placeholder.dataset.verb;
         if (!verbData[verbName]) {
-            const verbItem = document.querySelector(`.verb-item h4:contains('${verbName}')`);
-            const correctForm = document.querySelector(`.verb-item h4:contains('${verbName}') + .verb-forms .verb-form.correct`);
+            // Find verb item by iterating through them
+            const verbItems = document.querySelectorAll('.verb-item');
+            let verbTenses = [];
+            let correctForm = verbName;
+            
+            verbItems.forEach(item => {
+                const h4 = item.querySelector('h4');
+                if (h4 && h4.textContent === verbName) {
+                    verbTenses = Array.from(item.querySelectorAll('.verb-form')).map(form => form.textContent);
+                    const correctElement = item.querySelector('.verb-form.correct');
+                    if (correctElement) {
+                        correctForm = correctElement.textContent;
+                    }
+                }
+            });
             
             verbData[verbName] = {
-                tenses: Array.from(document.querySelectorAll(`.verb-item h4:contains('${verbName}') + .verb-forms .verb-form`))
-                    .map(form => form.textContent),
-                correct: correctForm ? correctForm.textContent : verbName
+                tenses: verbTenses.length > 0 ? verbTenses : generateDefaultTenses(verbName),
+                correct: correctForm
             };
         }
     });
@@ -505,4 +517,24 @@ async function deleteStory(storyId) {
         console.error('Error deleting story:', error);
         alert('Ошибка удаления истории');
     }
+}
+
+// Edit verb forms
+function editVerbForms(verbName) {
+    const newForm = prompt(`Добавить новую форму для глагола "${verbName}":`);
+    if (!newForm || !newForm.trim()) return;
+    
+    // Find the verb item and add the new form
+    const verbItems = document.querySelectorAll('.verb-item');
+    verbItems.forEach(item => {
+        const h4 = item.querySelector('h4');
+        if (h4 && h4.textContent === verbName) {
+            const verbForms = item.querySelector('.verb-forms');
+            const newFormElement = document.createElement('span');
+            newFormElement.className = 'verb-form';
+            newFormElement.textContent = newForm.trim();
+            newFormElement.onclick = () => toggleCorrectForm(verbName, newForm.trim());
+            verbForms.appendChild(newFormElement);
+        }
+    });
 } 

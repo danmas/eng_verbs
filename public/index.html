@@ -16,7 +16,15 @@
         
         <!-- Story selection interface -->
         <div id="story-selection" class="story-selection">
-            <h2>Выберите историю:</h2>
+            <div class="story-header">
+                <h2>Выберите историю:</h2>
+                <div class="ai-story-generator">
+                    <div id="ai-status" class="ai-status">
+                        <span id="ai-status-indicator" class="status-indicator">🔍 Проверяю AI...</span>
+                    </div>
+                    <button id="generate-story-btn" class="btn btn-success">🤖 Генерировать новую историю</button>
+                </div>
+            </div>
             <div id="story-list" class="story-list">
                 <div class="loading">Загрузка историй...</div>
             </div>
@@ -31,6 +39,60 @@
             <div id="story-container"></div>
             <button id="check-answers">Проверить всё</button>
             <div id="score"></div>
+        </div>
+        
+        <!-- AI Story Generation Modal -->
+        <div id="story-generation-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>🤖 Генерация новой истории с помощью ИИ</h3>
+                    <button id="close-generation-modal" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="generation-form">
+                        <div class="form-group">
+                            <label for="story-topic">Тема истории:</label>
+                            <input type="text" id="story-topic" placeholder="Например: космическое путешествие, детективная история...">
+                            <button id="suggest-topics-btn" class="btn btn-info">💡 Предложить темы</button>
+                        </div>
+                        <div id="suggested-topics" class="topic-suggestions" style="display: none;"></div>
+                        <div class="form-group">
+                            <label for="story-level-gen">Уровень сложности:</label>
+                            <select id="story-level-gen">
+                                <option value="beginner">Начинающий</option>
+                                <option value="intermediate" selected>Средний</option>
+                                <option value="advanced">Продвинутый</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="generation-status" class="generation-status" style="display: none;">
+                        <div class="loading">🤖 ИИ создает историю...</div>
+                    </div>
+                    <div id="generated-story-preview" class="story-preview" style="display: none;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button id="cancel-generation" class="btn btn-secondary">Отмена</button>
+                    <button id="start-generation" class="btn btn-success">🚀 Создать историю</button>
+                    <button id="use-generated-story" class="btn btn-primary" style="display: none;">✅ Использовать эту историю</button>
+                    <button id="save-generated-story" class="btn btn-info" style="display: none;">💾 Сохранить в библиотеку</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Feedback Modal -->
+        <div id="ai-feedback-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>🎓 Объяснение от ИИ-учителя</h3>
+                    <button id="close-feedback-modal" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="ai-feedback-content" class="ai-feedback"></div>
+                </div>
+                <div class="modal-footer">
+                    <button id="close-feedback" class="btn btn-primary">Понятно</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
