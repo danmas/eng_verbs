@@ -1,0 +1,84 @@
+Проанализируй английский текст, найди все глаголы и определи их временные формы.
+
+Текст:
+{text}
+
+Твоя задача:
+1.  Найди все глаголы в тексте.
+2.  Для каждого глагола определи его правильную временную форму в контексте.
+3.  Предложи 4-5 альтернативных временных форм, которые подходят для этого глагола (например, Past Simple, Present Perfect, Future Simple).
+4.  Разбей текст на 3-5 логических разделов.
+5.  Присвой каждому глаголу номер раздела, в котором он находится.
+
+Ответ предоставь в формате JSON. Не добавляй никаких пояснений или дополнительного текста.
+
+Формат JSON:
+{
+  "analysis": [
+    {
+      "verb": "глагол",
+      "correct_tense": "правильная форма",
+      "alternative_tenses": ["альтернативная форма 1", "альтернативная форма 2", "альтернативная форма 3", "альтернативная форма 4"],
+      "section_id": 1
+    }
+  ],
+  "sections": [
+    {
+      "id": 1,
+      "description": "Краткое описание содержания раздела 1."
+    }
+  ]
+}
+
+Пример: 
+    Text: "She walked to the store. She is buying some milk. Tomorrow she will go to the park and read a book. She has read many books."
+
+    Пример JSON ответа:
+    {
+  "analysis": [
+    {
+      "verb": "walked",
+      "correct_tense": "Past Simple",
+      "alternative_tenses": ["Present Simple", "Present Continuous", "Future Simple", "Past Perfect"],
+      "section_id": 1
+    },
+    {
+      "verb": "is buying",
+      "correct_tense": "Present Continuous",
+      "alternative_tenses": ["Past Continuous", "Present Perfect Continuous", "Future Continuous", "Future Simple"],
+      "section_id": 1
+    },
+    {
+      "verb": "will go",
+      "correct_tense": "Future Simple",
+      "alternative_tenses": ["Present Simple", "Past Simple", "Future Continuous", "Future Perfect"],
+      "section_id": 2
+    },
+    {
+      "verb": "read",
+      "correct_tense": "Present Simple (or Future Simple based on context)",
+      "alternative_tenses": ["Past Simple", "Present Perfect", "Present Continuous", "Future Continuous"],
+      "section_id": 2
+    },
+    {
+      "verb": "has read",
+      "correct_tense": "Present Perfect",
+      "alternative_tenses": ["Past Simple", "Present Simple", "Future Simple", "Past Perfect"],
+      "section_id": 3
+    }
+  ],
+  "sections": [
+    {
+      "id": 1,
+      "description": "Действия, которые происходят сейчас и произошли в прошлом."
+    },
+    {
+      "id": 2,
+      "description": "Планы и действия, которые произойдут в будущем."
+    },
+    {
+      "id": 3,
+      "description": "Опыт и завершённые действия."
+    }
+  ]
+}
