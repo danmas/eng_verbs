@@ -1,7 +1,9 @@
 {
   "server": {
     "url": "http://localhost:3002",
-    "defaultModel": "deepseek/deepseek-r1-distill-llama-70b:free"
+    "defaultModel_2": "deepseek/deepseek-r1:free",
+    "defaultModel_3": "deepseek/deepseek-r1-distill-llama-70b:free",
+    "defaultModel": "google/gemma-3-27b-it:free"
   },
   "prompts": {
     "storyGeneration": {
@@ -26,14 +28,14 @@
     }
   },
   "timeouts": {
-    "statusCheck": 15000,
-    "topicSuggestions": 60000,
-    "storyGeneration": 120000,
-    "storyProcessing": 180000,
-    "sectionCheck": 90000,
+    "statusCheck": 150000,
+    "topicSuggestions": 600000,
+    "storyGeneration": 1200000,
+    "storyProcessing": 1800000,
+    "sectionCheck": 900000,
     "patienceMessage": {
-      "topics": 5000,
-      "story": 15000
+      "topics": 50000,
+      "story": 150000
     }
   },
   "ui": {

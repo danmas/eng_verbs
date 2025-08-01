@@ -3,6 +3,14 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = 3000;
+
+// Ensure directories exist
+const fs = require('fs');
+const explanationsDir = path.join(__dirname, 'public', 'explanations');
+if (!fs.existsSync(explanationsDir)) {
+    fs.mkdirSync(explanationsDir, { recursive: true });
+}
+
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 // Basic route to serve the frontend
@@ -330,9 +338,11 @@ app.post('/api/ai/check-section', express.json(), async (req, res) => {
     
     if (response.data.success) {
       console.log('AI section check completed successfully');
+      const feedback = response.data.content;
+      
       res.json({
         success: true,
-        feedback: response.data.content
+        feedback: feedback
       });
     } else {
       console.error('AI section check failed:', response.data);
@@ -354,6 +364,57 @@ app.post('/api/ai/check-section', express.json(), async (req, res) => {
       });
     }
   }
+});
+
+// Save AI feedback to a file
+app.post('/api/ai/save-feedback', express.json(), (req, res) => {
+  try {
+    const { storyId, sectionNumber, userAnswers, correctAnswers, feedback } = req.body;
+    
+    const explanationId = `${storyId}-section-${sectionNumber}-${Date.now()}.json`;
+    const explanationPath = path.join(explanationsDir, explanationId);
+    
+    const dataToSave = {
+      storyId,
+      sectionNumber,
+      userAnswers,
+      correctAnswers,
+      feedback,
+      timestamp: new Date().toISOString()
+    };
+    
+    fs.writeFileSync(explanationPath, JSON.stringify(dataToSave, null, 2));
+    console.log(`Explanation saved to ${explanationPath}`);
+    
+    res.json({ success: true, message: 'Feedback saved successfully' });
+    
+  } catch (error) {
+    console.error('Error saving AI feedback:', error);
+    res.status(500).json({ success: false, error: 'Failed to save feedback' });
+  }
+});
+
+// Get the last AI explanation for a section
+app.get('/api/ai/last-explanation/:storyId/:sectionNumber', (req, res) => {
+    const { storyId, sectionNumber } = req.params;
+    try {
+        const files = fs.readdirSync(explanationsDir)
+            .filter(file => file.startsWith(`${storyId}-section-${sectionNumber}`))
+            .sort()
+            .reverse();
+
+        if (files.length > 0) {
+            const lastFile = files[0];
+            const filePath = path.join(explanationsDir, lastFile);
+            const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            res.json({ success: true, explanation: data });
+        } else {
+            res.json({ success: false, message: 'No explanation found' });
+        }
+    } catch (error) {
+        console.error('Error getting last explanation:', error);
+        res.status(500).json({ success: false, error: 'Failed to get last explanation' });
+    }
 });
 
 // Get topic suggestions
@@ -489,43 +550,67 @@ app.post('/api/ai/process-story', express.json(), async (req, res) => {
         if (!processedStory.title) processedStory.title = title || 'AI Generated Story';
         if (!processedStory.level) processedStory.level = level || 'intermediate';
         if (!processedStory.description) processedStory.description = 'AI-generated story for verb practice';
+
+        // Save the processed story to a file
+        const fs = require('fs');
+        const storyPath = path.join(__dirname, 'public', 'texts', `${processedStory.id}.json`);
+        fs.writeFileSync(storyPath, JSON.stringify(processedStory, null, 2));
+        console.log(`Story saved to ${storyPath}`);
         
         res.json({
           success: true,
-          story: processedStory
+          story: processedStory,
+          message: 'Story processed and saved successfully'
         });
         
       } catch (parseError) {
         console.error('Error parsing AI response as JSON:', parseError);
         console.log('Raw AI response:', response.data.content);
         
-        // Fallback: create basic structure manually
+        // Fallback: create basic structure manually and save it
         const fallbackStory = createFallbackStory(story, title, level);
+        const fs = require('fs');
+        const storyPath = path.join(__dirname, 'public', 'texts', `${fallbackStory.id}.json`);
+        fs.writeFileSync(storyPath, JSON.stringify(fallbackStory, null, 2));
+        console.log(`Fallback story saved to ${storyPath}`);
+
         res.json({
           success: true,
           story: fallbackStory,
-          warning: 'Used fallback processing due to JSON parse error'
+          warning: 'Used fallback processing due to JSON parse error, but saved the story.'
         });
       }
       
     } else {
       console.error('AI story processing failed:', response.data);
       const fallbackStory = createFallbackStory(story, title, level);
+
+      // Save the fallback story to a file
+      const fs = require('fs');
+      const storyPath = path.join(__dirname, 'public', 'texts', `${fallbackStory.id}.json`);
+      fs.writeFileSync(storyPath, JSON.stringify(fallbackStory, null, 2));
+      console.log(`Fallback story saved to ${storyPath}`);
+
       res.json({
         success: true,
         story: fallbackStory,
-        warning: 'Used fallback processing due to AI service error'
+        warning: 'Used fallback processing due to AI service error, but saved the story.'
       });
     }
   } catch (error) {
     console.error('Error processing story:', error.message);
     
-    // Fallback processing
+    // Fallback processing and save
     const fallbackStory = createFallbackStory(story, title, level);
+    const fs = require('fs');
+    const storyPath = path.join(__dirname, 'public', 'texts', `${fallbackStory.id}.json`);
+    fs.writeFileSync(storyPath, JSON.stringify(fallbackStory, null, 2));
+    console.log(`Fallback story saved to ${storyPath}`);
+
     res.json({
       success: true,
       story: fallbackStory,
-      warning: 'Used fallback processing due to connection error'
+      warning: 'Used fallback processing due to connection error, but saved the story.'
     });
   }
 });

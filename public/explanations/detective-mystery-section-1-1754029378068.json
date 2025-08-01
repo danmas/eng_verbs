@@ -1,0 +1,20 @@
+{
+  "storyId": "detective-mystery",
+  "sectionNumber": "1",
+  "userAnswers": {
+    "arrive": "arrived",
+    "knock": "knocked",
+    "open": "opened",
+    "look": "looked",
+    "disappear": "disappears"
+  },
+  "correctAnswers": {
+    "arrive": "arrived",
+    "knock": "knocked",
+    "open": "opened",
+    "look": "looked",
+    "disappear": "disappeared"
+  },
+  "feedback": "1. **Анализ ошибок**:\n\n   В тексте студента все глагольные формы đều использованы правильно. Однако есть небольшая опечатка в глаголе \"disappear\", где студент написал \"disappears\" вместо правильной формы \"disappeared\". Это единственная ошибка в тексте.\n\n2. **Объяснения правил**:\n\n   - **Past Simple (V2)**: Используется дляfinished actions in the past, когда время действия не важно или уже ясно из контекста.\n   - **Past Simple vs Past Continuous**: Если speaks о конкретном завершённом действии в прошлом, применяем Past Simple.\n\n3. **Исправленный текст** (HTML с выделенными глаголами):\n\n   ```\n   Detective Johnson **arrived** at the old mansion at midnight. He **knocked** on the heavy wooden door. Mrs. Smith **opened** the door and **looked** worried. \"My husband **disappeared** three hours ago!\"\n   ```\n\n4. **Советы для запоминания**:\n\n   - **Past Simple**: Подумайте: \"=\"\"><svg průběhu dokončeného действия!\"\n   - **Exception List**: Составьте список неправильных глаголов и регулярно его повторяйте.\n\nХорошо понял запрос, просьбаcomposer ответить по-русски. простите mistake в предыдущем ответе и пожалуйста,ップ-build ОлександраUBLISH corriger le besoinера.",
+  "timestamp": "2025-08-01T06:22:58.068Z"
+}

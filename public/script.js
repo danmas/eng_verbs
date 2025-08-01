@@ -101,7 +101,8 @@ function showStoryContent(story) {
                 <div class="check-section">
                     <div class="section-check-enhanced">
                         <button class="section-check-btn" onclick="checkSection(${sectionNum})">${buttonText}</button>
-                        <button class="ai-check-btn" onclick="checkSectionWithAI(${sectionNum})" disabled title="Сначала проверьте раздел">🤖 Объяснение от ИИ</button>
+                        <button class="ai-check-btn" onclick="checkSectionWithAI(event)" data-section-number="${sectionNum}" disabled title="Сначала проверьте раздел">🤖 Объяснение от ИИ</button>
+                        <button class="last-explanation-btn" onclick="showLastExplanation(event)" data-section-number="${sectionNum}" style="display: none;">📖 Последнее объяснение</button>
                     </div>
                     <div class="section-score" id="section-score-${sectionNum}"></div>
                 </div>
@@ -138,6 +139,9 @@ function showStoryContent(story) {
     
     // Clear any previous scores
     document.getElementById('score').textContent = '';
+
+    // Check for existing explanations
+    checkForLastExplanations();
 }
 
 // Show story selection and hide content
@@ -253,6 +257,7 @@ function setupAIFeatures() {
     // AI feedback modal
     document.getElementById('close-feedback-modal').addEventListener('click', closeAIFeedbackModal);
     document.getElementById('close-feedback').addEventListener('click', closeAIFeedbackModal);
+    document.getElementById('save-ai-feedback').addEventListener('click', saveAIFeedback);
 }
 
 // Open story generation modal
@@ -541,29 +546,14 @@ async function saveGeneratedStory() {
         const processData = await processResponse.json();
         
         if (processData.success) {
-            // Save the processed story
-            const saveResponse = await fetch('/api/admin/save-story', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(processData.story)
-            });
-            
-            const saveData = await saveResponse.json();
-            
-            if (saveData.message) {
-                alert('✅ История успешно сохранена в библиотеку!\n\n📖 Название: ' + processData.story.title + '\n🆔 ID: ' + processData.story.id + '\n\nТеперь она доступна в списке историй.');
-                
-                // Refresh story list if we're on the main page
-                if (document.getElementById('story-selection').style.display !== 'none') {
-                    loadStoryList();
-                }
-            } else {
-                throw new Error(saveData.error || 'Failed to save story');
+            alert('✅ История успешно обработана и сохранена!\n\n📖 Название: ' + processData.story.title + '\n🆔 ID: ' + processData.story.id + '\n\nТеперь она доступна в списке историй.');
+
+            // Refresh story list if we're on the main page
+            if (document.getElementById('story-selection').style.display !== 'none') {
+                loadStoryList();
             }
         } else {
-            throw new Error(processData.error || 'Failed to process story');
+            throw new Error(processData.error || 'Failed to process and save story');
         }
         
     } catch (error) {
@@ -656,14 +646,16 @@ function getSectionText(sectionNumber) {
 }
 
 // Check section with AI
-async function checkSectionWithAI(sectionNumber) {
+async function checkSectionWithAI(event) {
     const button = event.target;
     const originalText = button.textContent;
     
     // Get data from button attributes
-    const sectionText = button.dataset.sectionText || getSectionText(sectionNumber);
-    const userAnswers = button.dataset.userAnswers ? JSON.parse(button.dataset.userAnswers) : {};
-    const correctAnswers = button.dataset.correctAnswers ? JSON.parse(button.dataset.correctAnswers) : {};
+    const sectionText = button.dataset.sectionText;
+    const userAnswers = JSON.parse(button.dataset.userAnswers);
+    const correctAnswers = JSON.parse(button.dataset.correctAnswers);
+    const storyId = currentStory ? currentStory.id : 'unknown-story';
+    const sectionNumber = button.dataset.sectionNumber;
     
     button.disabled = true;
     button.textContent = '🤖 Анализирую...';
@@ -684,7 +676,13 @@ async function checkSectionWithAI(sectionNumber) {
         const data = await response.json();
         
         if (data.success) {
-            showAIFeedback(data.feedback);
+            showAIFeedback({
+                storyId,
+                sectionNumber,
+                userAnswers,
+                correctAnswers,
+                feedback: data.feedback
+            });
         } else {
             throw new Error(data.error || 'Failed to get AI feedback');
         }
@@ -697,16 +695,25 @@ async function checkSectionWithAI(sectionNumber) {
     }
 }
 
+let currentFeedbackData = null;
+
 // Show AI feedback modal
-function showAIFeedback(feedback) {
+function showAIFeedback(feedbackData) {
+    currentFeedbackData = feedbackData; // Store data for saving
     const feedbackContent = document.getElementById('ai-feedback-content');
-    feedbackContent.innerHTML = formatAIFeedback(feedback);
+    feedbackContent.innerHTML = formatAIFeedback(feedbackData.feedback);
     document.getElementById('ai-feedback-modal').style.display = 'flex';
+
+    // Reset save button state
+    const saveButton = document.getElementById('save-ai-feedback');
+    saveButton.disabled = false;
+    saveButton.textContent = 'Сохранить объяснение';
 }
 
 // Close AI feedback modal
 function closeAIFeedbackModal() {
     document.getElementById('ai-feedback-modal').style.display = 'none';
+    currentFeedbackData = null; // Clear data on close
 }
 
 // Format AI feedback for better display
@@ -799,4 +806,76 @@ function displayGeneratedStory(content, topic, level, warning) {
     window.generatedStoryContent = content;
     window.generatedStoryTopic = topic;
     window.generatedStoryLevel = level;
+}
+
+// Check for last explanations for all sections
+function checkForLastExplanations() {
+    const storyId = currentStory.id;
+    const sections = document.querySelectorAll('.check-section');
+    sections.forEach(section => {
+        const button = section.querySelector('.last-explanation-btn');
+        if (button) {
+            const sectionNumber = button.dataset.sectionNumber;
+            fetch(`/api/ai/last-explanation/${storyId}/${sectionNumber}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        button.style.display = 'inline-block';
+                    }
+                });
+        }
+    });
+}
+
+// Show the last explanation in the modal
+async function showLastExplanation(event) {
+    const button = event.target;
+    const sectionNumber = button.dataset.sectionNumber;
+    const storyId = currentStory.id;
+
+    try {
+        const response = await fetch(`/api/ai/last-explanation/${storyId}/${sectionNumber}`);
+        const data = await response.json();
+        if (data.success) {
+            showAIFeedback(data.explanation);
+        } else {
+            alert('Сохраненное объяснение не найдено.');
+        }
+    } catch (error) {
+        console.error('Error fetching last explanation:', error);
+        alert('Ошибка при загрузке объяснения.');
+    }
+}
+
+async function saveAIFeedback() {
+    if (!currentFeedbackData) {
+        alert('Нет данных для сохранения.');
+        return;
+    }
+
+    const saveButton = document.getElementById('save-ai-feedback');
+    saveButton.disabled = true;
+    saveButton.textContent = 'Сохраняю...';
+
+    try {
+        const response = await fetch('/api/ai/save-feedback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(currentFeedbackData)
+        });
+
+        const result = await response.json();
+        if (result.success) {
+            saveButton.textContent = 'Сохранено!';
+        } else {
+            throw new Error(result.error || 'Server error');
+        }
+    } catch (error) {
+        console.error('Error saving feedback:', error);
+        alert('Не удалось сохранить объяснение.');
+        saveButton.disabled = false;
+        saveButton.textContent = 'Сохранить объяснение';
+    }
 }
