@@ -1,0 +1,298 @@
+{
+  "id": "the-luminas-rescue-ai-763204",
+  "title": "The Lumina's Rescue",
+  "description": "An exercise on various English tenses.",
+  "level": "Intermediate",
+  "storyText": "<p>Dr. Aris Thorne [VERB:study:1] marine life for over twenty years, but today [VERB:be:1] different. He [VERB:dive:1] near the Coral Triangle when he [VERB:see:1] something incredible. A Lumina – a jellyfish-like creature known for its breathtaking bioluminescence – [VERB:drift:1] past him, its colours shifting like a living rainbow. “I [VERB:never expect:1] to see one in these waters!” he muttered to himself. He [VERB:know:1] these creatures were critically endangered.</p><button>Check Section 1</button><p>Suddenly, Aris [VERB:hear:2] the rumble of a boat engine. He [VERB:look:2] up and [VERB:see:2] a notorious poaching vessel, the \"Serpent's Tooth,\" quickly approaching. He [VERB:recognize:2] the captain, Viktor Volkov, known for his disregard for marine conservation laws. “Oh no,” he thought, “They [VERB:hunt:2] Luminas for their bioluminescent extract.” He [VERB:quickly realize:2] he [VERB:have to do:2] something.</p><button>Check Section 2</button><p>Aris [VERB:decide:3] to alert the local marine patrol. He [VERB:contact:3] Captain Eva Rostova, explaining the situation. \"Viktor Volkov [VERB:poach:3] Luminas! We need immediate assistance!” Eva [VERB:reply:3], “We [VERB:intercept:3] the Serpent’s Tooth. Give us their coordinates.” Aris [VERB:already mark:3] the vessel's location on his tracking device. “I [VERB:send:3] the data. Hurry!”</p><button>Check Section 3</button><p>The marine patrol [VERB:arrive:4] just as Volkov's crew [VERB:try:4] to net the Lumina. A tense chase [VERB:ensue:4]. “They [VERB:not get away:4] with this!” roared Captain Rostova over the radio. Aris, meanwhile, [VERB:manage:4] to get close enough to carefully release the Lumina from a partially closed net. “It’s free!” he announced. “But we [VERB:not secure:4] the vessel yet!” responded Eva.</p><button>Check Section 4</button><p>By the time the patrol boat [VERB:board:5] the Serpent's Tooth, Volkov and his crew [VERB:already attempt:5] to destroy evidence. They [VERB:face:5] severe penalties, Captain Rostova assured Aris. The rescued Lumina, now safe, [VERB:glow:5] brighter than ever. Aris believes that by next year, the conservation efforts [VERB:help:5] stabilize the Lumina population. “We [VERB:prove:5] that even against daunting odds, we can make a difference,” he smiled.</p><button>Check Section 5</button>",
+  "verbData": {
+    "study": {
+      "correct": "had studied",
+      "tenses": [
+        "is studying",
+        "has studied",
+        "had studied",
+        "studied"
+      ]
+    },
+    "be": {
+      "correct": "was",
+      "tenses": [
+        "was",
+        "will be",
+        "is",
+        "were"
+      ]
+    },
+    "dive": {
+      "correct": "was diving",
+      "tenses": [
+        "dives",
+        "was diving",
+        "dived",
+        "is diving"
+      ]
+    },
+    "see": {
+      "correct": "saw",
+      "tenses": [
+        "see",
+        "saw",
+        "is seeing",
+        "has seen"
+      ]
+    },
+    "drift": {
+      "correct": "drifted",
+      "tenses": [
+        "drifts",
+        "is drifting",
+        "drifted",
+        "will drift"
+      ]
+    },
+    "never expect": {
+      "correct": "never expected",
+      "tenses": [
+        "never expected",
+        "have never expected",
+        "was never expecting",
+        "never expects"
+      ]
+    },
+    "know": {
+      "correct": "knew",
+      "tenses": [
+        "knows",
+        "knowed",
+        "knew",
+        "has known"
+      ]
+    },
+    "hear": {
+      "correct": "heard",
+      "tenses": [
+        "hears",
+        "was hearing",
+        "heard",
+        "has heard"
+      ]
+    },
+    "look": {
+      "correct": "looked",
+      "tenses": [
+        "looks",
+        "looked",
+        "is looking",
+        "will look"
+      ]
+    },
+    "recognize": {
+      "correct": "recognized",
+      "tenses": [
+        "recognizes",
+        "was recognizing",
+        "recognized",
+        "has recognized"
+      ]
+    },
+    "hunt": {
+      "correct": "are hunting",
+      "tenses": [
+        "are hunting",
+        "hunted",
+        "will hunt",
+        "have hunted"
+      ]
+    },
+    "quickly realize": {
+      "correct": "quickly realized",
+      "tenses": [
+        "quickly realized",
+        "quickly realizes",
+        "was quickly realizing",
+        "has quickly realized"
+      ]
+    },
+    "have to do": {
+      "correct": "had to do",
+      "tenses": [
+        "has to do",
+        "had to do",
+        "is having to do",
+        "will have to do"
+      ]
+    },
+    "decide": {
+      "correct": "decided",
+      "tenses": [
+        "decided",
+        "decides",
+        "has decided",
+        "was deciding"
+      ]
+    },
+    "contact": {
+      "correct": "contacted",
+      "tenses": [
+        "contacted",
+        "contacts",
+        "is contacting",
+        "had contacted"
+      ]
+    },
+    "poach": {
+      "correct": "is poaching",
+      "tenses": [
+        "poaches",
+        "poached",
+        "is poaching",
+        "will poach"
+      ]
+    },
+    "reply": {
+      "correct": "replied",
+      "tenses": [
+        "replies",
+        "replied",
+        "is replying",
+        "will reply"
+      ]
+    },
+    "intercept": {
+      "correct": "will intercept",
+      "tenses": [
+        "intercept",
+        "will intercept",
+        "are intercepting",
+        "intercepted"
+      ]
+    },
+    "already mark": {
+      "correct": "had already marked",
+      "tenses": [
+        "has already marked",
+        "had already marked",
+        "already marked",
+        "is already marking"
+      ]
+    },
+    "send": {
+      "correct": "have sent",
+      "tenses": [
+        "sent",
+        "have sent",
+        "am sending",
+        "will send"
+      ]
+    },
+    "arrive": {
+      "correct": "arrived",
+      "tenses": [
+        "arrives",
+        "arrived",
+        "is arriving",
+        "had arrived"
+      ]
+    },
+    "try": {
+      "correct": "was trying",
+      "tenses": [
+        "tried",
+        "tries",
+        "is trying",
+        "was trying"
+      ]
+    },
+    "ensue": {
+      "correct": "ensued",
+      "tenses": [
+        "ensues",
+        "will ensue",
+        "ensued",
+        "has ensued"
+      ]
+    },
+    "not get away": {
+      "correct": "will not get away",
+      "tenses": [
+        "do not get away",
+        "are not getting away",
+        "did not get away",
+        "will not get away"
+      ]
+    },
+    "manage": {
+      "correct": "had managed",
+      "tenses": [
+        "managed",
+        "had managed",
+        "was managing",
+        "has managed"
+      ]
+    },
+    "not secure": {
+      "correct": "haven't secured",
+      "tenses": [
+        "didn't secure",
+        "don't secure",
+        "haven't secured",
+        "won't secure"
+      ]
+    },
+    "board": {
+      "correct": "boarded",
+      "tenses": [
+        "boards",
+        "boarded",
+        "will board",
+        "is boarding"
+      ]
+    },
+    "already attempt": {
+      "correct": "had already attempted",
+      "tenses": [
+        "have already attempted",
+        "had already attempted",
+        "already attempted",
+        "will have already attempted"
+      ]
+    },
+    "face": {
+      "correct": "will face",
+      "tenses": [
+        "face",
+        "are facing",
+        "faced",
+        "will face"
+      ]
+    },
+    "glow": {
+      "correct": "is glowing",
+      "tenses": [
+        "glows",
+        "is glowing",
+        "glowed",
+        "will glow"
+      ]
+    },
+    "help": {
+      "correct": "will have helped",
+      "tenses": [
+        "will help",
+        "will have helped",
+        "have helped",
+        "helped"
+      ]
+    },
+    "prove": {
+      "correct": "have proven",
+      "tenses": [
+        "proved",
+        "have proven",
+        "are proving",
+        "will prove"
+      ]
+    }
+  },
+  "verbCount": 32
+}

@@ -3,12 +3,13 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = 3000;
+const fs = require('fs').promises; // Use promises version of fs
+const fsSync = require('fs'); // Use sync version for initial setup
 
 // Ensure directories exist
-const fs = require('fs');
 const explanationsDir = path.join(__dirname, 'public', 'explanations');
-if (!fs.existsSync(explanationsDir)) {
-    fs.mkdirSync(explanationsDir, { recursive: true });
+if (!fsSync.existsSync(explanationsDir)) {
+    fsSync.mkdirSync(explanationsDir, { recursive: true });
 }
 
 // Serve static files from the 'public' directory
@@ -18,18 +19,17 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 // API endpoint to get list of available stories
-app.get('/api/stories', (req, res) => {
-  const fs = require('fs');
+app.get('/api/stories', async (req, res) => {
   const storiesPath = path.join(__dirname, 'public', 'texts');
   
   try {
-    const files = fs.readdirSync(storiesPath);
+    const files = await fs.readdir(storiesPath);
     const stories = [];
     
-    files.forEach(file => {
+    for (const file of files) {
       if (file.endsWith('.json')) {
         try {
-          const storyData = JSON.parse(fs.readFileSync(path.join(storiesPath, file), 'utf8'));
+          const storyData = JSON.parse(await fs.readFile(path.join(storiesPath, file), 'utf8'));
           stories.push({
             id: storyData.id,
             title: storyData.title,
@@ -41,7 +41,7 @@ app.get('/api/stories', (req, res) => {
           console.error(`Error reading story file ${file}:`, error);
         }
       }
-    });
+    }
     
     res.json(stories);
   } catch (error) {
@@ -51,13 +51,12 @@ app.get('/api/stories', (req, res) => {
 });
 
 // API endpoint to get a specific story
-app.get('/api/stories/:id', (req, res) => {
-  const fs = require('fs');
+app.get('/api/stories/:id', async (req, res) => {
   const storyId = req.params.id;
   const storyPath = path.join(__dirname, 'public', 'texts', `${storyId}.json`);
   
   try {
-    const storyData = JSON.parse(fs.readFileSync(storyPath, 'utf8'));
+    const storyData = JSON.parse(await fs.readFile(storyPath, 'utf8'));
     res.json(storyData);
   } catch (error) {
     console.error(`Error reading story ${storyId}:`, error);
@@ -66,13 +65,12 @@ app.get('/api/stories/:id', (req, res) => {
 });
 
 // Admin endpoints for story management
-app.post('/api/admin/save-story', express.json(), (req, res) => {
-  const fs = require('fs');
+app.post('/api/admin/save-story', express.json(), async (req, res) => {
   const storyData = req.body;
   const storyPath = path.join(__dirname, 'public', 'texts', `${storyData.id}.json`);
   
   try {
-    fs.writeFileSync(storyPath, JSON.stringify(storyData, null, 2));
+    await fs.writeFile(storyPath, JSON.stringify(storyData, null, 2));
     res.json({ message: 'Story saved successfully' });
   } catch (error) {
     console.error('Error saving story:', error);
@@ -80,13 +78,12 @@ app.post('/api/admin/save-story', express.json(), (req, res) => {
   }
 });
 
-app.delete('/api/admin/delete-story/:id', (req, res) => {
-  const fs = require('fs');
+app.delete('/api/admin/delete-story/:id', async (req, res) => {
   const storyId = req.params.id;
   const storyPath = path.join(__dirname, 'public', 'texts', `${storyId}.json`);
   
   try {
-    fs.unlinkSync(storyPath);
+    await fs.unlink(storyPath);
     res.json({ message: 'Story deleted successfully' });
   } catch (error) {
     console.error('Error deleting story:', error);
@@ -116,6 +113,27 @@ try {
     ui: { defaultTopics: ['космическое путешествие', 'детективная история'] }
   };
 }
+
+// Function to get a prompt, loading from file if necessary
+async function getPrompt(promptName) {
+    const promptConfig = aiConfig.prompts[promptName];
+    if (!promptConfig) {
+        throw new Error(`Prompt "${promptName}" not found in ai-config.json`);
+    }
+
+    const template = promptConfig.template;
+    if (template.endsWith('.txt')) {
+        try {
+            const filePath = path.join(__dirname, 'public', template);
+            return await fs.readFile(filePath, 'utf-8');
+        } catch (error) {
+            console.error(`Error reading prompt file ${template}:`, error);
+            throw new Error(`Could not load prompt from file: ${template}`);
+        }
+    }
+    return template;
+}
+
 
 // Get AI configuration
 app.get('/api/ai/config', (req, res) => {
@@ -161,11 +179,10 @@ app.get('/api/ai/status', async (req, res) => {
 });
 
 // Update AI configuration
-app.post('/api/ai/config', express.json(), (req, res) => {
-  const fs = require('fs');
+app.post('/api/ai/config', express.json(), async (req, res) => {
   try {
     const updatedConfig = { ...aiConfig, ...req.body };
-    fs.writeFileSync('./ai-config.json', JSON.stringify(updatedConfig, null, 2));
+    await fs.writeFile('./ai-config.json', JSON.stringify(updatedConfig, null, 2));
     
     // Update in-memory config
     Object.assign(aiConfig, updatedConfig);
@@ -178,8 +195,7 @@ app.post('/api/ai/config', express.json(), (req, res) => {
 });
 
 // Update just timeout configuration
-app.post('/api/ai/timeouts', express.json(), (req, res) => {
-  const fs = require('fs');
+app.post('/api/ai/timeouts', express.json(), async (req, res) => {
   try {
     const { timeouts } = req.body;
     
@@ -191,7 +207,7 @@ app.post('/api/ai/timeouts', express.json(), (req, res) => {
     aiConfig.timeouts = { ...aiConfig.timeouts, ...timeouts };
     
     // Save to file
-    fs.writeFileSync('./ai-config.json', JSON.stringify(aiConfig, null, 2));
+    await fs.writeFile('./ai-config.json', JSON.stringify(aiConfig, null, 2));
     
     res.json({ 
       message: 'Timeouts updated successfully',
@@ -210,7 +226,8 @@ app.post('/api/ai/generate-story', express.json(), async (req, res) => {
   
   try {
     console.log('Generating story for topic:', topic);
-    const prompt = customPrompt || aiConfig.prompts.storyGeneration.template.replace('{topic}', topic);
+    const storyPromptTemplate = await getPrompt('storyGeneration');
+    const prompt = customPrompt || storyPromptTemplate.replace('{topic}', topic);
     
     const response = await axios.post(`${aiConfig.server.url}/api/send-request`, {
       model: aiConfig.server.defaultModel,
@@ -322,8 +339,8 @@ app.post('/api/ai/check-section', express.json(), async (req, res) => {
   
   try {
     console.log('Checking section with AI...');
-    let prompt = aiConfig.prompts.sectionCheck.template;
-    prompt = prompt.replace('{sectionText}', sectionText);
+    let promptTemplate = await getPrompt('sectionCheck');
+    let prompt = promptTemplate.replace('{sectionText}', sectionText);
     prompt = prompt.replace('{userAnswers}', JSON.stringify(userAnswers));
     prompt = prompt.replace('{correctAnswers}', JSON.stringify(correctAnswers));
     
@@ -367,7 +384,7 @@ app.post('/api/ai/check-section', express.json(), async (req, res) => {
 });
 
 // Save AI feedback to a file
-app.post('/api/ai/save-feedback', express.json(), (req, res) => {
+app.post('/api/ai/save-feedback', express.json(), async (req, res) => {
   try {
     const { storyId, sectionNumber, userAnswers, correctAnswers, feedback } = req.body;
     
@@ -383,7 +400,7 @@ app.post('/api/ai/save-feedback', express.json(), (req, res) => {
       timestamp: new Date().toISOString()
     };
     
-    fs.writeFileSync(explanationPath, JSON.stringify(dataToSave, null, 2));
+    await fs.writeFile(explanationPath, JSON.stringify(dataToSave, null, 2));
     console.log(`Explanation saved to ${explanationPath}`);
     
     res.json({ success: true, message: 'Feedback saved successfully' });
@@ -395,10 +412,10 @@ app.post('/api/ai/save-feedback', express.json(), (req, res) => {
 });
 
 // Get the last AI explanation for a section
-app.get('/api/ai/last-explanation/:storyId/:sectionNumber', (req, res) => {
+app.get('/api/ai/last-explanation/:storyId/:sectionNumber', async (req, res) => {
     const { storyId, sectionNumber } = req.params;
     try {
-        const files = fs.readdirSync(explanationsDir)
+        const files = (await fs.readdir(explanationsDir))
             .filter(file => file.startsWith(`${storyId}-section-${sectionNumber}`))
             .sort()
             .reverse();
@@ -406,7 +423,7 @@ app.get('/api/ai/last-explanation/:storyId/:sectionNumber', (req, res) => {
         if (files.length > 0) {
             const lastFile = files[0];
             const filePath = path.join(explanationsDir, lastFile);
-            const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            const data = JSON.parse(await fs.readFile(filePath, 'utf8'));
             res.json({ success: true, explanation: data });
         } else {
             res.json({ success: false, message: 'No explanation found' });
@@ -423,10 +440,11 @@ app.get('/api/ai/topic-suggestions', async (req, res) => {
   
   try {
     console.log('Attempting to connect to AI service at:', aiConfig.server.url);
+    const prompt = await getPrompt('topicSuggestion');
     
     const response = await axios.post(`${aiConfig.server.url}/api/send-request`, {
       model: aiConfig.server.defaultModel,
-      prompt: aiConfig.prompts.topicSuggestion.template,
+      prompt: prompt,
       inputText: 'Предложи темы для историй',
       saveResponse: false
     }, {
@@ -510,8 +528,8 @@ app.post('/api/ai/process-story', express.json(), async (req, res) => {
   try {
     console.log('Processing AI-generated story...');
     
-    let prompt = aiConfig.prompts.storyProcessor.template;
-    prompt = prompt.replace('{story}', story);
+    let promptTemplate = await getPrompt('storyProcessor');
+    let prompt = promptTemplate.replace('{story}', story);
     
     const response = await axios.post(`${aiConfig.server.url}/api/send-request`, {
       model: aiConfig.server.defaultModel,
@@ -552,9 +570,8 @@ app.post('/api/ai/process-story', express.json(), async (req, res) => {
         if (!processedStory.description) processedStory.description = 'AI-generated story for verb practice';
 
         // Save the processed story to a file
-        const fs = require('fs');
         const storyPath = path.join(__dirname, 'public', 'texts', `${processedStory.id}.json`);
-        fs.writeFileSync(storyPath, JSON.stringify(processedStory, null, 2));
+        await fs.writeFile(storyPath, JSON.stringify(processedStory, null, 2));
         console.log(`Story saved to ${storyPath}`);
         
         res.json({
@@ -569,9 +586,8 @@ app.post('/api/ai/process-story', express.json(), async (req, res) => {
         
         // Fallback: create basic structure manually and save it
         const fallbackStory = createFallbackStory(story, title, level);
-        const fs = require('fs');
         const storyPath = path.join(__dirname, 'public', 'texts', `${fallbackStory.id}.json`);
-        fs.writeFileSync(storyPath, JSON.stringify(fallbackStory, null, 2));
+        await fs.writeFile(storyPath, JSON.stringify(fallbackStory, null, 2));
         console.log(`Fallback story saved to ${storyPath}`);
 
         res.json({
@@ -586,9 +602,8 @@ app.post('/api/ai/process-story', express.json(), async (req, res) => {
       const fallbackStory = createFallbackStory(story, title, level);
 
       // Save the fallback story to a file
-      const fs = require('fs');
       const storyPath = path.join(__dirname, 'public', 'texts', `${fallbackStory.id}.json`);
-      fs.writeFileSync(storyPath, JSON.stringify(fallbackStory, null, 2));
+      await fs.writeFile(storyPath, JSON.stringify(fallbackStory, null, 2));
       console.log(`Fallback story saved to ${storyPath}`);
 
       res.json({
@@ -602,9 +617,8 @@ app.post('/api/ai/process-story', express.json(), async (req, res) => {
     
     // Fallback processing and save
     const fallbackStory = createFallbackStory(story, title, level);
-    const fs = require('fs');
     const storyPath = path.join(__dirname, 'public', 'texts', `${fallbackStory.id}.json`);
-    fs.writeFileSync(storyPath, JSON.stringify(fallbackStory, null, 2));
+    await fs.writeFile(storyPath, JSON.stringify(fallbackStory, null, 2));
     console.log(`Fallback story saved to ${storyPath}`);
 
     res.json({
@@ -745,5 +759,4 @@ app.post('/api/results', express.json(), (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
-
 
