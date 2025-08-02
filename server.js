@@ -6,6 +6,7 @@ const PORT = 3000;
 const fs = require('fs').promises; // Use promises version of fs
 const fsSync = require('fs'); // Use sync version for initial setup
 const axios = require('axios');
+const matter = require('gray-matter'); // For parsing markdown frontmatter
 
 // Log file path
 const LOG_FILE_AI = path.join(__dirname, 'ai_log.txt');
@@ -22,6 +23,122 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
+/**
+ * Fisher-Yates shuffle algorithm to randomize array
+ * @param {Array} array - Array to shuffle
+ * @returns {Array} - Shuffled array
+ */
+function shuffleArray(array) {
+    const shuffled = [...array]; // Create a copy
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+/**
+ * Parses a Markdown story file and converts it to JSON format
+ * @param {string} mdContent - The raw markdown content
+ * @param {string} storyId - The story ID (filename without extension)
+ * @returns {object} - Parsed story object
+ */
+function parseMdStory(mdContent, storyId) {
+    // Parse frontmatter and content
+    const parsed = matter(mdContent);
+    const { data: frontmatter, content } = parsed;
+
+    // Initialize the story object
+    const story = {
+        id: storyId,
+        title: frontmatter.title || 'Untitled Story',
+        description: frontmatter.description || 'No description provided',
+        level: frontmatter.level || 'intermediate',
+        verbCount: 0,
+        verbData: {},
+        storyText: ''
+    };
+
+    let sectionNumber = 1;
+    let processedContent = content;
+
+    // Find all verb arrays like ["lived", "lives", "will live", ...]
+    const verbMatches = [...processedContent.matchAll(/\["([^"]+)"(?:,\s*"([^"]+)")*\]/g)];
+    const verbKeys = new Set();
+
+    verbMatches.forEach((match, index) => {
+        const fullMatch = match[0]; // The entire match like ["lived", "lives", ...]
+        
+        // Parse the array content properly
+        const arrayContent = fullMatch.slice(1, -1); // Remove [ and ]
+        const verbForms = arrayContent.split(',').map(item => 
+            item.trim().replace(/^"/, '').replace(/"$/, '')
+        );
+
+        if (verbForms.length > 0) {
+            const correctForm = verbForms[0]; // First form is correct (before shuffling)
+            const baseVerb = correctForm.replace(/\s+/g, '_').toLowerCase(); // Create a key
+            
+            // Avoid duplicate keys
+            let uniqueKey = baseVerb;
+            let counter = 1;
+            while (verbKeys.has(uniqueKey)) {
+                uniqueKey = `${baseVerb}_${counter}`;
+                counter++;
+            }
+            verbKeys.add(uniqueKey);
+
+            // Shuffle the verb forms to randomize correct answer position
+            const shuffledForms = shuffleArray(verbForms);
+
+            // Determine section number based on position in text
+            const beforeMatch = processedContent.substring(0, match.index);
+            const sectionCount = (beforeMatch.match(/##\s/g) || []).length;
+            const currentSection = Math.max(1, sectionCount);
+
+            // Add to verbData with shuffled forms
+            story.verbData[uniqueKey] = {
+                tenses: shuffledForms,
+                correct: correctForm // Keep original correct form
+            };
+
+            // Replace in content with HTML span
+            processedContent = processedContent.replace(
+                fullMatch,
+                `<span class="verb" data-verb="${uniqueKey}" data-section="${currentSection}">...</span>`
+            );
+        }
+    });
+
+    // Process section buttons {checkSection(1), "Проверить этот раздел"}
+    processedContent = processedContent.replace(
+        /\{checkSection\((\d+)\),?\s*"([^"]+)"\}/g,
+        '<div class="check-section"><button class="section-check-btn" onclick="checkSection($1)">$2</button><div class="section-score" id="section-score-$1"></div></div>'
+    );
+
+    // Convert ## headers to HTML h2
+    processedContent = processedContent.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+
+    // Convert newlines to paragraphs for better formatting
+    const paragraphs = processedContent.split('\n\n').filter(p => p.trim());
+    let htmlContent = '';
+    
+    paragraphs.forEach(paragraph => {
+        const trimmed = paragraph.trim();
+        if (trimmed.startsWith('<h2>') || trimmed.startsWith('<div class="check-section">')) {
+            htmlContent += trimmed + '\n';
+        } else if (trimmed) {
+            htmlContent += `<p>${trimmed}</p>\n`;
+        }
+    });
+
+    story.storyText = htmlContent.trim();
+    story.verbCount = Object.keys(story.verbData).length;
+
+    return story;
+}
+
 // API endpoint to get list of available stories
 app.get('/api/stories', async (req, res) => {
   const storiesPath = path.join(__dirname, 'public', 'texts');
@@ -31,9 +148,20 @@ app.get('/api/stories', async (req, res) => {
     const stories = [];
     
     for (const file of files) {
-      if (file.endsWith('.json')) {
+      if (file.endsWith('.json') || file.endsWith('.md')) {
         try {
-          const storyData = JSON.parse(await fs.readFile(path.join(storiesPath, file), 'utf8'));
+          let storyData;
+          const storyId = path.basename(file, path.extname(file));
+          
+          if (file.endsWith('.md')) {
+            // Parse markdown file
+            const mdContent = await fs.readFile(path.join(storiesPath, file), 'utf8');
+            storyData = parseMdStory(mdContent, storyId);
+          } else {
+            // Parse JSON file (legacy support)
+            storyData = JSON.parse(await fs.readFile(path.join(storiesPath, file), 'utf8'));
+          }
+          
           stories.push({
             id: storyData.id,
             title: storyData.title,
@@ -57,10 +185,30 @@ app.get('/api/stories', async (req, res) => {
 // API endpoint to get a specific story
 app.get('/api/stories/:id', async (req, res) => {
   const storyId = req.params.id;
-  const storyPath = path.join(__dirname, 'public', 'texts', `${storyId}.json`);
+  const storiesPath = path.join(__dirname, 'public', 'texts');
   
   try {
-    const storyData = JSON.parse(await fs.readFile(storyPath, 'utf8'));
+    // Try markdown first, then JSON
+    const mdPath = path.join(storiesPath, `${storyId}.md`);
+    const jsonPath = path.join(storiesPath, `${storyId}.json`);
+    
+    let storyData;
+    
+    try {
+      // Check if .md file exists
+      await fs.access(mdPath);
+      const mdContent = await fs.readFile(mdPath, 'utf8');
+      storyData = parseMdStory(mdContent, storyId);
+    } catch (mdError) {
+      // Fallback to JSON file
+      try {
+        await fs.access(jsonPath);
+        storyData = JSON.parse(await fs.readFile(jsonPath, 'utf8'));
+      } catch (jsonError) {
+        throw new Error(`Story ${storyId} not found in either .md or .json format`);
+      }
+    }
+    
     res.json(storyData);
   } catch (error) {
     console.error(`Error reading story ${storyId}:`, error);
@@ -84,10 +232,14 @@ app.post('/api/admin/save-story', express.json(), async (req, res) => {
 
 app.delete('/api/admin/delete-story/:id', async (req, res) => {
   const storyId = req.params.id;
-  const storyPath = path.join(__dirname, 'public', 'texts', `${storyId}.json`);
+  const jsonPath = path.join(__dirname, 'public', 'texts', `${storyId}.json`);
+  const mdPath = path.join(__dirname, 'public', 'texts', `${storyId}.md`);
   
   try {
-    await fs.unlink(storyPath);
+    // Try to delete both formats
+    try { await fs.unlink(jsonPath); } catch {}
+    try { await fs.unlink(mdPath); } catch {}
+    
     res.json({ message: 'Story deleted successfully' });
   } catch (error) {
     console.error('Error deleting story:', error);
@@ -358,7 +510,81 @@ app.post('/api/ai/timeouts', express.json(), async (req, res) => {
   }
 });
 
-// Generate story using AI
+// Generate story using AI (Markdown format)
+app.post('/api/ai/generate-story-md', express.json(), async (req, res) => {
+  const { topic, level = 'intermediate' } = req.body;
+  
+  try {
+    console.log('Generating MD story for topic:', topic);
+    const storyPromptTemplate = await getPrompt('storyGenerationMd');
+    const prompt = storyPromptTemplate.replace('{topic}', topic);
+    
+    const payload = {
+        model: aiConfig.server.defaultModel,
+        prompt: prompt,
+        inputText: `Создай историю в Markdown формате на тему: ${topic}`,
+        saveResponse: false
+    };
+
+    const response = await callAiServer(
+        'post',
+        `${aiConfig.server.url}/api/send-request`,
+        payload,
+        { timeout: aiConfig.timeouts.storyGeneration }
+    );
+    
+    if (response.data.success) {
+      console.log('MD story generated successfully');
+      
+      // Try to parse and save the generated MD story
+      try {
+        const mdContent = response.data.content;
+        
+        // Generate a unique story ID
+        const storyId = generateStoryId(`${topic}-md`);
+        const mdPath = path.join(__dirname, 'public', 'texts', `${storyId}.md`);
+        
+        // Save MD file
+        await fs.writeFile(mdPath, mdContent, 'utf-8');
+        console.log(`MD story saved to ${mdPath}`);
+        
+        // Parse it to get full story data for response
+        const parsedStory = parseMdStory(mdContent, storyId);
+        
+        res.json({
+          success: true,
+          content: mdContent,
+          story: parsedStory,
+          topic: topic,
+          storyId: storyId,
+          message: 'MD story generated and saved successfully'
+        });
+        
+      } catch (saveError) {
+        console.error('Error saving MD story:', saveError);
+        // Return content even if saving failed
+        res.json({
+          success: true,
+          content: response.data.content,
+          topic: topic,
+          warning: 'Story generated but could not be saved automatically'
+        });
+      }
+    } else {
+      console.error('AI MD story generation failed:', response.data);
+      throw new Error('AI service error: ' + (response.data.error || 'Unknown error'));
+    }
+  } catch (error) {
+    console.error('Error generating MD story:', error.message);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to generate MD story',
+      details: error.message
+    });
+  }
+});
+
+// Generate story using AI (legacy JSON format)
 app.post('/api/ai/generate-story', express.json(), async (req, res) => {
   const { topic, customPrompt } = req.body;
   

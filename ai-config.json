@@ -25,6 +25,10 @@
     "storyProcessor": {
       "name": "Обработка истории для создания упражнений",
       "template": "storyProcessor_prompt.txt"
+    },
+    "storyGenerationMd": {
+      "name": "Генерация историй в Markdown формате",
+      "template": "storyGeneration_md_prompt.txt"
     }
   },
   "timeouts": {

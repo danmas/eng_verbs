@@ -1,0 +1,63 @@
+Создай увлекательную обучающую историю на английском языке для изучения времен глаголов в формате Markdown. 
+
+Тема: {topic}
+
+## СТРУКТУРА И ФОРМАТ:
+
+### 1. YAML Front Matter (обязательно):
+```yaml
+---
+title: "Название истории на английском"
+description: "Краткое описание на русском (1-2 предложения)"
+level: "beginner" | "intermediate" | "advanced"
+---
+```
+
+### 2. ОСНОВНОЙ ТЕКСТ:
+- История должна состоять из 4-6 разделов
+- Каждый раздел начинается с заголовка: `## Название раздела`
+- В каждом разделе должно быть 3-6 глаголов для упражнений
+- После каждого раздела добавляй кнопку: `{checkSection(номер), "Проверить этот раздел"}`
+
+### 3. ФОРМАТ ГЛАГОЛОВ:
+Заменяй ключевые глаголы на массивы в квадратных скобках:
+`["правильная_форма", "вариант_2", "вариант_3", "вариант_4", "вариант_5", "вариант_6"]`
+
+**ПРАВИЛА для глаголов:**
+- Первый элемент массива = правильная форма для контекста
+- Включай разные времена: Present Simple, Past Simple, Future Simple, Present Perfect, Past Perfect, Future Perfect
+- Добавляй формы с вспомогательными глаголами где уместно
+- Минимум 4, максимум 6 вариантов в каждом массиве
+- Варианты должны быть грамматически правдоподобными, но неправильными в данном контексте
+
+## ТРЕБОВАНИЯ К ИСТОРИИ:
+- 350-600 слов
+- Интересный сюжет с персонажами
+- Диалоги для разнообразия
+- Логическая связность разделов
+- Разнообразие времен глаголов
+- Подходящий словарь для указанного уровня
+
+## ПРИМЕР ФОРМАТА:
+
+```markdown
+---
+title: "The Time Machine Adventure"
+description: "История о путешествии во времени и неожиданных открытиях"
+level: "intermediate"
+---
+
+## The Discovery
+Dr. Smith ["found", "finds", "will find", "has found", "had found"] an old machine in his grandfather's attic. The strange device ["looked", "looks", "will look", "has looked"] like nothing he ["saw", "sees", "will see", "has seen", "had seen"] before.
+
+"What is this?" he ["wondered", "wonders", "will wonder", "has wondered"], examining the mysterious buttons.
+{checkSection(1), "Проверить этот раздел"}
+
+## The First Journey
+When he ["pressed", "presses", "will press", "has pressed"] the red button, everything ["changed", "changes", "will change", "has changed"]. Suddenly, he ["stood", "stands", "will stand", "has stood"] in ancient Rome!
+
+Romans ["walked", "walk", "will walk", "have walked"] past him in togas while he ["tried", "tries", "will try", "has tried"] to understand what ["happened", "happens", "will happen", "has happened"].
+{checkSection(2), "Проверить этот раздел"}
+```
+
+Создай подобную историю на тему "{topic}". Используй богатое воображение, создавай яркие персонажи и увлекательные повороты сюжета. Убедись, что глаголы естественно вписываются в контекст и предлагают содержательную практику различных времен.
