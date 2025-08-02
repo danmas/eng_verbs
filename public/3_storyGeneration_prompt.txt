@@ -1,0 +1,41 @@
+Создай увлекательную короткую (примерно 10 предложений), 
+обучающую историю на английском языке для изучения времен глаголов. 
+Тема: {topic}.
+
+Требования:
+     1. История должна быть интересной и подходящей для изучения английского.
+     3. Используй разнообразные времена глаголов. 
+     4. История должна состоять из нескольких логических разделов, начинающихся с -  ###Part N: <Оглавление раздела>.
+        В каждом разделе должно быть несколько (примерно 3-5) глаголов для проверки.
+     5. Включи диалоги для разнообразия.
+     6. Длина: 50-200 слов
+     7. В тексте не должно содержаться символов двойных кавычек `"` или обратных слэшей `\`, чтобы формат json не поломался.
+     
+     Формат ответа:
+        - Заголовок истории
+        - Краткое описание (1-2 предложения)
+        - Уровень сложности (beginner/intermediate/advanced)
+        - Текст истории разбитый на разделы
+        
+Создай оригинальную историю, которая поможет студентам практиковать английские времена в контексте.
+
+---
+
+ПРИМЕР ИСТОРИИ НАЧАЛО:
+
+## The Secret of Old Man Tiber's Roses
+
+**Description:** Old Man Tiber was famous for his roses, but their secret was lost. A young botanist, Elara, attempts to uncover how he grew such magnificent blooms.
+
+**Level:** Intermediate
+
+**The Story:**
+
+###Part 1: The Mystery Begins
+Old Man Tiber **was** a legend in our town. Everyone **knew** he **grew** the most beautiful roses imaginable, but he **took** the secret to his grave. I, Elara, a young botanist, **decided** to investigate. I **have always been** fascinated by flowers, and his roses were the peak of floral perfection. 
+
+###Part 2: Uncovering the Past
+I **visited** his abandoned greenhouse, and everything **looked** untouched. Dust **covered** everything, but I **found** his journal. He **had written** extensively about experimental fertilizers, and I **realized** he **was** searching for something specific. “If I **combine** this,” he wrote, “the roses will truly *bloom*!”
+
+
+ПРИМЕР ИСТОРИИ КОНЕЦ.

@@ -1,0 +1,191 @@
+{
+  "title": "Level Up Complete?",
+  "description": "An interactive exercise for practicing verb tenses based on the story of Alex and Maya discovering their reality is a game.",
+  "level": "Intermediate",
+  "storyText": "<p>Alex <b>[VERB:wake up:1]</b> feeling strangely disconnected. They <b>[VERB:have always felt:1]</b> like something wasn't quite right, but today was different. Yesterday, during a particularly stressful meeting, the world <b>[VERB:flicker:1]</b> for a split second. \"Did that really happen?\" Alex <b>[VERB:wonder:1]</b>. Their friend, Maya, <b>[VERB:call:1]</b> them now; “Hey, you seem distracted. Everything okay?” Alex hesitated.</p><button>Check Section 1</button><p>“I think… I think our lives are a game,” Alex finally <b>[VERB:say:2]</b>. Maya <b>[VERB:laugh:2]</b>. \"Don't be silly! You <b>[VERB:play:2]</b> too much 'Reality Shift' last night!\" Suddenly, a notification <b>[VERB:appear:2]</b> in Alex’s vision: <i>“Warning: System Anomaly Detected. Player Awareness Level Rising.”</i> Before Alex <b>[VERB:can react:2]</b>, the notification vanished. “Oh my god,” Maya breathed, “I see it too!”</p><button>Check Section 2</button><p>“If this <b>[VERB:be:3]</b> a game,” Alex <b>[VERB:declare:3]</b>, “then we need a strategy. We <b>[VERB:make:3]</b> so many choices, good and bad. Before this realization, I <b>[VERB:have not consider:3]</b> the consequences could be… programmed!” They decided to focus on completing \"quests\" - achieving life goals. “I <b>[VERB:will finish:3]</b> my novel, and you <b>[VERB:will travel:3]</b> to Japan like you always wanted,\"Alex stated.</p><button>Check Section 3</button><p>Years <b>[VERB:will have pass:4]</b> by the time Alex finishes the novel, but they feel closer to understanding the purpose of the ‘game’. They <b>[VERB:believe:4]</b> that by achieving their goals, they <b>[VERB:will unlock:4]</b> the final level – a glimpse behind the code of reality. \"Maybe it’s not about 'winning',\" Maya said thoughtfully, \"Maybe it's about how we <b>[VERB:play:4]</b> the game.\" Alex smiled. The final quest <b>[VERB:be start:4]</b> now.</p><button>Check Section 4</button>",
+  "verbData": {
+    "wake": {
+      "correct": "woke",
+      "tenses": [
+        "wake",
+        "woke",
+        "woken",
+        "waking",
+        "have woken"
+      ]
+    },
+    "have": {
+      "correct": "have felt",
+      "tenses": [
+        "had felt",
+        "has felt",
+        "feeling",
+        "felt"
+      ]
+    },
+    "flicker": {
+      "correct": "flickered",
+      "tenses": [
+        "flicker",
+        "flickered",
+        "flickering",
+        "have flickered"
+      ]
+    },
+    "wonder": {
+      "correct": "wondered",
+      "tenses": [
+        "wonder",
+        "wondered",
+        "wondering",
+        "have wondered"
+      ]
+    },
+    "call": {
+      "correct": "calls",
+      "tenses": [
+        "called",
+        "calling",
+        "have called",
+        "will call"
+      ]
+    },
+    "say": {
+      "correct": "said",
+      "tenses": [
+        "say",
+        "said",
+        "saying",
+        "have said"
+      ]
+    },
+    "laugh": {
+      "correct": "laughed",
+      "tenses": [
+        "laugh",
+        "laughed",
+        "laughing",
+        "have laughed"
+      ]
+    },
+    "play": {
+      "correct": "played",
+      "tenses": [
+        "play",
+        "played",
+        "playing",
+        "have played"
+      ]
+    },
+    "appear": {
+      "correct": "appeared",
+      "tenses": [
+        "appear",
+        "appeared",
+        "appearing",
+        "have appeared"
+      ]
+    },
+    "can": {
+      "correct": "could",
+      "tenses": [
+        "can",
+        "could",
+        "may",
+        "will"
+      ]
+    },
+    "be": {
+      "correct": "is",
+      "tenses": [
+        "am",
+        "is",
+        "are",
+        "was",
+        "were"
+      ]
+    },
+    "declare": {
+      "correct": "declared",
+      "tenses": [
+        "declare",
+        "declared",
+        "declaring",
+        "have declared"
+      ]
+    },
+    "make": {
+      "correct": "made",
+      "tenses": [
+        "make",
+        "made",
+        "making",
+        "have made"
+      ]
+    },
+    "have not consider": {
+      "correct": "had not considered",
+      "tenses": [
+        "consider",
+        "considered",
+        "considering",
+        "have considered",
+        "had considered"
+      ]
+    },
+    "will finish": {
+      "correct": "will finish",
+      "tenses": [
+        "finish",
+        "finished",
+        "finishing",
+        "have finished"
+      ]
+    },
+    "will travel": {
+      "correct": "will travel",
+      "tenses": [
+        "travel",
+        "traveled",
+        "travelling",
+        "have traveled"
+      ]
+    },
+    "will have pass": {
+      "correct": "will have passed",
+      "tenses": [
+        "pass",
+        "passed",
+        "passing",
+        "have passed"
+      ]
+    },
+    "believe": {
+      "correct": "believe",
+      "tenses": [
+        "believed",
+        "believing",
+        "have believed"
+      ]
+    },
+    "will unlock": {
+      "correct": "will unlock",
+      "tenses": [
+        "unlock",
+        "unlocked",
+        "unlocking",
+        "have unlocked"
+      ]
+    },
+    "be start": {
+      "correct": "is starting",
+      "tenses": [
+        "start",
+        "started",
+        "starting",
+        "have started"
+      ]
+    }
+  },
+  "verbCount": 19
+}

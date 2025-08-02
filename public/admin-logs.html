@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Log Viewer</title>
+    <link rel="stylesheet" href="/admin-logs.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Просмотр логов AI</h1>
+            <a href="/admin" class="back-link">← Назад в админ-панель</a>
+        </header>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>‹‹ Назад</button>
+            <span id="counter">Загрузка...</span>
+            <button id="next-btn" disabled>Вперед ››</button>
+        </div>
+
+        <div id="loader" class="loader">Загрузка логов...</div>
+        <div id="error-message" class="error-message" style="display: none;"></div>
+        <div id="log-view" class="log-view" style="display: none;">
+            <div class="log-section">
+                <h2>Запрос (Request)</h2>
+                <div class="log-subsection">
+                    <h3>Prompt</h3>
+                    <textarea id="prompt-area" readonly></textarea>
+                </div>
+                <div class="log-subsection">
+                    <h3>Raw Request JSON</h3>
+                    <textarea id="raw-request-area" readonly></textarea>
+                </div>
+            </div>
+
+            <div class="log-section">
+                <h2>Ответ (Response)</h2>
+                <div class="log-subsection">
+                    <h3>Content</h3>
+                    <textarea id="content-area" readonly></textarea>
+                </div>
+                <div class="log-subsection">
+                    <h3>Raw Response JSON</h3>
+                    <textarea id="raw-response-area" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/admin-logs.js"></script>
+</body>
+</html>
