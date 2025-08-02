@@ -5,6 +5,10 @@ const app = express();
 const PORT = 3000;
 const fs = require('fs').promises; // Use promises version of fs
 const fsSync = require('fs'); // Use sync version for initial setup
+const axios = require('axios');
+
+// Log file path
+const LOG_FILE_AI = path.join(__dirname, 'ai_log.txt');
 
 // Ensure directories exist
 const explanationsDir = path.join(__dirname, 'public', 'explanations');
@@ -96,6 +100,12 @@ app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'admin.html'));
 });
 
+// Route to serve AI log viewer
+app.get('/admin/logs', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'admin-logs.html'));
+});
+
+
 // AI Integration endpoints
 let aiConfig;
 try {
@@ -134,6 +144,84 @@ async function getPrompt(promptName) {
     return template;
 }
 
+/**
+ * Logs the AI request and response to a text file.
+ * Prepends the new log entry to the file.
+ * @param {object} requestDetails - Details about the request sent.
+ * @param {object} responseDetails - Details about the response received.
+ */
+async function logAiInteraction(requestDetails, responseDetails) {
+    const requestTimestamp = new Date().toISOString();
+
+    const logEntry = `
+================================================================================
+Log Entry: ${requestTimestamp}
+================================================================================
+
+[REQUEST] -> ${requestDetails.method} ${requestDetails.url}
+Timestamp: ${requestTimestamp}
+
+--- Request Payload ---
+${JSON.stringify(requestDetails.data, null, 2)}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: ${responseDetails.status}
+Timestamp: ${new Date().toISOString()}
+
+--- Response Body ---
+${JSON.stringify(responseDetails.data, null, 2)}
+
+`;
+
+    try {
+        const currentContent = await fs.readFile(LOG_FILE_AI, 'utf-8').catch(err => {
+            if (err.code === 'ENOENT') return ''; // File doesn't exist, start fresh.
+            throw err;
+        });
+        await fs.writeFile(LOG_FILE_AI, logEntry + currentContent, 'utf-8');
+    } catch (error) {
+        console.error('FATAL: Failed to write to AI log file.', error);
+    }
+}
+
+/**
+ * Wrapper for making requests to the AI server that includes logging.
+ * @param {string} method - HTTP method (get, post, etc.).
+ * @param {string} url - The URL to request.
+ * @param {object} [data] - The data to send in the request body.
+ * @param {object} [config] - Axios request config.
+ * @returns {Promise<object>} The axios response object.
+ */
+async function callAiServer(method, url, data = null, config = {}) {
+    const requestDetails = {
+        method: method.toUpperCase(),
+        url: url,
+        data: data
+    };
+
+    let response;
+    try {
+        response = await axios({
+            method: method,
+            url: url,
+            data: data,
+            ...config,
+        });
+        await logAiInteraction(requestDetails, {
+            status: response.status,
+            data: response.data
+        });
+        return response;
+    } catch (error) {
+        await logAiInteraction(requestDetails, {
+            status: error.response ? error.response.status : 'No Response',
+            data: error.response ? error.response.data : { error: error.message, code: error.code }
+        });
+        throw error; // Re-throw so existing error handling works
+    }
+}
+
 
 // Get AI configuration
 app.get('/api/ai/config', (req, res) => {
@@ -150,14 +238,15 @@ app.get('/api/ai/timeouts', (req, res) => {
 
 // Check AI service status
 app.get('/api/ai/status', async (req, res) => {
-  const axios = require('axios');
-  
   try {
     console.log('Checking AI service status at:', aiConfig.server.url);
     
-    const response = await axios.get(`${aiConfig.server.url}/api/available-models`, {
-      timeout: aiConfig.timeouts.statusCheck
-    });
+    const response = await callAiServer(
+        'get',
+        `${aiConfig.server.url}/api/available-models`,
+        null,
+        { timeout: aiConfig.timeouts.statusCheck }
+    );
     
     res.json({
       available: true,
@@ -177,6 +266,56 @@ app.get('/api/ai/status', async (req, res) => {
     });
   }
 });
+
+// Get AI Logs
+app.get('/api/admin/ai-logs', async (req, res) => {
+    try {
+        const logContent = await fs.readFile(LOG_FILE_AI, 'utf-8');
+        
+        const chunks = logContent.split('================================================================================')
+            .map(chunk => chunk.trim())
+            .filter(Boolean); // Remove empty strings
+
+        const parsedLogs = [];
+        // We iterate by 2 because each log entry consists of a header chunk and a body chunk
+        for (let i = 0; i < chunks.length; i += 2) {
+            const header = chunks[i];
+            const body = chunks[i + 1];
+
+            if (!body || !header.startsWith('Log Entry:')) {
+                console.warn('Skipping malformed log chunk:', header);
+                continue;
+            }
+
+            const requestPayloadMatch = body.match(/--- Request Payload ---\s*(\{[\s\S]*?\})\s*---/);
+            const responseBodyMatch = body.match(/--- Response Body ---\s*([\s\S]*?)$/);
+
+            if (!requestPayloadMatch || !responseBodyMatch) {
+                console.warn("Could not parse a log entry body, skipping.");
+                continue;
+            }
+            
+            try {
+                const request = JSON.parse(requestPayloadMatch[1]);
+                const response = JSON.parse(responseBodyMatch[1]);
+                parsedLogs.push({ request, response });
+            } catch (e) {
+                console.error("Error parsing JSON in a log entry:", e);
+                // Continue to the next entry
+            }
+        }
+
+        res.json({ success: true, logs: parsedLogs });
+
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            return res.json({ success: true, logs: [] }); // No log file yet
+        }
+        console.error('Error reading or parsing AI log file:', error);
+        res.status(500).json({ success: false, error: 'Failed to read or parse AI log file' });
+    }
+});
+
 
 // Update AI configuration
 app.post('/api/ai/config', express.json(), async (req, res) => {
@@ -222,21 +361,25 @@ app.post('/api/ai/timeouts', express.json(), async (req, res) => {
 // Generate story using AI
 app.post('/api/ai/generate-story', express.json(), async (req, res) => {
   const { topic, customPrompt } = req.body;
-  const axios = require('axios');
   
   try {
     console.log('Generating story for topic:', topic);
     const storyPromptTemplate = await getPrompt('storyGeneration');
     const prompt = customPrompt || storyPromptTemplate.replace('{topic}', topic);
     
-    const response = await axios.post(`${aiConfig.server.url}/api/send-request`, {
-      model: aiConfig.server.defaultModel,
-      prompt: prompt,
-      inputText: `Создай историю на тему: ${topic}`,
-      saveResponse: false
-    }, {
-      timeout: aiConfig.timeouts.storyGeneration
-    });
+    const payload = {
+        model: aiConfig.server.defaultModel,
+        prompt: prompt,
+        inputText: `Создай историю на тему: ${topic}`,
+        saveResponse: false
+    };
+
+    const response = await callAiServer(
+        'post',
+        `${aiConfig.server.url}/api/send-request`,
+        payload,
+        { timeout: aiConfig.timeouts.storyGeneration }
+    );
     
     if (response.data.success) {
       console.log('Story generated successfully');
@@ -335,7 +478,6 @@ Finally, through determination and clever thinking, the character finds a soluti
 // Check section with AI
 app.post('/api/ai/check-section', express.json(), async (req, res) => {
   const { sectionText, userAnswers, correctAnswers } = req.body;
-  const axios = require('axios');
   
   try {
     console.log('Checking section with AI...');
@@ -344,14 +486,19 @@ app.post('/api/ai/check-section', express.json(), async (req, res) => {
     prompt = prompt.replace('{userAnswers}', JSON.stringify(userAnswers));
     prompt = prompt.replace('{correctAnswers}', JSON.stringify(correctAnswers));
     
-    const response = await axios.post(`${aiConfig.server.url}/api/send-request`, {
-      model: aiConfig.server.defaultModel,
-      prompt: prompt,
-      inputText: 'Проверь правильность использования времен глаголов',
-      saveResponse: false
-    }, {
-      timeout: aiConfig.timeouts.sectionCheck
-    });
+    const payload = {
+        model: aiConfig.server.defaultModel,
+        prompt: prompt,
+        inputText: 'Проверь правильность использования времен глаголов',
+        saveResponse: false
+    };
+
+    const response = await callAiServer(
+        'post',
+        `${aiConfig.server.url}/api/send-request`,
+        payload,
+        { timeout: aiConfig.timeouts.sectionCheck }
+    );
     
     if (response.data.success) {
       console.log('AI section check completed successfully');
@@ -436,20 +583,23 @@ app.get('/api/ai/last-explanation/:storyId/:sectionNumber', async (req, res) => 
 
 // Get topic suggestions
 app.get('/api/ai/topic-suggestions', async (req, res) => {
-  const axios = require('axios');
-  
   try {
     console.log('Attempting to connect to AI service at:', aiConfig.server.url);
     const prompt = await getPrompt('topicSuggestion');
     
-    const response = await axios.post(`${aiConfig.server.url}/api/send-request`, {
-      model: aiConfig.server.defaultModel,
-      prompt: prompt,
-      inputText: 'Предложи темы для историй',
-      saveResponse: false
-    }, {
-      timeout: aiConfig.timeouts.topicSuggestions
-    });
+    const payload = {
+        model: aiConfig.server.defaultModel,
+        prompt: prompt,
+        inputText: 'Предложи темы для историй',
+        saveResponse: false
+    };
+
+    const response = await callAiServer(
+        'post',
+        `${aiConfig.server.url}/api/send-request`,
+        payload,
+        { timeout: aiConfig.timeouts.topicSuggestions }
+    );
     
     if (response.data.success) {
       console.log('AI response received successfully');
@@ -506,10 +656,12 @@ app.get('/api/ai/topic-suggestions', async (req, res) => {
 
 // Get available AI models
 app.get('/api/ai/models', async (req, res) => {
-  const axios = require('axios');
-  
   try {
-    const response = await axios.get(`${aiConfig.server.url}/api/available-models`);
+    const response = await callAiServer(
+        'get',
+        `${aiConfig.server.url}/api/available-models`,
+        null
+    );
     res.json({
       success: true,
       models: response.data
@@ -523,7 +675,6 @@ app.get('/api/ai/models', async (req, res) => {
 // Process AI-generated story into interactive structure
 app.post('/api/ai/process-story', express.json(), async (req, res) => {
   const { story, title, level } = req.body;
-  const axios = require('axios');
   
   try {
     console.log('Processing AI-generated story...');
@@ -531,14 +682,19 @@ app.post('/api/ai/process-story', express.json(), async (req, res) => {
     let promptTemplate = await getPrompt('storyProcessor');
     let prompt = promptTemplate.replace('{story}', story);
     
-    const response = await axios.post(`${aiConfig.server.url}/api/send-request`, {
-      model: aiConfig.server.defaultModel,
-      prompt: prompt,
-      inputText: 'Обработай эту историю для создания интерактивных упражнений',
-      saveResponse: false
-    }, {
-      timeout: aiConfig.timeouts.storyProcessing
-    });
+    const payload = {
+        model: aiConfig.server.defaultModel,
+        prompt: prompt,
+        inputText: 'Обработай эту историю для создания интерактивных упражнений',
+        saveResponse: false
+    };
+
+    const response = await callAiServer(
+        'post',
+        `${aiConfig.server.url}/api/send-request`,
+        payload,
+        { timeout: aiConfig.timeouts.storyProcessing }
+    );
     
     if (response.data.success) {
       console.log('Story processing completed successfully');
@@ -759,4 +915,3 @@ app.post('/api/results', express.json(), (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
-
