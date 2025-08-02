@@ -1,42 +1,44 @@
-Создай увлекательную обучающую историю на английском языке для изучения времен глаголов в формате Markdown. 
+**IMPORTANT: Create an engaging educational story in ENGLISH LANGUAGE for learning English verb tenses in Markdown format.**
 
-Тема: {topic}
+Topic: {topic}
 
-## СТРУКТУРА И ФОРМАТ:
+## STRUCTURE AND FORMAT:
 
-### 1. YAML Front Matter (обязательно):
+### 1. YAML Front Matter (required):
 ```yaml
 ---
-title: "Название истории на английском"
-description: "Краткое описание на русском (1-2 предложения)"
+title: "Story title in English"
+description: "Brief description in Russian (1-2 sentences)"
 level: "beginner" | "intermediate" | "advanced"
 ---
 ```
 
-### 2. ОСНОВНОЙ ТЕКСТ:
-- История должна состоять из 4-6 разделов
-- Каждый раздел начинается с заголовка: `## Название раздела`
-- В каждом разделе должно быть 3-6 глаголов для упражнений
-- После каждого раздела добавляй кнопку: `{checkSection(номер), "Проверить этот раздел"}`
+### 2. MAIN TEXT (MUST BE IN ENGLISH):
+- Story should consist of 4-6 sections
+- Each section starts with heading: `## Section Title in English`
+- Each section should contain 3-6 verbs for exercises
+- After each section add button: `{checkSection(number), "Проверить этот раздел"}`
 
-### 3. ФОРМАТ ГЛАГОЛОВ:
-Заменяй ключевые глаголы на массивы в квадратных скобках:
-`["правильная_форма", "вариант_2", "вариант_3", "вариант_4", "вариант_5", "вариант_6"]`
+### 3. VERB ARRAYS FORMAT:
+Replace key verbs with arrays in square brackets:
+`["correct_form", "option_2", "option_3", "option_4", "option_5", "option_6"]`
 
-**ПРАВИЛА для глаголов:**
-- Первый элемент массива = правильная форма для контекста
-- Включай разные времена: Present Simple, Past Simple, Future Simple, Present Perfect, Past Perfect, Future Perfect
-- Добавляй формы с вспомогательными глаголами где уместно
-- Минимум 4, максимум 6 вариантов в каждом массиве
-- Варианты должны быть грамматически правдоподобными, но неправильными в данном контексте
+**VERB RULES:**
+- First element = correct form for the context
+- Include different tenses: Present Simple, Past Simple, Future Simple, Present Perfect, Past Perfect, Future Perfect
+- Add auxiliary verb forms where appropriate
+- Minimum 4, maximum 6 options in each array
+- Options should be grammatically plausible but incorrect in this context
+- ALL VERB OPTIONS MUST BE IN ENGLISH
 
-## ТРЕБОВАНИЯ К ИСТОРИИ:
-- 350-600 слов
-- Интересный сюжет с персонажами
-- Диалоги для разнообразия
-- Логическая связность разделов
-- Разнообразие времен глаголов
-- Подходящий словарь для указанного уровня
+## STORY REQUIREMENTS:
+- 350-600 words in ENGLISH
+- Engaging plot with characters
+- Include dialogue for variety
+- Logical connection between sections
+- Variety of verb tenses
+- Appropriate vocabulary for the specified level
+- **THE ENTIRE STORY TEXT MUST BE IN ENGLISH LANGUAGE**
 
 ## ПРИМЕР ФОРМАТА:
 
@@ -60,4 +62,10 @@ Romans ["walked", "walk", "will walk", "have walked"] past him in togas while he
 {checkSection(2), "Проверить этот раздел"}
 ```
 
-Создай подобную историю на тему "{topic}". Используй богатое воображение, создавай яркие персонажи и увлекательные повороты сюжета. Убедись, что глаголы естественно вписываются в контекст и предлагают содержательную практику различных времен.
+Create a similar story on the topic "{topic}". Use rich imagination, create vivid characters and exciting plot twists. Make sure verbs fit naturally into the context and provide meaningful practice of different tenses.
+
+**CRITICAL REMINDER: 
+- Write the ENTIRE story in ENGLISH LANGUAGE
+- Only the description in YAML front matter should be in Russian
+- All text content, headings, dialogue, and narrative must be in English
+- All verb options in arrays must be English verbs**

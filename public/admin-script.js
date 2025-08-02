@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadExistingStories();
     setupEventListeners();
     initializeVerbDatabase();
+    initializeAIConfig();
 });
 
 // Setup event listeners
@@ -37,6 +38,11 @@ function setupEventListeners() {
     const textEditor = document.getElementById('text-editor');
     textEditor.addEventListener('input', updateVerbManager);
     textEditor.addEventListener('paste', handlePaste);
+    
+    // AI configuration events
+    document.getElementById('save-ai-model').addEventListener('click', saveAIModel);
+    document.getElementById('refresh-models').addEventListener('click', loadAIModels);
+    document.getElementById('ai-model-select').addEventListener('change', onModelSelectionChange);
 }
 
 // Load existing stories
@@ -537,4 +543,197 @@ function editVerbForms(verbName) {
             verbForms.appendChild(newFormElement);
         }
     });
+}
+
+// ================================
+// AI Configuration Management
+// ================================
+
+let currentAIConfig = null;
+let availableModels = [];
+
+// Initialize AI configuration
+async function initializeAIConfig() {
+    await loadCurrentAIConfig();
+    await loadAIModels();
+    updateAIStatus();
+}
+
+// Load current AI configuration
+async function loadCurrentAIConfig() {
+    try {
+        const response = await fetch('/api/ai/config');
+        if (!response.ok) throw new Error('Failed to load AI config');
+        
+        currentAIConfig = await response.json();
+        console.log('Current AI config loaded:', currentAIConfig);
+        
+    } catch (error) {
+        console.error('Error loading AI config:', error);
+        updateAIStatus('Ошибка загрузки конфигурации AI', 'disconnected');
+    }
+}
+
+// Load available AI models
+async function loadAIModels() {
+    const modelSelect = document.getElementById('ai-model-select');
+    const saveButton = document.getElementById('save-ai-model');
+    
+    try {
+        updateAIStatus('Загрузка доступных моделей...', 'loading');
+        
+        const response = await fetch('/api/ai/models');
+        if (!response.ok) throw new Error('Failed to load models');
+        
+        const result = await response.json();
+        availableModels = result.models || [];
+        
+        // Clear and populate select
+        modelSelect.innerHTML = '';
+        
+        if (availableModels.length === 0) {
+            modelSelect.innerHTML = '<option value="">Модели не найдены</option>';
+            modelSelect.disabled = true;
+            saveButton.disabled = true;
+            updateAIStatus('AI сервер недоступен', 'disconnected');
+            return;
+        }
+        
+        // Add models to select
+        availableModels.forEach(model => {
+            const option = document.createElement('option');
+            option.value = model;
+            option.textContent = model;
+            
+            // Mark current model as selected
+            if (currentAIConfig && model === currentAIConfig.server.defaultModel) {
+                option.selected = true;
+            }
+            
+            modelSelect.appendChild(option);
+        });
+        
+        modelSelect.disabled = false;
+        saveButton.disabled = false;
+        
+        updateAIStatus(`Доступно ${availableModels.length} моделей`, 'connected');
+        
+    } catch (error) {
+        console.error('Error loading AI models:', error);
+        modelSelect.innerHTML = '<option value="">Ошибка загрузки моделей</option>';
+        modelSelect.disabled = true;
+        saveButton.disabled = true;
+        updateAIStatus('Не удалось подключиться к AI серверу', 'disconnected');
+    }
+}
+
+// Handle model selection change
+function onModelSelectionChange() {
+    const modelSelect = document.getElementById('ai-model-select');
+    const saveButton = document.getElementById('save-ai-model');
+    
+    const selectedModel = modelSelect.value;
+    const currentModel = currentAIConfig?.server?.defaultModel;
+    
+    // Enable save button only if model changed
+    saveButton.disabled = !selectedModel || selectedModel === currentModel;
+    
+    if (selectedModel && selectedModel !== currentModel) {
+        saveButton.textContent = '💾 Сохранить изменения';
+        saveButton.classList.add('btn-warning');
+        saveButton.classList.remove('btn-success');
+    } else {
+        saveButton.textContent = '💾 Сохранить модель';
+        saveButton.classList.remove('btn-warning');
+        saveButton.classList.add('btn-success');
+    }
+}
+
+// Save selected AI model
+async function saveAIModel() {
+    const modelSelect = document.getElementById('ai-model-select');
+    const saveButton = document.getElementById('save-ai-model');
+    
+    const selectedModel = modelSelect.value;
+    
+    if (!selectedModel) {
+        alert('Пожалуйста, выберите модель');
+        return;
+    }
+    
+    try {
+        saveButton.disabled = true;
+        saveButton.textContent = '💾 Сохранение...';
+        updateAIStatus('Сохранение модели...', 'loading');
+        
+        const response = await fetch('/api/ai/model', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ model: selectedModel })
+        });
+        
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.error || 'Failed to save model');
+        }
+        
+        const result = await response.json();
+        console.log('AI model saved:', result);
+        
+        // Update current config
+        if (currentAIConfig) {
+            currentAIConfig.server.defaultModel = selectedModel;
+        }
+        
+        // Reset button state
+        saveButton.disabled = true;
+        saveButton.textContent = '💾 Сохранить модель';
+        saveButton.classList.remove('btn-warning');
+        saveButton.classList.add('btn-success');
+        
+        updateAIStatus(`Модель изменена на: ${selectedModel}`, 'connected');
+        
+        // Show success message
+        setTimeout(() => {
+            updateAIStatus(`Активная модель: ${selectedModel}`, 'connected');
+        }, 3000);
+        
+    } catch (error) {
+        console.error('Error saving AI model:', error);
+        saveButton.disabled = false;
+        saveButton.textContent = '💾 Повторить сохранение';
+        updateAIStatus(`Ошибка сохранения: ${error.message}`, 'disconnected');
+    }
+}
+
+// Update AI status display
+function updateAIStatus(message, status = 'loading') {
+    const statusIndicator = document.querySelector('.status-indicator');
+    const statusText = document.querySelector('.status-text');
+    
+    // Remove all status classes
+    statusIndicator.classList.remove('loading', 'connected', 'disconnected');
+    
+    // Add new status class
+    statusIndicator.classList.add(status);
+    
+    // Update text
+    statusText.textContent = message;
+    
+    // Update icon based on status
+    switch (status) {
+        case 'loading':
+            statusIndicator.textContent = '🔄';
+            break;
+        case 'connected':
+            statusIndicator.textContent = '✅';
+            break;
+        case 'disconnected':
+            statusIndicator.textContent = '❌';
+            break;
+        default:
+            statusIndicator.textContent = '🔄';
+    }
 } 

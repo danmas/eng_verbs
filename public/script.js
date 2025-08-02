@@ -356,7 +356,7 @@ async function generateStoryWithAI() {
     }, aiTimeouts.patienceMessage.story);
     
     try {
-        const response = await fetch('/api/ai/generate-story', {
+        const response = await fetch('/api/ai/generate-story-md', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -368,15 +368,7 @@ async function generateStoryWithAI() {
         clearTimeout(patienceTimeout);
         
         if (data.success) {
-            displayGeneratedStory(data.content, topic, level, data.warning);
-            
-            // Update AI status if using mock
-            if (data.source === 'mock') {
-                const statusElement = document.getElementById('ai-status');
-                const indicatorElement = document.getElementById('ai-status-indicator');
-                statusElement.className = 'ai-status mock';
-                indicatorElement.textContent = '🎭 Demo режим';
-            }
+            displayGeneratedStoryMD(data, topic, level);
         } else {
             throw new Error(data.error || 'Failed to generate story');
         }
@@ -389,25 +381,27 @@ async function generateStoryWithAI() {
     }
 }
 
-// Display generated story
-function displayGeneratedStory(content, topic, level) {
+// Display generated MD story
+function displayGeneratedStoryMD(data, topic, level) {
     document.getElementById('generation-status').style.display = 'none';
     
     const previewContainer = document.getElementById('generated-story-preview');
     previewContainer.innerHTML = `
-        <h3>🎯 Сгенерированная история</h3>
+        <h3>🎯 Сгенерированная история (Markdown)</h3>
         <div class="story-meta">
             <strong>Тема:</strong> ${topic}<br>
-            <strong>Уровень:</strong> ${getLevelText(level)}
+            <strong>Уровень:</strong> ${getLevelText(level)}<br>
+            <strong>ID истории:</strong> ${data.storyId || 'auto-generated'}
         </div>
-        <div class="story-content">${formatGeneratedContent(content)}</div>
+        <div class="story-content">${formatGeneratedContent(data.content)}</div>
     `;
     previewContainer.style.display = 'block';
     document.getElementById('use-generated-story').style.display = 'inline-block';
-    document.getElementById('save-generated-story').style.display = 'inline-block';
+    document.getElementById('save-generated-story').style.display = 'none'; // MD stories are auto-saved
     
-    // Store generated content for later use
-    window.generatedStoryContent = content;
+    // Store generated story data for later use
+    window.generatedStoryData = data.story; // Parsed story object
+    window.generatedStoryContent = data.content; // Raw MD content
     window.generatedStoryTopic = topic;
     window.generatedStoryLevel = level;
 }
@@ -432,9 +426,9 @@ function getLevelText(level) {
     return levels[level] || level;
 }
 
-// Use generated story
+// Use generated MD story (already processed)
 async function useGeneratedStory() {
-    if (!window.generatedStoryContent) {
+    if (!window.generatedStoryData) {
         alert('Нет сгенерированной истории для использования');
         return;
     }
@@ -443,52 +437,28 @@ async function useGeneratedStory() {
     const originalText = useButton.textContent;
     
     useButton.disabled = true;
-    useButton.textContent = '🤖 Обрабатываю историю...';
+    useButton.textContent = '📖 Загружаю историю...';
     
     try {
-        // Process the story with AI
-        const response = await fetch('/api/ai/process-story', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                story: window.generatedStoryContent,
-                title: extractTitleFromContent(window.generatedStoryContent),
-                level: window.generatedStoryLevel || 'intermediate'
-            })
-        });
+        // Story is already processed and saved, just use it directly
+        const story = window.generatedStoryData;
         
-        const data = await response.json();
+        console.log('Using generated MD story:', story);
         
-        if (data.success) {
-            console.log('Story processed successfully:', data.story);
-            
-            if (data.warning) {
-                console.warn('Processing warning:', data.warning);
-            }
-            
-            // Load the processed story
-            currentStory = data.story;
-            currentVerbData = data.story.verbData;
-            
-            // Show the story
-            closeStoryGenerationModal();
-            showStoryContent(data.story);
-            
-            // Show success message
-            if (data.warning) {
-                alert('✅ История загружена!\n\n⚠️ Внимание: ' + data.warning + '\n\nИстория доступна для изучения, но без интерактивных глаголов.');
-            } else {
-                alert('🎉 История успешно обработана и готова к изучению!\n\nВы можете сейчас практиковать времена глаголов.');
-            }
-        } else {
-            throw new Error(data.error || 'Failed to process story');
-        }
+        // Load the story
+        currentStory = story;
+        currentVerbData = story.verbData;
+        
+        // Show the story
+        closeStoryGenerationModal();
+        showStoryContent(story);
+        
+        // Show success message
+        alert(`🎉 История "${story.title}" готова к изучению!\n\n✅ Автоматически создано ${story.verbCount} интерактивных глаголов\n✅ История сохранена в библиотеку\n\nВы можете сейчас практиковать времена глаголов!`);
         
     } catch (error) {
-        console.error('Error processing story:', error);
-        alert('❌ Ошибка обработки истории: ' + error.message + '\n\nПопробуйте ещё раз или используйте админ-панель для создания историй.');
+        console.error('Error using generated story:', error);
+        alert('❌ Ошибка загрузки истории: ' + error.message);
     } finally {
         useButton.disabled = false;
         useButton.textContent = originalText;
@@ -516,53 +486,27 @@ function extractTitleFromContent(content) {
     return 'AI Generated Story';
 }
 
-// Save generated story to library
+// Save generated story to library (MD stories are auto-saved)
 async function saveGeneratedStory() {
+    // MD stories are automatically saved, so this function is mainly for backward compatibility
+    if (window.generatedStoryData) {
+        // MD story is already saved
+        alert('✅ История уже сохранена!\n\n📖 Название: ' + window.generatedStoryData.title + '\n🆔 ID: ' + window.generatedStoryData.id + '\n\nОна доступна в списке историй.');
+        
+        // Refresh story list if we're on the main page
+        if (document.getElementById('story-selection').style.display !== 'none') {
+            loadStoryList();
+        }
+        return;
+    }
+    
+    // Fallback for old-style content (shouldn't happen with new MD generation)
     if (!window.generatedStoryContent) {
         alert('Нет сгенерированной истории для сохранения');
         return;
     }
     
-    const saveButton = document.getElementById('save-generated-story');
-    const originalText = saveButton.textContent;
-    
-    saveButton.disabled = true;
-    saveButton.textContent = '💾 Сохраняю...';
-    
-    try {
-        // Process the story with AI first
-        const processResponse = await fetch('/api/ai/process-story', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                story: window.generatedStoryContent,
-                title: extractTitleFromContent(window.generatedStoryContent),
-                level: window.generatedStoryLevel || 'intermediate'
-            })
-        });
-        
-        const processData = await processResponse.json();
-        
-        if (processData.success) {
-            alert('✅ История успешно обработана и сохранена!\n\n📖 Название: ' + processData.story.title + '\n🆔 ID: ' + processData.story.id + '\n\nТеперь она доступна в списке историй.');
-
-            // Refresh story list if we're on the main page
-            if (document.getElementById('story-selection').style.display !== 'none') {
-                loadStoryList();
-            }
-        } else {
-            throw new Error(processData.error || 'Failed to process and save story');
-        }
-        
-    } catch (error) {
-        console.error('Error saving story:', error);
-        alert('❌ Ошибка сохранения истории: ' + error.message + '\n\nПопробуйте ещё раз.');
-    } finally {
-        saveButton.disabled = false;
-        saveButton.textContent = originalText;
-    }
+    alert('⚠️ Устаревший формат истории. Пожалуйста, сгенерируйте новую историю.');
 }
 
 // Modified checkSection function to include AI checking

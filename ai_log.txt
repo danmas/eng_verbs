@@ -1,5 +1,876 @@
 
 ================================================================================
+Log Entry: 2025-08-02T16:39:03.612Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T16:39:03.612Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:39:03.612Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T16:39:00.785Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T16:39:00.785Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:39:00.785Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T16:38:57.452Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T16:38:57.452Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:38:57.452Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T16:38:26.168Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T16:38:26.168Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:38:26.168Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T16:38:03.976Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T16:38:03.976Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:38:03.976Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T16:36:20.368Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T16:36:20.368Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:36:20.368Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T16:34:09.464Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T16:34:09.464Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:34:09.464Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T16:32:28.961Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T16:32:28.961Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Ты учитель английского языка. Проверь правильность использования времен глаголов в этом тексте.\n\nТекст раздела:\n\"What is Elyria?\" a curious player Select tenseasksaskedwill askhad askedhas asked, and Max Select tensewill explainhad explainedexplainshas explainedexplained that it Select tensehas beenwill behad beenwasis a place where dreams Select tensehave comecamehad comewill comecome true.\n\nВыбранные студентом формы глаголов:\n{\"had_changed\":\"had changed\",\"allowed\":\"allows\",\"had_dreamed\":\"had dreamed\",\"was\":\"was\",\"asked\":\"asked\",\"explained\":\"had explained\",\"was_1\":\"had been\",\"came\":\"came\",\"logged\":\"\"}\n\nПравильные ответы:\n{\"had_changed\":\"had changed\",\"allowed\":\"allowed\",\"had_dreamed\":\"had dreamed\",\"was\":\"was\",\"asked\":\"asked\",\"explained\":\"explained\",\"was_1\":\"was\",\"came\":\"came\",\"logged\":\"logged\"}\n\nТвоя задача:\n1. Проанализируй каждый неправильный ответ\n2. Объясни, почему нужно использовать именно эту временную форму\n3. Дай краткие, понятные объяснения грамматических правил\n4. Предложи мнемонические способы запоминания\n5. Покажи исправленный текст в HTML формате с выделенными глаголами\n\nФормат ответа:\n1. **Анализ ошибок** (если есть)\n2. **Объяснения правил**\n3. **Исправленный текст** (HTML с жирным курсивом для глаголов)\n4. **Советы для запоминания**\n\nБудь конструктивным и поощряющим. Если все правильно - похвали студента!",
+  "inputText": "Проверь правильность использования времен глаголов",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:32:28.961Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "1. **Анализ ошибок**: \n   - \"had asked\" вместо \"asked\": В данном контексте правильным является использование Past Simple (\"asked\"), поскольку речь идет о конкретном событии в прошлом, когда игрок задал вопрос.\n   - \"had explained\" вместо \"explained\": Здесь также необходимо использовать Past Simple (\"explained\"), чтобы показать, что объяснение было дано после вопроса в прошлом.\n   - \"has been\" вместо \"was\": Правильным является использование Past Simple (\"was\"), поскольку речь идет о конкретном состоянии в прошлом, когда Елирия была местом, где мечты сбываются.\n   - \"have come\" вместо \"came\": Используем Past Simple (\"came\"), чтобы описать конкретное событие в прошлом, когда мечты сбывались в этом месте.\n   - Остальные времена использованы правильно в соответствии с контекстом.\n\n2. **Объяснения правил**:\n   - **Past Simple** используется для описания завершенных действий в прошлом. Пример: \"I **went** to the store yesterday.\"\n   - **Present Perfect** (\"has/have + основная форма глагола\") используется для действий, которые начались в прошлом и продолжаются до настоящего момента или имеют связь с настоящим. Пример: \"I **have eaten** breakfast already.\"\n   - **Past Perfect** (\"had + основная форма глагола\") используется для действий, которые произошли до другого действия в прошлом. Пример: \"I **had finished** my homework before I went to bed.\"\n\n3. **Исправленный текст**:\n   <p>\"What is Elyria?\" a curious player <i>**asked**</i>, and Max <i>**explained**</i> that it <i>**was**</i> a place where dreams <i>**came**</i> true.</p>\n\n4. **Советы для запоминания**:\n   - Для запоминания Past Simple можно использовать мнемоническое правило: \"Прошлое простое - проще простого\".\n   - Для Present Perfect можно использовать пример: \"Я **съел** завтрак уже\" и ассоциировать с действием, которое началось в прошлом и продолжается до сих пор.\n   - Для Past Perfect можно составить короткий рассказ, где одно действие происходит до другого в прошлом, например: \"Я **сделал** домашнее задание, прежде чем пошел спать\".",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.213305384,
+    "prompt_tokens": 425,
+    "prompt_time": 0.041508304,
+    "completion_tokens": 554,
+    "completion_time": 1.7976315,
+    "total_tokens": 979,
+    "total_time": 1.839139804
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T16:29:44.608Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T16:29:44.608Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "**IMPORTANT: Create an engaging educational story in ENGLISH LANGUAGE for learning English verb tenses in Markdown format.**\r\n\r\nTopic: Жизниь - это виртуальная игра!\r\n\r\n## STRUCTURE AND FORMAT:\r\n\r\n### 1. YAML Front Matter (required):\r\n```yaml\r\n---\r\ntitle: \"Story title in English\"\r\ndescription: \"Brief description in Russian (1-2 sentences)\"\r\nlevel: \"beginner\" | \"intermediate\" | \"advanced\"\r\n---\r\n```\r\n\r\n### 2. MAIN TEXT (MUST BE IN ENGLISH):\r\n- Story should consist of 4-6 sections\r\n- Each section starts with heading: `## Section Title in English`\r\n- Each section should contain 3-6 verbs for exercises\r\n- After each section add button: `{checkSection(number), \"Проверить этот раздел\"}`\r\n\r\n### 3. VERB ARRAYS FORMAT:\r\nReplace key verbs with arrays in square brackets:\r\n`[\"correct_form\", \"option_2\", \"option_3\", \"option_4\", \"option_5\", \"option_6\"]`\r\n\r\n**VERB RULES:**\r\n- First element = correct form for the context\r\n- Include different tenses: Present Simple, Past Simple, Future Simple, Present Perfect, Past Perfect, Future Perfect\r\n- Add auxiliary verb forms where appropriate\r\n- Minimum 4, maximum 6 options in each array\r\n- Options should be grammatically plausible but incorrect in this context\r\n- ALL VERB OPTIONS MUST BE IN ENGLISH\r\n\r\n## STORY REQUIREMENTS:\r\n- 350-600 words in ENGLISH\r\n- Engaging plot with characters\r\n- Include dialogue for variety\r\n- Logical connection between sections\r\n- Variety of verb tenses\r\n- Appropriate vocabulary for the specified level\r\n- **THE ENTIRE STORY TEXT MUST BE IN ENGLISH LANGUAGE**\r\n\r\n## ПРИМЕР ФОРМАТА:\r\n\r\n```markdown\r\n---\r\ntitle: \"The Time Machine Adventure\"\r\ndescription: \"История о путешествии во времени и неожиданных открытиях\"\r\nlevel: \"intermediate\"\r\n---\r\n\r\n## The Discovery\r\nDr. Smith [\"found\", \"finds\", \"will find\", \"has found\", \"had found\"] an old machine in his grandfather's attic. The strange device [\"looked\", \"looks\", \"will look\", \"has looked\"] like nothing he [\"saw\", \"sees\", \"will see\", \"has seen\", \"had seen\"] before.\r\n\r\n\"What is this?\" he [\"wondered\", \"wonders\", \"will wonder\", \"has wondered\"], examining the mysterious buttons.\r\n{checkSection(1), \"Проверить этот раздел\"}\r\n\r\n## The First Journey\r\nWhen he [\"pressed\", \"presses\", \"will press\", \"has pressed\"] the red button, everything [\"changed\", \"changes\", \"will change\", \"has changed\"]. Suddenly, he [\"stood\", \"stands\", \"will stand\", \"has stood\"] in ancient Rome!\r\n\r\nRomans [\"walked\", \"walk\", \"will walk\", \"have walked\"] past him in togas while he [\"tried\", \"tries\", \"will try\", \"has tried\"] to understand what [\"happened\", \"happens\", \"will happen\", \"has happened\"].\r\n{checkSection(2), \"Проверить этот раздел\"}\r\n```\r\n\r\nCreate a similar story on the topic \"{topic}\". Use rich imagination, create vivid characters and exciting plot twists. Make sure verbs fit naturally into the context and provide meaningful practice of different tenses.\r\n\r\n**CRITICAL REMINDER: \r\n- Write the ENTIRE story in ENGLISH LANGUAGE\r\n- Only the description in YAML front matter should be in Russian\r\n- All text content, headings, dialogue, and narrative must be in English\r\n- All verb options in arrays must be English verbs**",
+  "inputText": "Создай историю в Markdown формате на тему: Жизниь - это виртуальная игра!",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:29:44.608Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "---\ntitle: \"Life is a Virtual Game\"\ndescription: \"История о виртуальной реальности и неожиданных приключениях\"\nlevel: \"intermediate\"\n---\n\n## Introduction to Elyria\nIn the year 2154, the world [\"had changed\", \"changed\", \"will change\", \"has changed\", \"was changing\"] forever with the invention of Elyria, a virtual reality game that [\"allowed\", \"allows\", \"will allow\", \"has allowed\", \"had allowed\"] players to live out their fantasies. The creator, Max, [\"had dreamed\", \"dreams\", \"will dream\", \"has dreamed\", \"was dreaming\"] of this world since he [\"was\", \"is\", \"will be\", \"has been\", \"had been\"] a teenager.\n\n\"What is Elyria?\" a curious player [\"asked\", \"asks\", \"will ask\", \"has asked\", \"had asked\"], and Max [\"explained\", \"explains\", \"will explain\", \"has explained\", \"had explained\"] that it [\"was\", \"is\", \"will be\", \"has been\", \"had been\"] a place where dreams [\"came\", \"come\", \"will come\", \"have come\", \"had come\"] true.\n{checkSection(1), \"Проверить этот раздел\"}\n\n## The First Login\nAs players [\"logged\", \"log\", \"will log\", \"have logged\", \"had logged\"] in for the first time, they [\"found\", \"find\", \"will find\", \"have found\", \"had found\"] themselves in a world of wonder. The game [\"offered\", \"offers\", \"will offer\", \"has offered\", \"had offered\"] them the chance to [\"become\", \"becomes\", \"will become\", \"has become\", \"had become\"] anyone they [\"wanted\", \"want\", \"will want\", \"have wanted\", \"had wanted\"] to be.\n\n\"Wow, this [\"is\", \"was\", \"will be\", \"has been\", \"had been\"] amazing!\" a player [\"exclaimed\", \"exclaims\", \"will exclaim\", \"has exclaimed\", \"had exclaimed\"], as they [\"explored\", \"explore\", \"will explore\", \"have explored\", \"had explored\"] the vast virtual lands.\n{checkSection(2), \"Проверить этот раздел\"}\n\n## Challenges and Quests\nAs time [\"passed\", \"passes\", \"will pass\", \"has passed\", \"had passed\"], players [\"encountered\", \"encounter\", \"will encounter\", \"have encountered\", \"had encountered\"] challenges and quests that [\"tested\", \"test\", \"will test\", \"have tested\", \"had tested\"] their skills. They [\"formed\", \"form\", \"will form\", \"have formed\", \"had formed\"] guilds and [\"worked\", \"work\", \"will work\", \"have worked\", \"had worked\"] together to [\"overcome\", \"overcome\", \"will overcome\", \"have overcome\", \"had overcome\"] obstacles.\n\n\"We [\"have\", \"have had\", \"will have\", \"had\", \"are having\"] to [\"defeat\", \"defeat\", \"will defeat\", \"have defeated\", \"had defeated\"] the dragon to [\"save\", \"save\", \"will save\", \"have saved\", \"had saved\"] the kingdom!\" a guild leader [\"shouted\", \"shouts\", \"will shout\", \"has shouted\", \"had shouted\"], as they [\"prepared\", \"prepare\", \"will prepare\", \"have prepared\", \"had prepared\"] for battle.\n{checkSection(3), \"Проверить этот раздел\"}\n\n## The Evolution of Elyria\nYears [\"went\", \"go\", \"will go\", \"have gone\", \"had gone\"] by, and Elyria [\"continued\", \"continues\", \"will continue\", \"has continued\", \"had continued\"] to [\"evolve\", \"evolve\", \"will evolve\", \"has evolved\", \"had evolved\"]. New features [\"were\", \"are\", \"will be\", \"have been\", \"had been\"] added, and the game [\"became\", \"becomes\", \"will become\", \"has become\", \"had become\"] more realistic than ever.\n\n\"I [\"can't\", \"cannot\", \"will not be able to\", \"have not been able to\", \"had not been able to\"] believe how far Elyria [\"has come\", \"comes\", \"will come\", \"has come\", \"had come\"],\" Max [\"said\", \"says\", \"will say\", \"has said\", \"had said\"], looking back on the journey of his creation.\n{checkSection(4), \"Проверить этот раздел\"}\n\n## Legacy of Elyria\nToday, Elyria [\"remains\", \"remains\", \"will remain\", \"has remained\", \"had remained\"] one of the most popular virtual reality games in the world. It [\"has\", \"has had\", \"will have\", \"had\", \"is having\"]",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.210778908,
+    "prompt_tokens": 842,
+    "prompt_time": 0.067817648,
+    "completion_tokens": 1024,
+    "completion_time": 2.26635079,
+    "total_tokens": 1866,
+    "total_time": 2.334168438
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T16:20:39.821Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T16:20:39.821Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Создай увлекательную обучающую историю на английском языке для изучения времен глаголов в формате Markdown. \r\n\r\nТема: Жизниь - это виртуальная игра!\r\n\r\n## СТРУКТУРА И ФОРМАТ:\r\n\r\n### 1. YAML Front Matter (обязательно):\r\n```yaml\r\n---\r\ntitle: \"Название истории на английском\"\r\ndescription: \"Краткое описание на русском (1-2 предложения)\"\r\nlevel: \"beginner\" | \"intermediate\" | \"advanced\"\r\n---\r\n```\r\n\r\n### 2. ОСНОВНОЙ ТЕКСТ:\r\n- История должна состоять из 4-6 разделов\r\n- Каждый раздел начинается с заголовка: `## Название раздела`\r\n- В каждом разделе должно быть 3-6 глаголов для упражнений\r\n- После каждого раздела добавляй кнопку: `{checkSection(номер), \"Проверить этот раздел\"}`\r\n\r\n### 3. ФОРМАТ ГЛАГОЛОВ:\r\nЗаменяй ключевые глаголы на массивы в квадратных скобках:\r\n`[\"правильная_форма\", \"вариант_2\", \"вариант_3\", \"вариант_4\", \"вариант_5\", \"вариант_6\"]`\r\n\r\n**ПРАВИЛА для глаголов:**\r\n- Первый элемент массива = правильная форма для контекста\r\n- Включай разные времена: Present Simple, Past Simple, Future Simple, Present Perfect, Past Perfect, Future Perfect\r\n- Добавляй формы с вспомогательными глаголами где уместно\r\n- Минимум 4, максимум 6 вариантов в каждом массиве\r\n- Варианты должны быть грамматически правдоподобными, но неправильными в данном контексте\r\n\r\n## ТРЕБОВАНИЯ К ИСТОРИИ:\r\n- 350-600 слов\r\n- Интересный сюжет с персонажами\r\n- Диалоги для разнообразия\r\n- Логическая связность разделов\r\n- Разнообразие времен глаголов\r\n- Подходящий словарь для указанного уровня\r\n\r\n## ПРИМЕР ФОРМАТА:\r\n\r\n```markdown\r\n---\r\ntitle: \"The Time Machine Adventure\"\r\ndescription: \"История о путешествии во времени и неожиданных открытиях\"\r\nlevel: \"intermediate\"\r\n---\r\n\r\n## The Discovery\r\nDr. Smith [\"found\", \"finds\", \"will find\", \"has found\", \"had found\"] an old machine in his grandfather's attic. The strange device [\"looked\", \"looks\", \"will look\", \"has looked\"] like nothing he [\"saw\", \"sees\", \"will see\", \"has seen\", \"had seen\"] before.\r\n\r\n\"What is this?\" he [\"wondered\", \"wonders\", \"will wonder\", \"has wondered\"], examining the mysterious buttons.\r\n{checkSection(1), \"Проверить этот раздел\"}\r\n\r\n## The First Journey\r\nWhen he [\"pressed\", \"presses\", \"will press\", \"has pressed\"] the red button, everything [\"changed\", \"changes\", \"will change\", \"has changed\"]. Suddenly, he [\"stood\", \"stands\", \"will stand\", \"has stood\"] in ancient Rome!\r\n\r\nRomans [\"walked\", \"walk\", \"will walk\", \"have walked\"] past him in togas while he [\"tried\", \"tries\", \"will try\", \"has tried\"] to understand what [\"happened\", \"happens\", \"will happen\", \"has happened\"].\r\n{checkSection(2), \"Проверить этот раздел\"}\r\n```\r\n\r\nСоздай подобную историю на тему \"{topic}\". Используй богатое воображение, создавай яркие персонажи и увлекательные повороты сюжета. Убедись, что глаголы естественно вписываются в контекст и предлагают содержательную практику различных времен.",
+  "inputText": "Создай историю в Markdown формате на тему: Жизниь - это виртуальная игра!",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:20:39.821Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "---\ntitle: \"Life is a Virtual Game\"\ndescription: \"История о жизни как о виртуальной игре и неожиданных открытиях\"\nlevel: \"intermediate\"\n---\n\n## Вступление в игру\nВ 2154 году человечество [\"создало\", \"создает\", \"будет создавать\", \"создавало\", \"было создано\"] новую виртуальную реальность под названием \"Элизиум\". Эта игра [\"превратила\", \"превращает\", \"будет превращать\", \"превращала\", \"была превращена\"] жизнь людей в грандиозное приключение. Игроки [\"могли\", \"могут\", \"будут мочь\", \"могли\", \"были способны\"] выбирать персонажей, строить города и [\"сражаться\", \"сражаются\", \"будут сражаться\", \"сражались\", \"были сражены\"] с виртуальными монстрами.\n\n\"Я [\"зарегистрировался\", \"регистрируюсь\", \"буду регистрироваться\", \"регистрировался\", \"был зарегистрирован\"] в Элизиуме вчера\", - [\"сказал\", \"говорит\", \"будет говорить\", \"говорил\", \"был сказан\"] Джон, новый игрок.\n{checkSection(1), \"Проверить этот раздел\"}\n\n## Первый уровень\nКогда Джон [\"вошел\", \"входит\", \"будет входить\", \"входил\", \"был введен\"] в игру, он [\"увидел\", \"видит\", \"будет видеть\", \"видел\", \"был увиден\"] красивый виртуальный мир. Он [\"выбрал\", \"выбирает\", \"будет выбирать\", \"выбирал\", \"был выбран\"] персонажа-воина и [\"начал\", \"начинает\", \"будет начинать\", \"начинал\", \"был начат\"] свое путешествие. Виртуальные существа [\"атакуют\", \"атакуют\", \"будут атаковать\", \"атаковали\", \"были атакованы\"] его со всех сторон, но Джон [\"умел\", \"умеет\", \"будет уметь\", \"умел\", \"был способен\"] их [\"победить\", \"побеждает\", \"будет побеждать\", \"побеждал\", \"был побежден\"].\n\n\"Я [\"прохожу\", \"прохожу\", \"буду проходить\", \"проходил\", \"был пройден\"] первый уровень\", - [\"воскликнул\", \"восклицает\", \"будет восклицать\", \"восклицал\", \"был воскликан\"] Джон.\n{checkSection(2), \"Проверить этот раздел\"}\n\n## Виртуальная дружба\nВ Элизиуме Джон [\"встретил\", \"встречает\", \"будет встречать\", \"встречал\", \"был встречен\"] новых друзей. Они [\"играли\", \"играют\", \"будут играть\", \"играли\", \"были сыграны\"] вместе, [\"строили\", \"строят\", \"будут строить\", \"строили\", \"были построены\"] города и [\"сражались\", \"сражаются\", \"будут сражаться\", \"сражались\", \"были сражены\"] с монстрами. Вместе они [\"открывали\", \"открывают\", \"будут открывать\", \"открывали\", \"были открыты\"] новые территории и [\"получали\", \"получают\", \"будут получать\", \"получали\", \"были получены\"] награды.\n\n\"Мы [\"создаем\", \"создаем\", \"будем создавать\", \"создавали\", \"были созданы\"] великую команду\", - [\"сказал\", \"говорит\", \"будет говорить\", \"говорил\", \"был сказан\"] Джон.\n{checkSection(3), \"Проверить этот раздел\"}\n\n## Финальная битва\nПосле многих [\"дней\", \"дней\", \"будут дней\", \"дней\", \"были дни\"] игры Джон и его друзья [\"достигли\", \"достигают\", \"будут достигать\", \"достигали\", \"были достигнуты\"] фина",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.213795613,
+    "prompt_tokens": 947,
+    "prompt_time": 0.075630194,
+    "completion_tokens": 1024,
+    "completion_time": 2.699117412,
+    "total_tokens": 1971,
+    "total_time": 2.774747606
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T16:20:22.679Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T16:20:22.679Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:20:22.679Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T15:31:18.269Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T15:31:18.269Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "\r\nСгенерируй JSON-объект для создания интерактивного упражнения по временам глаголов на основе английской истории.\r\n\r\nИстория:\r\n**Заголовок истории:** \"Путешествие между параллельными мирами\"\n**Краткое описание:** История о молодом человеке по имени Алекс, который обнаруживает способ путешествовать между параллельными мирами и встречает разные версии себя. Он узнает о жизни в различных мирах и сталкивается с вызовами, которые приходят с путешествием между ними.\n**Уровень сложности:** Intermediate\n\n**Раздел 1: Открытие**\nАлекс всегда был очарован концепцией параллельных миров и задавался вопросом, что было бы, если бы он мог посетить их. Однажды, он наткнулся на странное устройство, которое позволяло ему путешествовать между мирами. Он **путешествовал** (travelled) в первый параллельный мир, где **встретил** (met) версию себя, которая **была** (was) успешным бизнесменом. Алекс **учился** (was learning) о жизни в этом мире и **восхищался** (was amazed) возможностями, которые **предлагались** (were offered) там.\n\n**Раздел 2: Встречи с другими версиями себя**\nКогда Алекс **продолжал** (continued) свое путешествие, он **встречал** (met) другие версии себя, каждая из которых **жила** (lived) в разных мирах. Он **говорил** (spoke) с версией себя, которая **была** (was) известным художником, и **узнавал** (learned) о ее творческом процессе. Алекс **понимал** (understood), что каждая версия себя **имела** (had) свои сильные и слабые стороны, и он **стремился** (strived) учиться у них.\n\n**Раздел 3: Разговор с версией себя из будущего**\nВ одном из миров Алекс **встретил** (met) версию себя из будущего, которая **пришла** (had come) предупредить его о опасностях путешествия между мирами. \"Ты **будешь** (will) сталкиваться с серьезными вызовами\", - **сказала** (said) будущая версия себя. \"Но ты **уже** (have already) **приобрел** (acquired) ценные знания и навыки, которые **помогут** (will help) тебе в твоем путешествии\". Алекс **слушал** (listened) внимательно и **запоминал** (remembered) ее слова.\n\n**Раздел 4: Вызовы и возможности**\nКогда Алекс **продолжал** (continued) свое путешествие, он **сталкивался** (encountered) с разными вызовами, такими как навигация в незнакомых мирах и адаптация к новым культурам. Но он **также** (also) **открывал** (discovered) новые возможности и **встречал** (met) интересных людей, которые **помогали** (helped) ему на его пути. Алекс **осознал** (realized), что путешествие между параллельными мирами **было** (was) не только приключением, но и возможностью **учиться** (learn) и **расти** (grow).\n\n**Раздел 5: Возвращение домой**\nПосле многих приключений Алекс **решил** (decided) вернуться в свой собственный мир. Он **вспомнил** (recalled) все, что **узнал** (had learned), и **понял** (understood), что его путешествие **изменило** (had changed) его навсегда. Алекс **вернулся** (returned) домой, **готовый** (ready) поделиться своими опытами и **помочь** (help) другим, кто **хочет** (wants) **исследовать** (explore) параллельные миры.\r\n\r\nТвоя задача:\r\n1.  Найди 15-25 ключевых глаголов в тексте, которые подходят для упражнений.\r\n2.  Разбей историю на 4-6 логических разделов.\r\n3.  Создай HTML-структуру, где каждый раздел находится в отдельном абзаце (<p>).\r\n4.  В HTML-структуре замени выбранные глаголы на плейсхолдеры в формате **[VERB:базовая_форма:номер_раздела]**.\r\n5.  После каждого абзаца (раздела) добавь кнопку проверки: **<button>Check Section [номер_раздела]</button>**.\r\n6.  Сгенерируй варианты ответов для каждого глагола.\r\n\r\nПравила:\r\n* Для плейсхолдеров используй только **базовую форму** глагола (e.g., travel, find, go, be).\r\n* В JSON-поле \"verbData\", ключи должны точно совпадать с базовой формой из плейсхолдера.\r\n* Поле \"tenses\" должно содержать 4-5 форм глагола, включая правильную, но в случайном порядке.\r\n* Укажи количество глаголов в поле \"verbCount\".\r\n\r\nОтвет должен быть ТОЛЬКО в формате JSON. Не добавляй никаких пояснений или дополнительного текста.\r\n\r\nФормат JSON:\r\n```json\r\n{\r\n  \"title\": \"A short story about adventure\",\r\n  \"description\": \"An exercise for practicing verb tenses.\",\r\n  \"level\": \"intermediate\",\r\n  \"storyText\": \"<p>Once upon a time, a young boy [VERB:live:1] in a small village. He always [VERB:dream:1] of exploring the world...</p><button>Check Section 1</button><p>One day, he [VERB:decide:2] to leave his home. He [VERB:pack:2] a small bag and [VERB:start:2] his journey...</p><button>Check Section 2</button>\",\r\n  \"verbData\": {\r\n    \"live\": {\r\n      \"correct\": \"lived\",\r\n      \"tenses\": [\"lives\", \"will live\", \"lived\", \"is living\"]\r\n    },\r\n    \"dream\": {\r\n      \"correct\": \"dreamed\",\r\n      \"tenses\": [\"dreaming\", \"dreams\", \"had dreamed\", \"dreamed\"]\r\n    }\r\n  },\r\n  \"verbCount\": 2\r\n}\r\n```\r\n\r\n-----\r\n\r\n### **Пример ответа**\r\n\r\nПредположим, LLM получил историю:\r\n\r\n*Story:* \"Sarah **is visiting** her grandmother. She **will go** to the market to **buy** some flowers. Yesterday she **baked** a cake. The cake **was** delicious. She **has planned** to stay for a week.\"\r\n\r\n*Пример JSON ответа на эту историю:*\r\n\r\n```json\r\n{\r\n  \"title\": \"Sarah's Trip to Her Grandmother\",\r\n  \"description\": \"An exercise on present, past, and future tenses.\",\r\n  \"level\": \"beginner\",\r\n  \"storyText\": \"<p>Sarah [VERB:be:1] visiting her grandmother. She [VERB:go:1] to the market to [VERB:buy:1] some flowers.</p><button>Check Section 1</button><p>Yesterday she [VERB:bake:2] a cake. The cake [VERB:be:2] delicious.</p><button>Check Section 2</button><p>She [VERB:plan:3] to stay for a week.</p><button>Check Section 3</button>\",\r\n  \"verbData\": {\r\n    \"be\": {\r\n      \"correct\": \"is\",\r\n      \"tenses\": [\"are\", \"am\", \"is\", \"was\"]\r\n    },\r\n    \"go\": {\r\n      \"correct\": \"will go\",\r\n      \"tenses\": [\"goes\", \"went\", \"is going\", \"will go\"]\r\n    },\r\n    \"buy\": {\r\n      \"correct\": \"buy\",\r\n      \"tenses\": [\"bought\", \"will buy\", \"is buying\", \"buy\"]\r\n    },\r\n    \"bake\": {\r\n      \"correct\": \"baked\",\r\n      \"tenses\": [\"baking\", \"bakes\", \"baked\", \"will bake\"]\r\n    },\r\n    \"plan\": {\r\n      \"correct\": \"has planned\",\r\n      \"tenses\": [\"planned\", \"is planning\", \"has planned\", \"will plan\"]\r\n    }\r\n  },\r\n  \"verbCount\": 5\r\n}\r\n```",
+  "inputText": "Обработай эту историю для создания интерактивных упражнений",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T15:31:18.269Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "```json\n{\n  \"title\": \"Путешествие между параллельными мирами\",\n  \"description\": \"Упражнение для практики времён глаголов\",\n  \"level\": \"intermediate\",\n  \"storyText\": \"<p>Алекс всегда был очарован концепцией параллельных миров и задавался вопросом, что было бы, если бы он мог посетить их. Однажды, он [VERB:наткнуться:1] на странное устройство, которое [VERB:позволять:1] ему путешествовать между мирами. Он [VERB:путешествовать:1] в первый параллельный мир, где [VERB:встретить:1] версию себя, которая [VERB:быть:1] успешным бизнесменом. Алекс [VERB:учиться:1] о жизни в этом мире и [VERB:восхищаться:1] возможностями, которые [VERB:предлагать:1] там.</p><button>Check Section 1</button><p>Когда Алекс [VERB:продолжать:2] своё путешествие, он [VERB:встретить:2] другие версии себя, каждая из которых [VERB:жить:2] в разных мирах. Он [VERB:говорить:2] с версией себя, которая [VERB:быть:2] известным художником, и [VERB:узнавать:2] о её творческом процессе. Алекс [VERB:понимать:2], что каждая версия себя [VERB:иметь:2] свои сильные и слабые стороны, и он [VERB:стремиться:2] учиться у них.</p><button>Check Section 2</button><p>В одном из миров Алекс [VERB:встретить:3] версию себя из будущего, которая [VERB:приходить:3] предупредить его о опасностях путешествия между мирами. \\\"Ты [VERB:будеть:3] сталкиваться с серьёзными вызовами\\\", - [VERB:сказать:3] будущая версия себя. \\\"Но ты [VERB:уже:3] [VERB:приобрести:3] ценные знания и навыки, которые [VERB:помогать:3] тебе в твоём путешествии\\\". Алекс [VERB:слушать:3] внимательно и [VERB:запоминать:3] её слова.</p><button>Check Section 3</button><p>Когда Алекс [VERB:продолжать:4] своё путешествие, он [VERB:сталкиваться:4] с разными вызовами, такими как навигация в незнакомых мирах и адаптация к новым культурам. Но он [VERB:также:4] [VERB:открывать:4] новые возможности и [VERB:встретить:4] интересных людей, которые [VERB:помогать:4] ему на его пути. Алекс [VERB:осознавать:4], что путешествие между параллельными мирами [VERB:быть:4] не только приключением, но и возможностью [VERB:учиться:4] и [VERB:расти:4].</p><button>Check Section 4</button><p>После многих приключений Алекс [VERB:решить:5] вернуться в свой собственный мир. Он [VERB:вспоминать:5] всё, что [VERB:узнать:5], и [VERB:понимать:5], что его путешествие [VERB:изменить:5] его навсегда. Алекс [VERB:возвращаться:5] домой, [VERB:готовить:5] поделиться своими опытами и [VERB:помогать:5] другим, кто [VERB:хотеть:5] [VERB:исследовать:5] параллельные миры.</p><button>Check Section 5</button>\",\n  \"verbData\": {\n    \"наткнуться\": {\n      \"correct\": \"наткнулся\",\n      \"tenses\": [\"наткнулся\", \"наткнётся\", \"наткнёт\", \"наткнулся\"]\n    },\n    \"п",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.215519983,
+    "prompt_tokens": 2033,
+    "prompt_time": 0.154844854,
+    "completion_tokens": 1024,
+    "completion_time": 2.411146685,
+    "total_tokens": 3057,
+    "total_time": 2.565991539
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T15:30:43.373Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T15:30:43.373Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Создай увлекательную короткую (примерно 10 предложений), обучающую историю на английском языке для изучения времен глаголов. Тема: Жизнь в параллельных мирах и путешествие между ними.\\n\\nТребования:\\n1. История должна быть интересной и подходящей для изучения английского\\n2. Используй разнообразные времена глаголов (Past Simple, Present Simple, Future Simple, Present Perfect, Past Perfect, Future Perfect)\\n3. История должна состоять из 4-6 логических разделов\\n4. В каждом разделе должно быть 3-5 глаголов для проверки\\n5. Включи диалоги для разнообразия\\n6. Длина: 300-500 слов\\n\\nФормат ответа:\\n- Заголовок истории\\n- Краткое описание (1-2 предложения)\\n- Уровень сложности (beginner/intermediate/advanced)\\n- Текст истории разбитый на разделы\\n\\nПример темы: космическое путешествие, детективная история, приключения в джунглях, школьная жизнь, спортивные соревнования.\\n\\nСоздай оригинальную историю, которая поможет студентам практиковать английские времена в контексте.",
+  "inputText": "Создай историю на тему: Жизнь в параллельных мирах и путешествие между ними",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T15:30:43.373Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "**Заголовок истории:** \"Путешествие между параллельными мирами\"\n**Краткое описание:** История о молодом человеке по имени Алекс, который обнаруживает способ путешествовать между параллельными мирами и встречает разные версии себя. Он узнает о жизни в различных мирах и сталкивается с вызовами, которые приходят с путешествием между ними.\n**Уровень сложности:** Intermediate\n\n**Раздел 1: Открытие**\nАлекс всегда был очарован концепцией параллельных миров и задавался вопросом, что было бы, если бы он мог посетить их. Однажды, он наткнулся на странное устройство, которое позволяло ему путешествовать между мирами. Он **путешествовал** (travelled) в первый параллельный мир, где **встретил** (met) версию себя, которая **была** (was) успешным бизнесменом. Алекс **учился** (was learning) о жизни в этом мире и **восхищался** (was amazed) возможностями, которые **предлагались** (were offered) там.\n\n**Раздел 2: Встречи с другими версиями себя**\nКогда Алекс **продолжал** (continued) свое путешествие, он **встречал** (met) другие версии себя, каждая из которых **жила** (lived) в разных мирах. Он **говорил** (spoke) с версией себя, которая **была** (was) известным художником, и **узнавал** (learned) о ее творческом процессе. Алекс **понимал** (understood), что каждая версия себя **имела** (had) свои сильные и слабые стороны, и он **стремился** (strived) учиться у них.\n\n**Раздел 3: Разговор с версией себя из будущего**\nВ одном из миров Алекс **встретил** (met) версию себя из будущего, которая **пришла** (had come) предупредить его о опасностях путешествия между мирами. \"Ты **будешь** (will) сталкиваться с серьезными вызовами\", - **сказала** (said) будущая версия себя. \"Но ты **уже** (have already) **приобрел** (acquired) ценные знания и навыки, которые **помогут** (will help) тебе в твоем путешествии\". Алекс **слушал** (listened) внимательно и **запоминал** (remembered) ее слова.\n\n**Раздел 4: Вызовы и возможности**\nКогда Алекс **продолжал** (continued) свое путешествие, он **сталкивался** (encountered) с разными вызовами, такими как навигация в незнакомых мирах и адаптация к новым культурам. Но он **также** (also) **открывал** (discovered) новые возможности и **встречал** (met) интересных людей, которые **помогали** (helped) ему на его пути. Алекс **осознал** (realized), что путешествие между параллельными мирами **было** (was) не только приключением, но и возможностью **учиться** (learn) и **расти** (grow).\n\n**Раздел 5: Возвращение домой**\nПосле многих приключений Алекс **решил** (decided) вернуться в свой собственный мир. Он **вспомнил** (recalled) все, что **узнал** (had learned), и **понял** (understood), что его путешествие **изменило** (had changed) его навсегда. Алекс **вернулся** (returned) домой, **готовый** (ready) поделиться своими опытами и **помочь** (help) другим, кто **хочет** (wants) **исследовать** (explore) параллельные миры.",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.211581702,
+    "prompt_tokens": 367,
+    "prompt_time": 0.034146925,
+    "completion_tokens": 935,
+    "completion_time": 2.879530972,
+    "total_tokens": 1302,
+    "total_time": 2.913677897
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T15:30:14.123Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T15:30:14.123Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Предложи 10 интересных и разнообразных тем для создания обучающих историй на английском языке для изучения времен глаголов.\n\nТемы должны быть:\n- Увлекательными и современными\n- Подходящими для разных возрастов (подростки и взрослые)\n- Разнообразными по жанрам (приключения, фантастика, детектив, повседневная жизнь, история, будущее)\n- Способствующими использованию разных времен глаголов\n\nФормат: простой список тем, каждая тема в одну строку.\n\nПример:\n- Путешествие во времени в Древний Рим\n- Расследование киберпреступления\n- Первый день на работе в космической станции",
+  "inputText": "Предложи темы для историй",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T15:30:14.123Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "- Создание тайного общества в современном городе\n- Путешествие на Марс и основание первой человеческой колонии\n- Расследование загадочного исчезновения в небольшом городке\n- Жизнь в мире, где время можно менять и регулировать\n- Восхождение на высшую вершину мира и преодоление трудностей\n- Жизнь в параллельных мирах и путешествие между ними\n- Создание революционного изобретения, которое изменит мир\n- Работа в команде спасателей во время стихийных бедствий\n- Путешествие с группой друзей по странам мира и изучение их культур\n- Жизнь в будущем, где искусственный интеллект управляет миром",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.212680263,
+    "prompt_tokens": 219,
+    "prompt_time": 0.024106203,
+    "completion_tokens": 182,
+    "completion_time": 0.707206885,
+    "total_tokens": 401,
+    "total_time": 0.731313088
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T15:30:00.175Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T15:30:00.175Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T15:30:00.175Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T15:29:43.721Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T15:29:43.721Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T15:29:43.721Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T15:29:39.509Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T15:29:39.509Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T15:29:39.509Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T15:29:13.032Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T15:29:13.032Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T15:29:13.032Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T15:29:05.920Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T15:29:05.920Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T15:29:05.920Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
 Log Entry: 2025-08-02T10:09:27.275Z
 ================================================================================
 

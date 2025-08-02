@@ -1,9 +1,10 @@
 {
   "server": {
     "url": "http://localhost:3002",
-    "defaultModel_2": "deepseek/deepseek-r1:free",
+    "defaultModel_4": "deepseek/deepseek-r1:free",
     "defaultModel_3": "deepseek/deepseek-r1-distill-llama-70b:free",
-    "defaultModel": "google/gemma-3-27b-it:free"
+    "defaultModel_2": "google/gemma-3-27b-it:free",
+    "defaultModel": "llama-3.3-70b-versatile"
   },
   "prompts": {
     "storyGeneration": {

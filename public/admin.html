@@ -18,6 +18,27 @@
             </div>
         </div>
 
+        <!-- AI Model Configuration Section -->
+        <div id="ai-config-section" class="admin-section">
+            <h2>⚙️ Настройки AI</h2>
+            <div class="ai-config-content">
+                <div class="form-group">
+                    <label for="ai-model-select">Текущая модель AI:</label>
+                    <div class="model-selection">
+                        <select id="ai-model-select" disabled>
+                            <option value="">Загрузка моделей...</option>
+                        </select>
+                        <button id="save-ai-model" class="btn btn-success" disabled>💾 Сохранить модель</button>
+                        <button id="refresh-models" class="btn btn-secondary">🔄 Обновить список</button>
+                    </div>
+                </div>
+                <div id="ai-status" class="ai-status">
+                    <span class="status-indicator loading">🔄</span>
+                    <span class="status-text">Проверка соединения с AI сервером...</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Story List Section -->
         <div id="story-list-section" class="admin-section">
             <h2>Существующие истории</h2>

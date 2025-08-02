@@ -485,6 +485,33 @@ app.post('/api/ai/config', express.json(), async (req, res) => {
   }
 });
 
+// Update AI model
+app.post('/api/ai/model', express.json(), async (req, res) => {
+  try {
+    const { model } = req.body;
+    
+    if (!model) {
+      return res.status(400).json({ error: 'Model name is required' });
+    }
+    
+    // Update model in config
+    aiConfig.server.defaultModel = model;
+    
+    // Save to file
+    await fs.writeFile('./ai-config.json', JSON.stringify(aiConfig, null, 2));
+    
+    console.log(`AI model updated to: ${model}`);
+    
+    res.json({ 
+      message: 'AI model updated successfully',
+      model: aiConfig.server.defaultModel 
+    });
+  } catch (error) {
+    console.error('Error updating AI model:', error);
+    res.status(500).json({ error: 'Failed to update AI model' });
+  }
+});
+
 // Update just timeout configuration
 app.post('/api/ai/timeouts', express.json(), async (req, res) => {
   try {

@@ -1,5 +1,5 @@
 ---
-title: "The Princess and the Dragon's Journey"
+title: "+The Princess and the Dragon's Journey"
 description: "Увлекательная история о принцессе Эларе и дружелюбном драконе Игнисе, отправляющихся в удивительное путешествие."
 level: "intermediate"
 ---

@@ -54,6 +54,16 @@
     transform: translateY(-1px);
 }
 
+.btn-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    transform: translateY(-1px);
+}
+
 /* Admin Header */
 .admin-header {
     display: flex;
@@ -494,4 +504,103 @@
     display: inline-block;
     animation: spin 2s linear infinite;
     margin-right: 10px;
+}
+
+/* AI Configuration Section */
+#ai-config-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+#ai-config-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.ai-config-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.model-selection {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#ai-model-select {
+    min-width: 300px;
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: white;
+    transition: border-color 0.3s ease;
+}
+
+#ai-model-select:focus {
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#ai-model-select:disabled {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+.ai-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.status-indicator {
+    font-size: 16px;
+    display: inline-block;
+}
+
+.status-indicator.loading {
+    animation: rotate 1s linear infinite;
+}
+
+.status-indicator.connected {
+    color: #28a745;
+}
+
+.status-indicator.disconnected {
+    color: #dc3545;
+}
+
+.status-text {
+    font-size: 14px;
+    color: #495057;
+    font-weight: 500;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments for AI config */
+@media (max-width: 768px) {
+    .model-selection {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #ai-model-select {
+        min-width: unset;
+        width: 100%;
+    }
 } 
