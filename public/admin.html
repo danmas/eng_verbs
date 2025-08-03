@@ -86,9 +86,48 @@
                     </div>
                 </div>
 
-                <!-- Text Editor -->
-                <div class="text-editor-section">
-                    <h3>Текст истории</h3>
+                <!-- Editor Mode Toggle -->
+                <div class="editor-mode-section">
+                    <h3>Режим редактирования</h3>
+                    <div class="mode-toggle">
+                        <button type="button" id="md-mode-btn" class="mode-btn active">📝 Markdown (простой)</button>
+                        <button type="button" id="visual-mode-btn" class="mode-btn">🎨 Визуальный (старый)</button>
+                    </div>
+                </div>
+
+                <!-- Markdown Editor -->
+                <div id="md-editor-section" class="md-editor-section">
+                    <h3>Markdown редактор</h3>
+                    <div class="md-toolbar">
+                        <button type="button" class="md-tool-btn" data-action="add-md-section">📋 Раздел</button>
+                        <button type="button" class="md-tool-btn" data-action="add-md-verb">🔤 Глагол</button>
+                        <button type="button" class="md-tool-btn" data-action="toggle-fullscreen">🔍 Полный экран</button>
+                        <button type="button" class="md-tool-btn" data-action="md-help">❓ Помощь</button>
+                    </div>
+                    <div class="md-editor-container">
+                        <div class="md-input-panel">
+                            <h4>Markdown код:</h4>
+                            <textarea id="md-editor" class="md-editor-textarea" placeholder="---
+title: &quot;Название истории&quot;
+description: &quot;Описание на русском&quot;
+level: &quot;intermediate&quot;
+---
+
+## Первый раздел
+This is a story about someone who [&quot;walked&quot;, &quot;walks&quot;, &quot;will walk&quot;] to the market.
+
+{checkSection(1), &quot;Проверить этот раздел&quot;}"></textarea>
+                        </div>
+                        <div class="md-preview-panel">
+                            <h4>Предпросмотр:</h4>
+                            <div id="md-preview" class="md-preview"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Editor (Legacy) -->
+                <div id="visual-editor-section" class="text-editor-section" style="display: none;">
+                    <h3>Визуальный редактор (устаревший)</h3>
                     <div class="editor-toolbar">
                         <button type="button" class="tool-btn" data-action="add-heading">📋 Заголовок</button>
                         <button type="button" class="tool-btn" data-action="add-paragraph">📝 Параграф</button>

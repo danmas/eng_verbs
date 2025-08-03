@@ -1,5 +1,5 @@
 ---
-title: "+The Princess and the Dragon's Journey"
+title: "The Princess and the Dragon's Journey"
 description: "Увлекательная история о принцессе Эларе и дружелюбном драконе Игнисе, отправляющихся в удивительное путешествие."
 level: "intermediate"
 ---
@@ -32,17 +32,27 @@ Elara ["laughed", "laughs", "will laugh", "has laughed", "had laughed", "will ha
 That night, they ["rested", "rest", "will rest", "have rested", "had rested", "will have rested"] under a sky full of shimmering stars.
 {checkSection(3), "Проверить этот раздел"}
 
+## The Magical Creatures
+As they ["slept", "sleep", "will sleep", "have slept", "had slept", "will have slept"], tiny fairy-like creatures ["approached", "approach", "will approach", "have approached", "had approached", "will have approached"] their camp. These beings ["glowed", "glow", "will glow", "have glowed", "had glowed", "will have glowed"] with soft blue light.
+
+"Welcome, travelers," the leader ["whispered", "whispers", "will whisper", "has whispered", "had whispered", "will have whispered"]. "We ["protect", "protected", "will protect", "have protected", "had protected", "will have protected"] these islands for centuries."
+
+Elara ["woke", "wakes", "will wake", "has woken", "had woken", "will have woken"] to see the gentle creatures dancing around them. "They're beautiful!" she ["gasped", "gasps", "will gasp", "has gasped", "had gasped", "will have gasped"].
+
+The fairy leader ["smiled", "smiles", "will smile", "has smiled", "had smiled", "will have smiled"] and ["gave", "gives", "will give", "has given", "had given", "will have given"] her a small crystal. "This ["will guide", "guides", "has guided", "had guided", "guided", "will have guided"] you through any storm."
+{checkSection(4), "Проверить этот раздел"}
+
 ## A Challenge Arises
 The next morning, a storm ["gathered", "gathers", "will gather", "has gathered", "had gathered", "will have gathered"] on the horizon. The wind ["howled", "howls", "will howl", "has howled", "had howled", "will have howled"], and the sky ["darkened", "darkens", "will darken", "has darkened", "had darkened", "will have darkened"].
 
 "We ["needed", "need", "will need", "have needed", "had needed", "will have needed"] to leave quickly," Ignis ["warned", "warns", "will warn", "has warned", "had warned", "will have warned"].
 
-But as they ["prepared", "prepare", "will prepare", "have prepared", "had prepared", "will have prepared"] to depart, a great gust of wind ["swept", "sweeps", "will sweep", "has swept", "had swept", "will have swept"] Elara from Ignis's back!
+But as they ["prepared", "prepare", "will prepare", "have prepared", "had prepared", "will have prepared"] to depart, a great gust of wind ["swept", "sweeps", "will sweep", "has swept", "had swept", "will have swept"] Elara from Ignis's back! The magical crystal ["glowed", "glows", "will glow", "has glowed", "had glowed", "will have glowed"] brightly in her hand.
 
 She ["fell", "falls", "will fall", "has fallen", "had fallen", "will have fallen"] toward the sea below.
 
 "Ignis!" she ["cried", "cries", "will cry", "has cried", "had cried", "will have cried"].
-{checkSection(4), "Проверить этот раздел"}
+{checkSection(5), "Проверить этот раздел"}
 
 ## The Rescue
 Ignis ["dived", "dives", "will dive", "has dived", "had dived", "will have dived"] with all his speed. His wings ["beat", "beats", "will beat", "have beaten", "had beaten", "will have beaten"] hard against the stormy air.
@@ -52,7 +62,7 @@ Just before Elara ["hit", "hits", "will hit", "has hit", "had hit", "will have h
 "You ["saved", "save", "will save", "have saved", "had saved", "will have saved"] me!" she ["whispered", "whispers", "will whisper", "has whispered", "had whispered", "will have whispered"], holding tight to his scales.
 
 "We ["must find", "had to find", "will have to find"] shelter," he ["said", "says", "will say", "has said", "had said", "will have said"].
-{checkSection(5), "Проверить этот раздел"}
+{checkSection(6), "Проверить этот раздел"}
 
 ## A New Destination
 Once the storm ["passed", "passes", "will pass", "has passed", "had passed", "will have passed"], they ["set", "set", "will set", "have set", "had set", "will have set"] their course toward new lands.
@@ -60,4 +70,4 @@ Once the storm ["passed", "passes", "will pass", "has passed", "had passed", "wi
 Elara ["realized", "realizes", "will realize", "has realized", "had realized", "will have realized"] that no matter what dangers they ["faced", "face", "will face", "have faced", "had faced", "will have faced"], she ["trusted", "trusts", "will trust", "has trusted", "had trusted", "will have trusted"] her dragon friend.
 
 And so, they ["continued", "continue", "will continue", "have continued", "had continued", "will have continued"] their journey together, seeking new wonders, knowing that the greatest adventure ["was", "is", "will be", "has been", "had been", "will have been"] the friendship they ["shared", "share", "will share", "have shared", "had shared", "will have shared"].
-{checkSection(6), "Проверить этот раздел"}
+{checkSection(7), "Проверить этот раздел"}

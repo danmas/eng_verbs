@@ -63,6 +63,16 @@ function parseMdStory(mdContent, storyId) {
     let sectionNumber = 1;
     let processedContent = content;
 
+    // First, determine section positions before any replacements
+    const sectionPositions = [];
+    const sectionMatches = [...processedContent.matchAll(/##\s[^\n]+/g)];
+    sectionMatches.forEach((match, index) => {
+        sectionPositions.push({
+            start: match.index,
+            section: index + 1
+        });
+    });
+
     // Find all verb arrays like ["lived", "lives", "will live", ...]
     const verbMatches = [...processedContent.matchAll(/\["([^"]+)"(?:,\s*"([^"]+)")*\]/g)];
     const verbKeys = new Set();
@@ -92,10 +102,14 @@ function parseMdStory(mdContent, storyId) {
             // Shuffle the verb forms to randomize correct answer position
             const shuffledForms = shuffleArray(verbForms);
 
-            // Determine section number based on position in text
-            const beforeMatch = processedContent.substring(0, match.index);
-            const sectionCount = (beforeMatch.match(/##\s/g) || []).length;
-            const currentSection = Math.max(1, sectionCount);
+            // Determine section number based on verb position and pre-calculated section positions
+            let currentSection = 1;
+            for (let i = sectionPositions.length - 1; i >= 0; i--) {
+                if (match.index >= sectionPositions[i].start) {
+                    currentSection = sectionPositions[i].section;
+                    break;
+                }
+            }
 
             // Add to verbData with shuffled forms
             story.verbData[uniqueKey] = {
@@ -111,14 +125,40 @@ function parseMdStory(mdContent, storyId) {
         }
     });
 
-    // Process section buttons {checkSection(1), "Проверить этот раздел"}
+    // Remove any manual section buttons (legacy support)
     processedContent = processedContent.replace(
         /\{checkSection\((\d+)\),?\s*"([^"]+)"\}/g,
-        '<div class="check-section"><button class="section-check-btn" onclick="checkSection($1)">$2</button><div class="section-score" id="section-score-$1"></div></div>'
+        ''
     );
 
-    // Convert ## headers to HTML h2
-    processedContent = processedContent.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    // Auto-add check buttons after each section
+    // Split by sections and add button after each
+    let sectionCounter = 0;
+    processedContent = processedContent.replace(/^## (.+)$/gm, (match, title) => {
+        sectionCounter++;
+        return `<h2>${title}</h2>`;
+    });
+    
+    // Add buttons after each section content (before next section or at end)
+    const sections = processedContent.split(/(<h2>.*?<\/h2>)/);
+    let rebuiltContent = '';
+    let currentSectionNum = 0;
+    
+    for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        rebuiltContent += section;
+        
+        // If this is a header, increment section number
+        if (section.match(/<h2>.*<\/h2>/)) {
+            currentSectionNum++;
+        }
+        // If this is content after a header, add check button
+        else if (section.trim() && currentSectionNum > 0) {
+            rebuiltContent += `\n\n<div class="check-section"><button class="section-check-btn" onclick="checkSection(${currentSectionNum})">✅ Проверить раздел ${currentSectionNum}</button><div class="section-score" id="section-score-${currentSectionNum}"></div></div>\n\n`;
+        }
+    }
+    
+    processedContent = rebuiltContent;
 
     // Convert newlines to paragraphs for better formatting
     const paragraphs = processedContent.split('\n\n').filter(p => p.trim());
@@ -227,6 +267,60 @@ app.post('/api/admin/save-story', express.json(), async (req, res) => {
   } catch (error) {
     console.error('Error saving story:', error);
     res.status(500).json({ error: 'Failed to save story' });
+  }
+});
+
+// Save MD story
+app.post('/api/admin/save-md-story', express.json(), async (req, res) => {
+  const { content } = req.body;
+  
+  if (!content || !content.trim()) {
+    return res.status(400).json({ 
+      success: false, 
+      error: 'Content is required' 
+    });
+  }
+  
+  try {
+    // Parse MD content to validate and extract metadata
+    const parsedStory = parseMdStory(content, null);
+    
+    // Generate unique story ID  
+    const storyId = generateStoryId('manual-story');
+    
+    // Add ID to YAML front matter if missing
+    let contentWithId = content;
+    if (content.startsWith('---') && !content.includes('id:')) {
+      contentWithId = content.replace(/^(---\n)([\s\S]*?)(---\n)/m, (match, start, yamlContent, end) => {
+        return `${start}id: "${storyId}"\n${yamlContent}${end}`;
+      });
+    }
+    
+    // Save MD content to file
+    const storyPath = path.join(__dirname, 'public', 'texts', `${storyId}.md`);
+    await fs.writeFile(storyPath, contentWithId);
+    
+    console.log(`MD story saved: ${storyId}`);
+    
+    res.json({ 
+      success: true,
+      story: {
+        id: storyId,
+        title: parsedStory.title,
+        description: parsedStory.description,
+        level: parsedStory.level,
+        verbCount: parsedStory.verbCount
+      },
+      message: 'MD story saved successfully'
+    });
+    
+  } catch (error) {
+    console.error('Error saving MD story:', error);
+    res.status(500).json({ 
+      success: false,
+      error: 'Failed to save MD story',
+      details: error.message
+    });
   }
 });
 
@@ -565,15 +659,23 @@ app.post('/api/ai/generate-story-md', express.json(), async (req, res) => {
       
       // Try to parse and save the generated MD story
       try {
-        const mdContent = response.data.content;
+        let mdContent = response.data.content;
         
         // Generate a unique story ID
-        const storyId = generateStoryId(`${topic}-md`);
+        const storyId = generateStoryId(topic);
+        
+        // Add ID to YAML front matter if missing
+        if (mdContent.startsWith('---') && !mdContent.includes('id:')) {
+          mdContent = mdContent.replace(/^(---\n)([\s\S]*?)(---\n)/m, (match, start, yamlContent, end) => {
+            return `${start}id: "${storyId}"\n${yamlContent}${end}`;
+          });
+        }
+        
         const mdPath = path.join(__dirname, 'public', 'texts', `${storyId}.md`);
         
         // Save MD file
         await fs.writeFile(mdPath, mdContent, 'utf-8');
-        console.log(`MD story saved to ${mdPath}`);
+        console.log(`MD story saved to ${mdPath} with ID: ${storyId}`);
         
         // Parse it to get full story data for response
         const parsedStory = parseMdStory(mdContent, storyId);
@@ -730,19 +832,44 @@ Finally, through determination and clever thinking, the character finds a soluti
 
 // Check section with AI
 app.post('/api/ai/check-section', express.json(), async (req, res) => {
-  const { sectionText, userAnswers, correctAnswers } = req.body;
+  const { sectionText, userAnswers, correctAnswers, storyId, sectionNumber, sectionTitle } = req.body;
   
   try {
     console.log('Checking section with AI...');
+    console.log('Request data:', { sectionText: sectionText?.length, userAnswers, correctAnswers, storyId, sectionNumber, sectionTitle });
+    
+    // Calculate score and prepare data for prompt
+    const score = Object.keys(userAnswers).filter(verbId => 
+      userAnswers[verbId] === correctAnswers[verbId]
+    ).length;
+    const total = Object.keys(correctAnswers).length;
+    
+    // Prepare error details
+    const errorDetails = [];
+    Object.keys(userAnswers).forEach(verbId => {
+      if (userAnswers[verbId] !== correctAnswers[verbId]) {
+        errorDetails.push({
+          verbId,
+          userChoice: userAnswers[verbId],
+          correctAnswer: correctAnswers[verbId]
+        });
+      }
+    });
+    
     let promptTemplate = await getPrompt('sectionCheck');
-    let prompt = promptTemplate.replace('{sectionText}', sectionText);
-    prompt = prompt.replace('{userAnswers}', JSON.stringify(userAnswers));
-    prompt = prompt.replace('{correctAnswers}', JSON.stringify(correctAnswers));
+    let prompt = promptTemplate
+      .replace('{score}', score)
+      .replace('{total}', total)
+      .replace('{correctAnswers}', JSON.stringify(Object.keys(userAnswers).filter(verbId => userAnswers[verbId] === correctAnswers[verbId])))
+      .replace('{incorrectAnswers}', JSON.stringify(errorDetails))
+      .replace('{errorDetails}', JSON.stringify(errorDetails, null, 2))
+      .replace('{sectionTitle}', sectionTitle || `Раздел ${sectionNumber}`)
+      .replace('{timestamp}', new Date().toISOString());
     
     const payload = {
         model: aiConfig.server.defaultModel,
         prompt: prompt,
-        inputText: 'Проверь правильность использования времен глаголов',
+        inputText: `Проанализируй результаты ученика: ${score}/${total} правильных ответов`,
         saveResponse: false
     };
 
@@ -757,9 +884,21 @@ app.post('/api/ai/check-section', express.json(), async (req, res) => {
       console.log('AI section check completed successfully');
       const feedback = response.data.content;
       
+      // Save explanation as MD file
+      try {
+        const explanationId = `${storyId}-section-${sectionNumber}-${Date.now()}`;
+        const explanationPath = path.join(explanationsDir, `${explanationId}.md`);
+        await fs.writeFile(explanationPath, feedback, 'utf8');
+        console.log(`MD explanation saved to ${explanationPath}`);
+      } catch (saveError) {
+        console.error('Error saving MD explanation:', saveError);
+      }
+      
       res.json({
         success: true,
-        feedback: feedback
+        feedback: feedback,
+        score: score,
+        total: total
       });
     } else {
       console.error('AI section check failed:', response.data);
@@ -1040,11 +1179,23 @@ app.post('/api/ai/process-story', express.json(), async (req, res) => {
 
 // Helper function to generate story ID
 function generateStoryId(title) {
-  return title
+  let cleanTitle = title
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, '')
     .replace(/\s+/g, '-')
-    .substring(0, 50) + '-ai-' + Date.now().toString().slice(-6);
+    .substring(0, 30);
+    
+  // Remove leading/trailing dashes and ensure it's not empty
+  cleanTitle = cleanTitle.replace(/^-+|-+$/g, '');
+  if (!cleanTitle || cleanTitle.length < 3) {
+    cleanTitle = 'ai-story';
+  }
+  
+  // Add timestamp suffix
+  const timestamp = Date.now().toString().slice(-6);
+  const randomId = Math.floor(Math.random() * 1000);
+  
+  return `${cleanTitle}-ai-${timestamp}-${randomId}`;
 }
 
 // Convert AI story format to our format

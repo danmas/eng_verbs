@@ -22,7 +22,7 @@ function setupEventListeners() {
     document.getElementById('back-to-list').addEventListener('click', showStoryList);
     
     // Editor actions
-    document.getElementById('save-story').addEventListener('click', saveStory);
+    document.getElementById('save-story').addEventListener('click', handleSaveStory);
     document.getElementById('preview-story').addEventListener('click', previewStory);
     
     // Modal actions
@@ -43,6 +43,9 @@ function setupEventListeners() {
     document.getElementById('save-ai-model').addEventListener('click', saveAIModel);
     document.getElementById('refresh-models').addEventListener('click', loadAIModels);
     document.getElementById('ai-model-select').addEventListener('change', onModelSelectionChange);
+    
+    // MD Editor events
+    setupMDEditor();
 }
 
 // Load existing stories
@@ -735,5 +738,381 @@ function updateAIStatus(message, status = 'loading') {
             break;
         default:
             statusIndicator.textContent = '🔄';
+    }
+}
+
+// MD Editor Functions
+function setupMDEditor() {
+    const mdModeBtn = document.getElementById('md-mode-btn');
+    const visualModeBtn = document.getElementById('visual-mode-btn');
+    const mdSection = document.getElementById('md-editor-section');
+    const visualSection = document.getElementById('visual-editor-section');
+    const mdEditor = document.getElementById('md-editor');
+    const mdPreview = document.getElementById('md-preview');
+    
+    // Mode switching
+    mdModeBtn.addEventListener('click', () => switchToMDMode());
+    visualModeBtn.addEventListener('click', () => switchToVisualMode());
+    
+    // MD Editor input
+    mdEditor.addEventListener('input', updateMDPreview);
+    
+    // MD Toolbar buttons
+    document.querySelectorAll('.md-tool-btn').forEach(btn => {
+        btn.addEventListener('click', handleMDToolbar);
+    });
+    
+    // Initialize with MD mode
+    switchToMDMode();
+    updateMDPreview();
+}
+
+function switchToMDMode() {
+    const mdModeBtn = document.getElementById('md-mode-btn');
+    const visualModeBtn = document.getElementById('visual-mode-btn');
+    const mdSection = document.getElementById('md-editor-section');
+    const visualSection = document.getElementById('visual-editor-section');
+    
+    mdModeBtn.classList.add('active');
+    visualModeBtn.classList.remove('active');
+    mdSection.style.display = 'block';
+    visualSection.style.display = 'none';
+}
+
+function switchToVisualMode() {
+    const mdModeBtn = document.getElementById('md-mode-btn');
+    const visualModeBtn = document.getElementById('visual-mode-btn');
+    const mdSection = document.getElementById('md-editor-section');
+    const visualSection = document.getElementById('visual-editor-section');
+    
+    mdModeBtn.classList.remove('active');
+    visualModeBtn.classList.add('active');
+    mdSection.style.display = 'none';
+    visualSection.style.display = 'block';
+}
+
+function updateMDPreview() {
+    const mdEditor = document.getElementById('md-editor');
+    const mdPreview = document.getElementById('md-preview');
+    const content = mdEditor.value;
+    
+    if (!content.trim()) {
+        mdPreview.innerHTML = '<p style="color: #95a5a6; font-style: italic;">Введите Markdown код слева для предпросмотра...</p>';
+        return;
+    }
+    
+    try {
+        const parsed = parseMDContent(content);
+        mdPreview.innerHTML = parsed;
+    } catch (error) {
+        mdPreview.innerHTML = `<div style="color: #e74c3c; background: #fadbd8; padding: 15px; border-radius: 5px;">
+            <strong>Ошибка парсинга:</strong><br>${error.message}
+        </div>`;
+    }
+}
+
+function parseMDContent(content) {
+    let html = '';
+    
+    // Parse YAML front matter
+    const yamlMatch = content.match(/^---\n([\s\S]*?)\n---\n/);
+    if (yamlMatch) {
+        const yamlContent = yamlMatch[1];
+        const yamlLines = yamlContent.split('\n').filter(line => line.trim());
+        
+        html += '<div class="yaml-info">';
+        html += '<strong>📋 Метаданные истории:</strong><br>';
+        yamlLines.forEach(line => {
+            if (line.includes(':')) {
+                const [key, value] = line.split(':').map(s => s.trim());
+                html += `<strong>${key}:</strong> ${value.replace(/['"]/g, '')}<br>`;
+            }
+        });
+        html += '</div>';
+        
+        // Remove YAML from content
+        content = content.replace(yamlMatch[0], '');
+    }
+    
+    // Split into lines and process
+    const lines = content.split('\n');
+    let inParagraph = false;
+    
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        
+        if (!line) {
+            if (inParagraph) {
+                html += '</p>';
+                inParagraph = false;
+            }
+            continue;
+        }
+        
+        // Headers
+        if (line.startsWith('## ')) {
+            if (inParagraph) {
+                html += '</p>';
+                inParagraph = false;
+            }
+            html += `<h2>${line.substring(3)}</h2>`;
+            continue;
+        }
+        
+        // Skip legacy check section buttons - they'll be auto-generated
+        if (line.match(/\{checkSection\(\d+\),\s*"[^"]+"\}/)) {
+            continue;
+        }
+        
+        // Regular text with verbs
+        if (!inParagraph) {
+            html += '<p>';
+            inParagraph = true;
+        }
+        
+        // Process verbs in brackets
+        let processedLine = line.replace(/\["([^"]+)"(?:,\s*"([^"]*)")*\]/g, (match) => {
+            const verbArray = JSON.parse(match);
+            const correctVerb = verbArray[0];
+            return `<span class="verb" title="Правильный ответ: ${correctVerb}">${correctVerb}</span>`;
+        });
+        
+        html += processedLine + ' ';
+    }
+    
+    if (inParagraph) {
+        html += '</p>';
+    }
+    
+    // Auto-add check buttons after each section
+    html = addAutoCheckButtons(html);
+    
+    return html;
+}
+
+function addAutoCheckButtons(html) {
+    // Split by h2 headers and add buttons after each section
+    const sections = html.split(/(<h2>.*?<\/h2>)/);
+    let result = '';
+    let sectionNum = 0;
+    
+    for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        result += section;
+        
+        // If this is a header, increment section number  
+        if (section.match(/<h2>.*<\/h2>/)) {
+            sectionNum++;
+        }
+        // If this is content after a header and not empty, add button
+        else if (section.trim() && sectionNum > 0 && !section.match(/<h2>/)) {
+            result += `<button class="check-btn" onclick="alert('Проверка раздела ${sectionNum}')">✅ Проверить раздел ${sectionNum}</button>`;
+        }
+    }
+    
+    return result;
+}
+
+function handleMDToolbar(event) {
+    const action = event.target.dataset.action;
+    const mdEditor = document.getElementById('md-editor');
+    const cursorPos = mdEditor.selectionStart;
+    const text = mdEditor.value;
+    
+    let insertText = '';
+    let newCursorPos = cursorPos;
+    
+    switch (action) {
+        case 'add-md-section':
+            insertText = '\n## Новый раздел\nТекст раздела...\n\n';
+            newCursorPos = cursorPos + insertText.length;
+            break;
+            
+        case 'add-md-verb':
+            insertText = '["правильный", "вариант1", "вариант2", "вариант3"]';
+            newCursorPos = cursorPos + 2; // Position after first quote
+            break;
+            
+        // Removed add-md-check - buttons are now auto-generated
+            
+        case 'md-help':
+            showMDHelp();
+            return;
+            
+        case 'toggle-fullscreen':
+            toggleMDFullscreen();
+            return;
+    }
+    
+    if (insertText) {
+        const newText = text.slice(0, cursorPos) + insertText + text.slice(cursorPos);
+        mdEditor.value = newText;
+        mdEditor.focus();
+        mdEditor.setSelectionRange(newCursorPos, newCursorPos);
+        updateMDPreview();
+    }
+}
+
+function showMDHelp() {
+    const helpContent = `
+        <h3>📝 Справка по Markdown редактору</h3>
+        <h4>Структура файла:</h4>
+        <pre>---
+title: "Название истории"
+description: "Описание на русском"
+level: "beginner" | "intermediate" | "advanced"
+---
+
+## Название раздела
+Текст с глаголами ["правильный", "вариант1", "вариант2"].
+
+## Следующий раздел
+Больше текста с глаголами...</pre>
+        
+        <h4>Синтаксис:</h4>
+        <ul>
+            <li><strong>## Заголовок</strong> - создает новый раздел</li>
+            <li><strong>["verb1", "verb2"]</strong> - массив глаголов (первый правильный)</li>
+            <li><strong>Кнопки проверки</strong> - добавляются автоматически после каждого раздела</li>
+        </ul>
+        
+        <h4>Правила:</h4>
+        <ul>
+            <li>История должна быть на <strong>английском языке</strong></li>
+            <li>Первый глагол в массиве - всегда правильный</li>
+            <li>Минимум 4, максимум 6 вариантов глаголов</li>
+            <li>Кнопки добавляются автоматически - не нужно их прописывать</li>
+        </ul>
+    `;
+    
+    // Create help modal
+    const helpModal = document.createElement('div');
+    helpModal.className = 'modal';
+    helpModal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Помощь</h3>
+                <button class="close-btn" onclick="this.closest('.modal').remove()">&times;</button>
+            </div>
+            <div class="modal-body">
+                ${helpContent}
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(helpModal);
+    
+    // Close on background click
+    helpModal.addEventListener('click', (e) => {
+        if (e.target === helpModal) {
+            helpModal.remove();
+        }
+    });
+}
+
+// Save MD Story function
+async function saveMDStory() {
+    const mdEditor = document.getElementById('md-editor');
+    const content = mdEditor.value.trim();
+    
+    if (!content) {
+        alert('Введите содержимое истории!');
+        return;
+    }
+    
+    try {
+        // Validate MD format
+        parseMDContent(content);
+        
+        const response = await fetch('/api/admin/save-md-story', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ content })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            alert(`✅ История сохранена!\n\n📖 Название: ${result.story.title}\n🆔 ID: ${result.story.id}`);
+            loadExistingStories(); // Refresh story list
+        } else {
+            throw new Error(result.error || 'Failed to save story');
+        }
+        
+    } catch (error) {
+        alert(`❌ Ошибка сохранения: ${error.message}`);
+    }
+}
+
+// Load MD story for editing
+function loadMDStory(storyData) {
+    const mdEditor = document.getElementById('md-editor');
+    
+    // Switch to MD mode
+    switchToMDMode();
+    
+    // Build MD content from story data
+    let mdContent = `---
+title: "${storyData.title}"
+description: "${storyData.description || 'Описание истории'}"
+level: "${storyData.level || 'intermediate'}"
+---
+
+`;
+    
+    // Add sections
+    if (storyData.sections) {
+        storyData.sections.forEach((section, index) => {
+            mdContent += `## ${section.title}\n`;
+            mdContent += `${section.content}\n\n`;
+            mdContent += `{checkSection(${index + 1}), "Проверить этот раздел"}\n\n`;
+        });
+    }
+    
+    mdEditor.value = mdContent;
+    updateMDPreview();
+}
+
+// Handle save story - choose MD or Visual mode
+function handleSaveStory() {
+    const mdSection = document.getElementById('md-editor-section');
+    const isMDMode = mdSection.style.display !== 'none';
+    
+    if (isMDMode) {
+        saveMDStory();
+    } else {
+        saveStory(); // Old visual editor save function
+    }
+}
+
+// Toggle MD editor fullscreen mode
+function toggleMDFullscreen() {
+    const mdSection = document.getElementById('md-editor-section');
+    const fullscreenBtn = document.querySelector('[data-action="toggle-fullscreen"]');
+    
+    if (mdSection.classList.contains('fullscreen')) {
+        // Exit fullscreen
+        mdSection.classList.remove('fullscreen');
+        fullscreenBtn.innerHTML = '🔍 Полный экран';
+        document.body.style.overflow = 'auto';
+    } else {
+        // Enter fullscreen
+        mdSection.classList.add('fullscreen');
+        fullscreenBtn.innerHTML = '🗙 Выйти';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Escape key handler
+    const escapeHandler = (e) => {
+        if (e.key === 'Escape' && mdSection.classList.contains('fullscreen')) {
+            toggleMDFullscreen();
+            document.removeEventListener('keydown', escapeHandler);
+        }
+    };
+    
+    if (mdSection.classList.contains('fullscreen')) {
+        document.addEventListener('keydown', escapeHandler);
     }
 } 

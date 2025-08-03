@@ -574,17 +574,41 @@ function checkSection(sectionNumber) {
 
 // Get section text for AI analysis
 function getSectionText(sectionNumber) {
-    const sectionVerbs = document.querySelectorAll(`[data-section="${sectionNumber}"]`);
-    if (sectionVerbs.length === 0) return '';
+    // Find the section by its number using h2 headers
+    const allHeaders = document.querySelectorAll('h2');
+    let currentHeader = null;
+    let nextHeader = null;
     
-    // Find the text content around these verbs
-    let sectionText = '';
-    sectionVerbs.forEach(verb => {
-        const paragraph = verb.closest('p');
-        if (paragraph && !sectionText.includes(paragraph.textContent)) {
-            sectionText += paragraph.textContent + ' ';
+    // Find current and next headers
+    for (let i = 0; i < allHeaders.length; i++) {
+        const headerNum = i + 1; // Section numbers start from 1
+        if (headerNum === sectionNumber) {
+            currentHeader = allHeaders[i];
+            nextHeader = allHeaders[i + 1] || null;
+            break;
         }
-    });
+    }
+    
+    if (!currentHeader) {
+        console.warn(`Header for section ${sectionNumber} not found`);
+        return '';
+    }
+    
+    // Collect all elements between current header and next header (or end)
+    let sectionText = '';
+    let currentElement = currentHeader.nextElementSibling;
+    
+    while (currentElement && currentElement !== nextHeader) {
+        // Skip check-section divs
+        if (!currentElement.classList.contains('check-section')) {
+            // Get text content but preserve verb selections
+            let elementText = currentElement.textContent || '';
+            if (elementText.trim()) {
+                sectionText += elementText + ' ';
+            }
+        }
+        currentElement = currentElement.nextElementSibling;
+    }
     
     return sectionText.trim();
 }
@@ -613,7 +637,10 @@ async function checkSectionWithAI(event) {
             body: JSON.stringify({
                 sectionText,
                 userAnswers,
-                correctAnswers
+                correctAnswers,
+                storyId,
+                sectionNumber,
+                sectionTitle: getSectionTitle(sectionNumber)
             })
         });
         
@@ -660,25 +687,90 @@ function closeAIFeedbackModal() {
     currentFeedbackData = null; // Clear data on close
 }
 
-// Format AI feedback for better display
+// Format AI feedback for better display (MD format)
 function formatAIFeedback(feedback) {
-    // Basic formatting to make AI feedback more readable
-    let formatted = feedback
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.*?)\*/g, '<em>$1</em>')
-        .replace(/\n\n/g, '</p><p>')
-        .replace(/\n/g, '<br>')
-        .replace(/^/, '<p>')
-        .replace(/$/, '</p>');
+    // Parse MD explanation into sections
+    const sections = parseMDExplanation(feedback);
     
-    // Add some structure for common patterns
-    formatted = formatted
-        .replace(/<p>1\.\s*<strong>Анализ ошибок<\/strong>(.*?)<\/p>/g, '<div class="error-analysis"><h4>📝 Анализ ошибок</h4>$1</div>')
-        .replace(/<p>2\.\s*<strong>Объяснения правил<\/strong>(.*?)<\/p>/g, '<div class="rule-explanation"><h4>📚 Объяснения правил</h4>$1</div>')
-        .replace(/<p>3\.\s*<strong>Исправленный текст<\/strong>(.*?)<\/p>/g, '<div class="corrected-text"><h4>✅ Исправленный текст</h4>$1</div>')
-        .replace(/<p>4\.\s*<strong>Советы для запоминания<\/strong>(.*?)<\/p>/g, '<div class="memory-tips"><h4>💡 Советы для запоминания</h4>$1</div>');
+    if (sections.length >= 4) {
+        // Format as colorful sections
+        let html = '';
+        sections.forEach((section, index) => {
+            const sectionClass = getSectionClass(index);
+            html += `
+                <div class="ai-explanation ${sectionClass}">
+                    <h2>${section.title}</h2>
+                    <div class="ai-explanation-content">
+                        ${section.content}
+                    </div>
+                </div>
+            `;
+        });
+        return html;
+    } else {
+        // Fallback for non-MD format (legacy support)
+        let formatted = feedback
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            .replace(/\n\n/g, '</p><p>')
+            .replace(/\n/g, '<br>')
+            .replace(/^/, '<p>')
+            .replace(/$/, '</p>');
+        
+        return formatted;
+    }
+}
+
+// Parse MD explanation into 4 sections
+function parseMDExplanation(mdContent) {
+    const sections = [];
     
-    return formatted;
+    // Remove YAML front matter if present
+    let content = mdContent.replace(/^---[\s\S]*?---\n/, '');
+    
+    // Split by ## headers
+    const parts = content.split(/^## (.+)$/m);
+    
+    for (let i = 1; i < parts.length; i += 2) {
+        const title = parts[i].trim();
+        const sectionContent = parts[i + 1] ? parts[i + 1].trim()
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            .replace(/\n\n/g, '</p><p>')
+            .replace(/\n/g, '<br>')
+            .replace(/^/, '<p>')
+            .replace(/$/, '</p>') : '';
+        
+        if (title && sectionContent) {
+            sections.push({
+                title: title,
+                content: sectionContent
+            });
+        }
+    }
+    
+    return sections;
+}
+
+// Get section CSS class based on index
+function getSectionClass(index) {
+    const classes = [
+        'explanation-analysis',      // 0 - Анализ ваших ответов
+        'explanation-errors',        // 1 - Разбор ошибок
+        'explanation-grammar',       // 2 - Грамматические правила  
+        'explanation-recommendations' // 3 - Рекомендации для изучения
+    ];
+    return classes[index] || 'explanation-analysis';
+}
+
+// Get section title by section number
+function getSectionTitle(sectionNumber) {
+    if (!currentStory || !currentStory.sections) {
+        return `Раздел ${sectionNumber}`;
+    }
+    
+    const section = currentStory.sections.find(s => s.id == sectionNumber);
+    return section ? section.title : `Раздел ${sectionNumber}`;
 }
 
 // Load AI timeout configuration

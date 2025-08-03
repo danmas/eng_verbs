@@ -1,5 +1,1296 @@
 
 ================================================================================
+Log Entry: 2025-08-03T10:39:08.402Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-03T10:39:08.402Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T10:39:08.402Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-03T10:38:52.163Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-03T10:38:52.163Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T10:38:52.163Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-03T10:36:21.649Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-03T10:36:21.649Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T10:36:21.649Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-03T10:35:42.434Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-03T10:35:42.434Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T10:35:42.434Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-03T10:31:21.092Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-03T10:31:21.092Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T10:31:21.092Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-03T10:25:51.674Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-03T10:25:51.674Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Ты - ИИ-учитель английского языка. Ученик только что проверил раздел истории и выбрал времена глаголов. Проанализируй его ответы и дай подробное объяснение в формате Markdown.\r\n\r\nДАННЫЕ УЧЕНИКА:\r\n- Общий счет: 1 из 9\r\n- Правильные ответы: [\"came\"]\r\n- Неправильные ответы: [{\"verbId\":\"had_changed\",\"userChoice\":\"changed\",\"correctAnswer\":\"had changed\"},{\"verbId\":\"allowed\",\"userChoice\":\"has allowed\",\"correctAnswer\":\"allowed\"},{\"verbId\":\"had_dreamed\",\"userChoice\":\"\",\"correctAnswer\":\"had dreamed\"},{\"verbId\":\"was\",\"userChoice\":\"\",\"correctAnswer\":\"was\"},{\"verbId\":\"asked\",\"userChoice\":\"\",\"correctAnswer\":\"asked\"},{\"verbId\":\"explained\",\"userChoice\":\"\",\"correctAnswer\":\"explained\"},{\"verbId\":\"was_1\",\"userChoice\":\"\",\"correctAnswer\":\"was\"},{\"verbId\":\"logged\",\"userChoice\":\"\",\"correctAnswer\":\"logged\"}]\r\n- Детали ошибок: [\n  {\n    \"verbId\": \"had_changed\",\n    \"userChoice\": \"changed\",\n    \"correctAnswer\": \"had changed\"\n  },\n  {\n    \"verbId\": \"allowed\",\n    \"userChoice\": \"has allowed\",\n    \"correctAnswer\": \"allowed\"\n  },\n  {\n    \"verbId\": \"had_dreamed\",\n    \"userChoice\": \"\",\n    \"correctAnswer\": \"had dreamed\"\n  },\n  {\n    \"verbId\": \"was\",\n    \"userChoice\": \"\",\n    \"correctAnswer\": \"was\"\n  },\n  {\n    \"verbId\": \"asked\",\n    \"userChoice\": \"\",\n    \"correctAnswer\": \"asked\"\n  },\n  {\n    \"verbId\": \"explained\",\n    \"userChoice\": \"\",\n    \"correctAnswer\": \"explained\"\n  },\n  {\n    \"verbId\": \"was_1\",\n    \"userChoice\": \"\",\n    \"correctAnswer\": \"was\"\n  },\n  {\n    \"verbId\": \"logged\",\n    \"userChoice\": \"\",\n    \"correctAnswer\": \"logged\"\n  }\n]\r\n\r\nТРЕБОВАНИЯ К ОТВЕТУ:\r\nСоздай объяснение строго в следующем формате Markdown с 4 разделами:\r\n\r\n```markdown\r\n---\r\ntitle: \"Анализ раздела: Раздел 1\"\r\ntype: \"section-explanation\"\r\nscore: \"{score}/{total}\"\r\ntimestamp: \"2025-08-03T10:25:43.740Z\"\r\n---\r\n\r\n## Анализ ваших ответов\r\n[Общая оценка результатов, что получилось хорошо, процент правильных ответов]\r\n\r\n## Разбор ошибок\r\n[Подробный разбор каждой ошибки, почему правильный ответ именно такой, какие времена были перепутаны]\r\n\r\n## Грамматические правила\r\n[Объяснение грамматических правил для времен, которые встретились в разделе, с примерами]\r\n\r\n## Рекомендации для изучения\r\n[Конкретные советы для улучшения, на что обратить внимание, какие упражнения делать]\r\n```\r\n\r\nВАЖНЫЕ ПРАВИЛА:\r\n- Отвечай только на русском языке\r\n- Используй понятные объяснения\r\n- Приводи конкретные примеры\r\n- Будь конструктивным и мотивирующим\r\n- Если ошибок много, фокусируйся на главных проблемах\r\n- Если ошибок мало или нет, хвали и давай советы для развития\r\n- Обязательно соблюдай структуру из 4 разделов\r\n- Не добавляй лишних разделов или заголовков",
+  "inputText": "Проанализируй результаты ученика: 1/9 правильных ответов",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T10:25:51.674Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "---\ntitle: \"Анализ раздела: Времена глаголов\"\ntype: \"section-explanation\"\nscore: \"1/9\"\ntimestamp: \"2025-08-03T10:25:43.740Z\"\n---\n\n## Анализ ваших ответов\nВаш результат в разделе \"Времена глаголов\" составляет 1 из 9 правильных ответов, что означает, что осталось много работы для улучшения понимания времён. Однако с каждым шагом вы приближаетесь к цели. Процент правильных ответов составляет примерно 11%, что указывает на то, что вам необходимо более глубоко изучить грамматические правила и практиковать их применение.\n\n## Разбор ошибок\nДавайте рассмотрим каждую ошибку подробнее:\n- Для \"had_changed\" ваш выбор был \"changed\", но правильный ответ - \"had changed\". Это связано с использованием прошедшего совершенного времени, которое показывает, что одно действие было завершено до другого действия в прошлом.\n- Для \"allowed\" вы выбрали \"has allowed\", но правильный ответ - \"allowed\". Здесь правильным временем является простое прошедшее время, поскольку действие произошло в прошлом без дополнительных уточнений.\n- В случаях \"had_dreamed\", \"was\", \"asked\", \"explained\", \"was_1\" и \"logged\" вы не предоставили ответа. Это говорит о том, что вам необходимо больше практики в выборе правильных времён глаголов в предложениях.\n \n## Грамматические правила\nВажно понять основные грамматические правила для каждого времени, которое встретилось в разделе:\n- **Прошедшее совершенное время** (had + глагол в форме прошедшего участия) используется для описания действия, которое произошло до другого действия в прошлом. Пример: \"I had eaten before I went to the cinema.\"\n- **Простое прошедшее время** (глагол в форме прошедшего времени) используется для описания действия, которое произошло в определённый момент в прошлом. Пример: \"I went to the park yesterday.\"\n- **Настоящее совершенное время** (has/have + глагол в форме прошедшего участия) используется для описания действия, которое началось в прошлом и продолжается до настоящего момента. Пример: \"I have been studying English for three years.\"\n\n## Рекомендации для изучения\nДля улучшения ваших навыков в использовании времён глаголов рекомендую следующее:\n- Практикуйте перевод предложений из вашего родного языка на английский, используя разные времена.\n- Изучайте грамматические правила и примеры каждого времени, которое встретилось в разделе.\n- Используйте онлайн-ресурсы или упражнения, которые фокусируются на временах глаголов, для более глубокой практики.\n- Регулярно повторяйте пройденный материал, чтобы закрепить знания и избежать забывания.",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.21087411699999997,
+    "prompt_tokens": 833,
+    "prompt_time": 0.067689704,
+    "completion_tokens": 686,
+    "completion_time": 2.043654956,
+    "total_tokens": 1519,
+    "total_time": 2.11134466
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-03T10:25:29.732Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-03T10:25:29.732Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T10:25:29.732Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-03T10:20:40.710Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-03T10:20:40.710Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "**IMPORTANT: Create an engaging educational story in ENGLISH LANGUAGE for learning English verb tenses in Markdown format.**\r\n\r\nTopic: Путешествие на Марс в 2050 году и основание первой человеческой колонии\r\n\r\n## STRUCTURE AND FORMAT:\r\n\r\n### 1. YAML Front Matter (required):\r\n```yaml\r\n---\r\ntitle: \"Story title in English\"\r\ndescription: \"Brief description in Russian (1-2 sentences)\"\r\nlevel: \"beginner\" | \"intermediate\" | \"advanced\"\r\n---\r\n```\r\n\r\n### 2. MAIN TEXT (MUST BE IN ENGLISH):\r\n- Story should consist of 4-6 sections\r\n- Each section starts with heading: `## Section Title in English`\r\n- Each section should contain 3-6 verbs for exercises\r\n- Focus on story content - section check buttons are added automatically\r\n\r\n### 3. VERB ARRAYS FORMAT:\r\nReplace key verbs with arrays in square brackets:\r\n`[\"correct_form\", \"option_2\", \"option_3\", \"option_4\", \"option_5\", \"option_6\"]`\r\n\r\n**VERB RULES:**\r\n- First element = correct form for the context\r\n- Include different tenses: Present Simple, Past Simple, Future Simple, Present Perfect, Past Perfect, Future Perfect\r\n- Add auxiliary verb forms where appropriate\r\n- Minimum 4, maximum 6 options in each array\r\n- Options should be grammatically plausible but incorrect in this context\r\n- ALL VERB OPTIONS MUST BE IN ENGLISH\r\n\r\n## STORY REQUIREMENTS:\r\n- 350-600 words in ENGLISH\r\n- Engaging plot with characters\r\n- Include dialogue for variety\r\n- Logical connection between sections\r\n- Variety of verb tenses\r\n- Appropriate vocabulary for the specified level\r\n- **THE ENTIRE STORY TEXT MUST BE IN ENGLISH LANGUAGE**\r\n- **COMPLETE THE STORY FULLY** - make sure the story has a proper ending\r\n- Focus on creating engaging content for each section\r\n- The story must have a satisfying conclusion\r\n\r\n## ПРИМЕР ФОРМАТА:\r\n\r\n```markdown\r\n---\r\ntitle: \"The Time Machine Adventure\"\r\ndescription: \"История о путешествии во времени и неожиданных открытиях\"\r\nlevel: \"intermediate\"\r\n---\r\n\r\n## The Discovery\r\nDr. Smith [\"found\", \"finds\", \"will find\", \"has found\", \"had found\"] an old machine in his grandfather's attic. The strange device [\"looked\", \"looks\", \"will look\", \"has looked\"] like nothing he [\"saw\", \"sees\", \"will see\", \"has seen\", \"had seen\"] before.\r\n\r\n\"What is this?\" he [\"wondered\", \"wonders\", \"will wonder\", \"has wondered\"], examining the mysterious buttons.\r\n\r\n## The First Journey\r\nWhen he [\"pressed\", \"presses\", \"will press\", \"has pressed\"] the red button, everything [\"changed\", \"changes\", \"will change\", \"has changed\"]. Suddenly, he [\"stood\", \"stands\", \"will stand\", \"has stood\"] in ancient Rome!\r\n\r\nRomans [\"walked\", \"walk\", \"will walk\", \"have walked\"] past him in togas while he [\"tried\", \"tries\", \"will try\", \"has tried\"] to understand what [\"happened\", \"happens\", \"will happen\", \"has happened\"].\r\n```\r\n\r\nCreate a similar story on the topic \"{topic}\". Use rich imagination, create vivid characters and exciting plot twists. Make sure verbs fit naturally into the context and provide meaningful practice of different tenses.\r\n\r\n**CRITICAL REMINDER: \r\n- Write the ENTIRE story in ENGLISH LANGUAGE\r\n- Only the description in YAML front matter should be in Russian\r\n- All text content, headings, dialogue, and narrative must be in English\r\n- All verb options in arrays must be English verbs\r\n- COMPLETE THE ENTIRE STORY - do not leave it unfinished\r\n- Focus on creating engaging narrative content\r\n- Provide a satisfying conclusion to the story**",
+  "inputText": "Создай историю в Markdown формате на тему: Путешествие на Марс в 2050 году и основание первой человеческой колонии",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T10:20:40.710Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "---\ntitle: \"Mars Colonization: A New Home\"\ndescription: \"История о путешествии на Марс и основании первой человеческой колонии\"\nlevel: \"intermediate\"\n---\n\n## Introduction to Mars Colonization\nIn 2050, humanity [\"had\", \"has\", \"will have\", \"was having\", \"is having\"] the technological advancements to embark on a journey to Mars. The spaceship, named Aurora, [\"was\", \"is\", \"will be\", \"had been\", \"has been\"] equipped with state-of-the-art life support systems and [\"carried\", \"carries\", \"will carry\", \"had carried\", \"has carried\"] a crew of six astronauts. Their mission [\"was\", \"is\", \"will be\", \"had been\", \"has been\"] to establish the first human colony on the red planet.\n\n\"I [\"am\", \"is\", \"are\", \"was\", \"will be\"] excited to be a part of this historic mission,\" said Captain Lewis, the leader of the crew, as they [\"prepared\", \"prepare\", \"will prepare\", \"had prepared\", \"have prepared\"] for launch.\n\n## The Journey to Mars\nThe journey to Mars [\"took\", \"takes\", \"will take\", \"had taken\", \"has taken\"] approximately seven months. During this time, the crew [\"conducted\", \"conducts\", \"will conduct\", \"had conducted\", \"has conducted\"] various experiments and [\"maintained\", \"maintain\", \"will maintain\", \"had maintained\", \"has maintained\"] the ship's systems. They [\"also\", \"too\", \"as well\", \"in addition\", \"furthermore\"] [\"exercised\", \"exercise\", \"will exercise\", \"had exercised\", \"have exercised\"] regularly to stay physically fit in the microgravity environment.\n\nAs they [\"approached\", \"approach\", \"will approach\", \"had approached\", \"have approached\"] Mars, the crew [\"began\", \"begins\", \"will begin\", \"had begun\", \"has begun\"] to prepare for landing. The Martian landscape [\"stretched\", \"stretches\", \"will stretch\", \"had stretched\", \"has stretched\"] out before them, with its towering mountains and deep valleys.\n\n## Landing on Mars\nThe landing [\"was\", \"is\", \"will be\", \"had been\", \"has been\"] a tense moment for the crew. The spaceship [\"descended\", \"descends\", \"will descend\", \"had descended\", \"has descended\"] through the Martian atmosphere, and the crew [\"held\", \"holds\", \"will hold\", \"had held\", \"has held\"] their breaths as the landing craft [\"touched\", \"touches\", \"will touch\", \"had touched\", \"has touched\"] down on the planet's surface.\n\n\"We [\"did\", \"do\", \"will do\", \"had done\", \"have done\"] it!\" exclaimed Captain Lewis, as the crew [\"cheered\", \"cheers\", \"will cheer\", \"had cheered\", \"has cheered\"] and [\"hugged\", \"hugs\", \"will hug\", \"had hugged\", \"has hugged\"] each other in celebration.\n\n## Establishing the Colony\nThe crew [\"spent\", \"spends\", \"will spend\", \"had spent\", \"has spent\"] the next few weeks setting up the colony. They [\"inflated\", \"inflates\", \"will inflate\", \"had inflated\", \"has inflated\"] the habitat modules and [\"connected\", \"connects\", \"will connect\", \"had connected\", \"has connected\"] the life support systems. The colony [\"began\", \"begins\", \"will begin\", \"had begun\", \"has begun\"] to take shape, with its own power generation and [\"water\", \"waters\", \"will water\", \"had watered\", \"has watered\"] recycling systems.\n\nAs the colony [\"grew\", \"grows\", \"will grow\", \"had grown\", \"has grown\"], the crew [\"started\", \"starts\", \"will start\", \"had started\", \"has started\"] to conduct research on the Martian environment. They [\"discovered\", \"discovers\", \"will discover\", \"had discovered\", \"has discovered\"] new species of plants and animals, and [\"learned\", \"learns\", \"will learn\", \"had learned\", \"has learned\"] much about the planet's geology and climate.\n\n## A New Home\nThe crew [\"had\", \"has\", \"will have\", \"was having\", \"is having\"] been on Mars for over a year, and the colony [\"was\", \"is\", \"will be\", \"had been\", \"has been\"] thriving. They [\"had\", \"has\", \"will have\", \"was having\", \"is having\"] established a new home, and [\"were\", \"is\", \"will be\", \"had been\", \"has been\"] proud of what they [\"had\", \"has\", \"will have\", \"was having\", \"is having\"] accomplished.\n\nAs they",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.210850488,
+    "prompt_tokens": 892,
+    "prompt_time": 0.072716569,
+    "completion_tokens": 1024,
+    "completion_time": 2.186546503,
+    "total_tokens": 1916,
+    "total_time": 2.259263072
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-03T10:20:24.065Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-03T10:20:24.065Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Предложи 10 интересных и разнообразных тем для создания обучающих историй на английском языке для изучения времен глаголов.\n\nТемы должны быть:\n- Увлекательными и современными\n- Подходящими для разных возрастов (подростки и взрослые)\n- Разнообразными по жанрам (приключения, фантастика, детектив, повседневная жизнь, история, будущее)\n- Способствующими использованию разных времен глаголов\n\nФормат: простой список тем, каждая тема в одну строку.\n\nПример:\n- Путешествие во времени в Древний Рим\n- Расследование киберпреступления\n- Первый день на работе в космической станции",
+  "inputText": "Предложи темы для историй",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T10:20:24.065Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "- Путешествие на Марс в 2050 году и основание первой человеческой колонии\n- Расследование загадочного исчезновения известного художника в Париже 19-го века\n- Повседневная жизнь робота, заменившего человека на рабочем месте в современном офисе\n- Битва между магами в мистическом лесу, где магия зависит от времени года\n- Встреча с инопланетянами, которые прибыли на Землю 100 лет назад, но только сейчас открылись людям\n- Создание времени в лаборатории и его последствия для мира\n- Прошлое, настоящее и будущее знаменитого музыканта, рассказанные через его песни\n- История семьи, которая владеет рестораном и передает семейные рецепты из поколения в поколение\n- Путешествие в параллельный мир, где все произошло по-другому\n- Выход из симулированной реальности и открытие истинного мира в антиутопическом будущем",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.211527725,
+    "prompt_tokens": 219,
+    "prompt_time": 0.026167242,
+    "completion_tokens": 247,
+    "completion_time": 1.005029351,
+    "total_tokens": 466,
+    "total_time": 1.031196593
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-03T10:20:08.397Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-03T10:20:08.397Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T10:20:08.397Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-03T10:18:43.508Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-03T10:18:43.508Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T10:18:43.508Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-03T06:57:48.002Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-03T06:57:48.002Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Ты учитель английского языка. Проверь правильность использования времен глаголов в этом тексте.\n\nТекст раздела:\n\"What is Elyria?\" a curious player Select tensewill askaskshad askedaskedhas asked, and Max Select tensehad explainedhas explainedexplainswill explainexplained that it Select tenseiswashad beenwill behas been a place where dreams Select tensewill comecomehave comecamehad come true.\n\nВыбранные студентом формы глаголов:\n{\"had_changed\":\"was changing\",\"allowed\":\"allowed\",\"had_dreamed\":\"was dreaming\",\"was\":\"was\",\"asked\":\"had asked\",\"explained\":\"explained\",\"was_1\":\"\",\"came\":\"will come\",\"logged\":\"\"}\n\nПравильные ответы:\n{\"had_changed\":\"had changed\",\"allowed\":\"allowed\",\"had_dreamed\":\"had dreamed\",\"was\":\"was\",\"asked\":\"asked\",\"explained\":\"explained\",\"was_1\":\"was\",\"came\":\"came\",\"logged\":\"logged\"}\n\nТвоя задача:\n1. Проанализируй каждый неправильный ответ\n2. Объясни, почему нужно использовать именно эту временную форму\n3. Дай краткие, понятные объяснения грамматических правил\n4. Предложи мнемонические способы запоминания\n5. Покажи исправленный текст в HTML формате с выделенными глаголами\n\nФормат ответа:\n1. **Анализ ошибок** (если есть)\n2. **Объяснения правил**\n3. **Исправленный текст** (HTML с жирным курсивом для глаголов)\n4. **Советы для запоминания**\n\nБудь конструктивным и поощряющим. Если все правильно - похвали студента!",
+  "inputText": "Проверь правильность использования времен глаголов",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T06:57:48.002Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "## 1. Анализ ошибок\nСтудент выбрал следующие формы глаголов: \"had asked\", \"explained\", \"will come\". Однако правильные ответы: \"asked\", \"explained\", \"came\". \n\n- \"had asked\" вместо \"asked\": Это предложение представляет собой общую introduкцию к теме, где вопрос задается в общем смысле, без указания на конкретное время в прошлом. Поэтому используется простое настоящее время \"asked\".\n- \"explained\" правильный выбор, так как действие объяснения происходит в общем смысле, без указания на конкретное время.\n- \"will come\" вместо \"came\": Фраза \"где dreams came true\" означает, что это место, где мечты осуществляются, и используется простое прошедшее время \"came\", чтобы указать на типичное или привычное действие в этом контексте.\n\n## 2. Объяснения правил\n- **Простое настоящее время** (Present Simple) используется для описания общих истин, привычек и регулярных действий. Например: \"He asks questions every day.\"\n- **Простое прошедшее время** (Past Simple) используется для описания завершенных действий в прошлом. Например: \"He came home yesterday.\"\n- **Будущее простое время** (Future Simple) используется для описания будущих планов или действий. Например: \"He will come tomorrow.\"\n\n## 3. Исправленный текст\n<p>Что такое Elyria? <i><b>Спрашивает</b></i> любопытный игрок, и Макс <i><b>объясняет</b></i>, что это место, где <i><b>осуществляются</b></i> мечты.</p>\n\n## 4. Советы для запоминания\n- Чтобы запомнить простое настоящее время, можно использовать мнемоническое правило: \"Я делаю это каждый день\" (I do it every day).\n- Для простого прошедшего времени: \"Вчера я сделал это\" (Yesterday I did it).\n- Для будущего простого времени: \"Завтра я сделаю это\" (Tomorrow I will do it).\n\nПомните, что грамматические времена требуют практики и терпения для освоения. Продолжайте практиковаться, и вы станете более уверенными в использовании правильных времен глаголов!",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.21356466000000002,
+    "prompt_tokens": 422,
+    "prompt_time": 0.038253463,
+    "completion_tokens": 545,
+    "completion_time": 1.7918738749999998,
+    "total_tokens": 967,
+    "total_time": 1.830127338
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-03T06:54:11.113Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-03T06:54:11.113Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-03T06:54:11.113Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T17:31:52.412Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T17:31:52.412Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Ты учитель английского языка. Проверь правильность использования времен глаголов в этом тексте.\n\nТекст раздела:\n\"We Select tenseare havingwill havehadhave hadhave to Select tensedefeathad defeateddefeathave defeatedwill defeat the dragon to Select tensehad savedhave savedsavesavewill save the kingdom!\" a guild leader Select tensewill shoutshoutshas shoutedshoutedhad shouted, as they Select tensehad preparedpreparewill preparehave preparedprepared for battle.\n\nВыбранные студентом формы глаголов:\n{\"encountered\":\"have encountered\",\"tested\":\"had tested\",\"formed\":\"have formed\",\"worked\":\"had worked\",\"overcome\":\"overcome\",\"have\":\"\",\"defeat\":\"\",\"save\":\"\",\"shouted\":\"\",\"prepared\":\"\",\"went\":\"\"}\n\nПравильные ответы:\n{\"encountered\":\"encountered\",\"tested\":\"tested\",\"formed\":\"formed\",\"worked\":\"worked\",\"overcome\":\"overcome\",\"have\":\"have\",\"defeat\":\"defeat\",\"save\":\"save\",\"shouted\":\"shouted\",\"prepared\":\"prepared\",\"went\":\"went\"}\n\nТвоя задача:\n1. Проанализируй каждый неправильный ответ\n2. Объясни, почему нужно использовать именно эту временную форму\n3. Дай краткие, понятные объяснения грамматических правил\n4. Предложи мнемонические способы запоминания\n5. Покажи исправленный текст в HTML формате с выделенными глаголами\n\nФормат ответа:\n1. **Анализ ошибок** (если есть)\n2. **Объяснения правил**\n3. **Исправленный текст** (HTML с жирным курсивом для глаголов)\n4. **Советы для запоминания**\n\nБудь конструктивным и поощряющим. Если все правильно - похвали студента!",
+  "inputText": "Проверь правильность использования времен глаголов",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:31:52.412Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "1. **Анализ ошибок**: \n   - \"have encountered\" должно быть \"encountered\", потому что в данном контексте речь идет о конкретном, однократном действии в прошлом.\n   - \"had tested\" должно быть \"tested\", потому что действие, скорее всего, происходит одновременно с другим действием в прошлом, описанным в предложении.\n   - \"have formed\" должно быть \"formed\", аналогично первому пункту, подразумевается конкретное действие в прошлом.\n   - \"had worked\" должно быть \"worked\", по той же причине, что и предыдущие пункты.\n   - \"overcome\" правильное использование, так как оно соответствует контексту предложения.\n   - \"have\" должно быть использовано в контексте \"we have to\", что является правильным выражением для обязательств или необходимости в настоящем или будущем.\n   - \"defeat\", \"save\" используются как основные формы глаголов после \"to\", что является правильным для выражения цели или намерения.\n   - \"shouted\" должно быть использовано в прошедшем времени простом, так как оно соответствует контексту прошедшего времени в предложении.\n   - \"prepared\" должно быть использовано в прошедшем времени простом, по той же причине, что и \"shouted\".\n   - \"went\" не упоминается в данном тексте, но если бы оно было, то должно было бы соответствовать контексту предложения.\n\n2. **Объяснения правил**:\n   - **Прошедшее простое**: Используется для описания завершенных действий в прошлом. Пример: \"I **went** to the store.\"\n   - **Настоящее простое**: Используется для описания регулярных или постоянных действий. Пример: \"I **go** to the store every day.\"\n   - **Будущее простое**: Используется для описания действий, которые произойдут в будущем. Пример: \"I **will go** to the store tomorrow.\"\n   - **Present Perfect**: Используется для описания действий, начавшихся в прошлом и продолжающихся в настоящем или имеющих отношение к настоящему. Пример: \"I **have gone** to the store.\"\n   - **Past Perfect**: Используется для описания действий,发生ившихся до другого действия в прошлом. Пример: \"I **had gone** to the store before I met you.\"\n\n3. **Исправленный текст**:\n   <p>\"We <b><i>have</i></b> to <b><i>defeat</i></b> the dragon to <b><i>save</i></b> the kingdom!\" a guild leader <b><i>shouted</i></b>, as they <b><i>prepared</i></b> for battle.</p>\n\n4. **Советы для запоминания**:\n   - Для запоминания временных форм глаголов можно использовать мнемонические правила, такие как \"ППП\" (Прошедшее, Present, Будущее) для основных времен.\n   - Создание коротких историй или фраз, в которых используются разные времена, может помочь в запоминании.\n   - Практика, практика, практика! Чем больше вы практикуете использование глагольных времен в контексте, тем лучше вы их запомните.",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.209440998,
+    "prompt_tokens": 441,
+    "prompt_time": 0.040792257,
+    "completion_tokens": 782,
+    "completion_time": 2.144947458,
+    "total_tokens": 1223,
+    "total_time": 2.185739715
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T17:31:37.352Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T17:31:37.352Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Ты учитель английского языка. Проверь правильность использования времен глаголов в этом тексте.\n\nТекст раздела:\n\"We Select tenseare havingwill havehadhave hadhave to Select tensedefeathad defeateddefeathave defeatedwill defeat the dragon to Select tensehad savedhave savedsavesavewill save the kingdom!\" a guild leader Select tensewill shoutshoutshas shoutedshoutedhad shouted, as they Select tensehad preparedpreparewill preparehave preparedprepared for battle.\n\nВыбранные студентом формы глаголов:\n{\"encountered\":\"have encountered\",\"tested\":\"had tested\",\"formed\":\"have formed\",\"worked\":\"had worked\",\"overcome\":\"overcome\",\"have\":\"\",\"defeat\":\"\",\"save\":\"\",\"shouted\":\"\",\"prepared\":\"\",\"went\":\"\"}\n\nПравильные ответы:\n{\"encountered\":\"encountered\",\"tested\":\"tested\",\"formed\":\"formed\",\"worked\":\"worked\",\"overcome\":\"overcome\",\"have\":\"have\",\"defeat\":\"defeat\",\"save\":\"save\",\"shouted\":\"shouted\",\"prepared\":\"prepared\",\"went\":\"went\"}\n\nТвоя задача:\n1. Проанализируй каждый неправильный ответ\n2. Объясни, почему нужно использовать именно эту временную форму\n3. Дай краткие, понятные объяснения грамматических правил\n4. Предложи мнемонические способы запоминания\n5. Покажи исправленный текст в HTML формате с выделенными глаголами\n\nФормат ответа:\n1. **Анализ ошибок** (если есть)\n2. **Объяснения правил**\n3. **Исправленный текст** (HTML с жирным курсивом для глаголов)\n4. **Советы для запоминания**\n\nБудь конструктивным и поощряющим. Если все правильно - похвали студента!",
+  "inputText": "Проверь правильность использования времен глаголов",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 500
+Timestamp: 2025-08-02T17:31:37.352Z
+
+--- Response Body ---
+{
+  "error": "GROQ API Error: 404 {\"error\":{\"message\":\"Not Found\"}}",
+  "details": {
+    "stack": "Error: GROQ API Error: 404 {\"error\":{\"message\":\"Not Found\"}}\n    at GroqService.sendRequest (C:\\ERV\\projects-ex\\aian-model\\groq-service.js:91:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\ERV\\projects-ex\\aian-model\\server.js:510:30"
+  }
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T17:29:34.191Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T17:29:34.191Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Ты учитель английского языка. Проверь правильность использования времен глаголов в этом тексте.\n\nТекст раздела:\n\"What is Elyria?\" a curious player Select tensehas askedwill askaskedaskshad asked, and Max Select tensehad explainedexplainedwill explainhas explainedexplains that it Select tensewaswill behas beenishad been a place where dreams Select tensecamewill comehave comecomehad come true.\n\nВыбранные студентом формы глаголов:\n{\"had_changed\":\"had changed\",\"allowed\":\"will allow\",\"had_dreamed\":\"had dreamed\",\"was\":\"is\",\"asked\":\"will ask\",\"explained\":\"explained\",\"was_1\":\"was\",\"came\":\"will come\",\"logged\":\"\"}\n\nПравильные ответы:\n{\"had_changed\":\"had changed\",\"allowed\":\"allowed\",\"had_dreamed\":\"had dreamed\",\"was\":\"was\",\"asked\":\"asked\",\"explained\":\"explained\",\"was_1\":\"was\",\"came\":\"came\",\"logged\":\"logged\"}\n\nТвоя задача:\n1. Проанализируй каждый неправильный ответ\n2. Объясни, почему нужно использовать именно эту временную форму\n3. Дай краткие, понятные объяснения грамматических правил\n4. Предложи мнемонические способы запоминания\n5. Покажи исправленный текст в HTML формате с выделенными глаголами\n\nФормат ответа:\n1. **Анализ ошибок** (если есть)\n2. **Объяснения правил**\n3. **Исправленный текст** (HTML с жирным курсивом для глаголов)\n4. **Советы для запоминания**\n\nБудь конструктивным и поощряющим. Если все правильно - похвали студента!",
+  "inputText": "Проверь правильность использования времен глаголов",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:29:34.191Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "1. **Анализ ошибок**: \n   - \"a curious player Select tensehas askedwill askaskedaskshad asked\" должно быть \"a curious player **asked**\", потому что это вопрос, который задается в настоящем времени, но относится к прошлому событию, когда был задан вопрос.\n   - \"Max Select tensehad explainedexplainedwill explainhas explainedexplains\" должно быть \"Max **explained**\", потому что это действие также относится к прошлому времени, когда объяснял Max.\n   - \"it Select tensewaswill behas beenishad been\" должно быть \"it **was**\", потому что это описание состояния в прошлом времени.\n   - \"dreams Select tensecamewill comehave comecomehad come\" должно быть \"dreams **came**\", потому что это действие, которое произошло в прошлом времени.\n\n2. **Объяснения правил**:\n   - Для вопросов и ответов в прошлом времени мы используем простое прошедшее время (Past Simple), например, \"asked\" и \"explained\".\n   - Когда описываем состояние или действие в прошлом, мы также используем простое прошедшее время, поэтому правильный выбор для \"was\" и \"came\".\n   - Для запоминания времен можно использовать мнемонические правила, такие как \"Прошлое - Простое прошедшее\" или ассоциировать каждое время с определенной ситуацией, например, \"asked\" - когда задается вопрос в прошлом.\n\n3. **Исправленный текст**:\n   <p>\"What is Elyria?\" a curious player <i>**asked**</i>, and Max <i>**explained**</i> that it <i>**was**</i> a place where dreams <i>**came**</i> true.</p>\n\n4. **Советы для запоминания**:\n   - Попробуйте ассоциировать каждое время с конкретным словом или фразой, которую легко запомнить.\n   - Создайте короткие предложения или истории, где каждое время используется правильно, и повторяйте их несколько раз, чтобы лучше запомнить.\n   - Практикуйте использование времен в предложениях и диалогах, чтобы лучше понять, когда и какое время использовать.",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.212390276,
+    "prompt_tokens": 425,
+    "prompt_time": 0.037981479,
+    "completion_tokens": 504,
+    "completion_time": 1.433374665,
+    "total_tokens": 929,
+    "total_time": 1.471356144
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T17:29:02.527Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T17:29:02.527Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:29:02.527Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T17:21:07.360Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T17:21:07.360Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Ты учитель английского языка. Проверь правильность использования времен глаголов в этом тексте.\n\nТекст раздела:\n\n\nВыбранные студентом формы глаголов:\n{\"came_to_a_close\":\"comes to a close\",\"gave\":\"had given\",\"would\":\"have been able to\",\"thanked\":\"thanks\",\"promised\":\"promises\"}\n\nПравильные ответы:\n{\"came_to_a_close\":\"came to a close\",\"gave\":\"gave\",\"would\":\"would\",\"thanked\":\"thanked\",\"promised\":\"promised\"}\n\nТвоя задача:\n1. Проанализируй каждый неправильный ответ\n2. Объясни, почему нужно использовать именно эту временную форму\n3. Дай краткие, понятные объяснения грамматических правил\n4. Предложи мнемонические способы запоминания\n5. Покажи исправленный текст в HTML формате с выделенными глаголами\n\nФормат ответа:\n1. **Анализ ошибок** (если есть)\n2. **Объяснения правил**\n3. **Исправленный текст** (HTML с жирным курсивом для глаголов)\n4. **Советы для запоминания**\n\nБудь конструктивным и поощряющим. Если все правильно - похвали студента!",
+  "inputText": "Проверь правильность использования времен глаголов",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:21:07.360Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "## 1. Анализ ошибок\nДавайте проанализируем каждый ответ студента и сравним его с правильными ответами:\n- \"comes to a close\" вместо \"came to a close\": Студент использовал неправильную форму времени для глагола \"come\". Правильная форма \"came\" указывает на завершенное действие в прошлом.\n- \"had given\" вместо \"gave\": Студент использовал форму прошедшего совершенного времени, тогда как в данном контексте более подходит простое прошедшее время \"gave\", указывающее на конкретное действие, совершенное в прошлом.\n- \"have been able to\" вместо \"would\": Студент использовал форму условного наклонения неправильно. \"Would\" используется для выражения возможности или потенциального действия в будущем или в гипотетических ситуациях.\n- \"thanks\" вместо \"thanked\": Студент использовал форму настоящего времени вместо прошедшего времени. \"Thanked\" указывает на действие благодарности, совершенное в прошлом.\n- \"promises\" вместо \"promised\": Аналогично предыдущему пункту, студент использовал форму настоящего времени вместо прошедшего времени. \"Promised\" указывает на обещание, данное в прошлом.\n\n## 2. Объяснения правил\n- **Прошедшее простое время** (Past Simple) используется для описания завершенных действий в прошлом, например, \"came\" или \"gave\".\n- **Условное наклонение** (Conditional) выражает условную возможность или потенциальное действие, и \"would\" является частью этого наклонения.\n- **Прошедшее простое время** для глаголов \"thank\" и \"promise\" (\"thanked\" и \"promised\") указывает на конкретные действия благодарности и обещания, совершенные в прошлом.\n\n## 3. Исправленный текст\nИсправленный текст с выделенными глаголами в HTML формате с использованием жирного курсива выглядит следующим образом:\n<p>Когда семестр <i><b>came</b></i> <i><b>to</b></i> <i><b>a</b></i> <i><b>close</b></i>, студент <i><b>gave</b></i> подарок своему учителю. Он <i><b>thanked</b></i> учителя за помощь и <i><b>promised</b></i> посетить его вновь. Студент <i><b>would</b></i> смог окончить курс с отличием.</p>\n\n## 4. Советы для запоминания\n- Для запоминания правильных форм времени можно использовать мнемонические правила, такие как ассоциация \"came\" с завершенным действием в прошлом.\n- Для различия между \"would\" и \"have been able to\" можно вспомнить, что \"would\" используется для выражения потенциальных действий или возможностей, особенно в контексте будущего или условных ситуаций.\n- Повторение глагольных форм и практика их использования в контексте поможет лучше понять и запомнить грамматические правила.",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.211102611,
+    "prompt_tokens": 334,
+    "prompt_time": 0.033741171,
+    "completion_tokens": 731,
+    "completion_time": 2.150342897,
+    "total_tokens": 1065,
+    "total_time": 2.1840840679999998
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T17:20:17.439Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T17:20:17.439Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "**IMPORTANT: Create an engaging educational story in ENGLISH LANGUAGE for learning English verb tenses in Markdown format.**\r\n\r\nTopic: Цветы\r\n\r\n## STRUCTURE AND FORMAT:\r\n\r\n### 1. YAML Front Matter (required):\r\n```yaml\r\n---\r\ntitle: \"Story title in English\"\r\ndescription: \"Brief description in Russian (1-2 sentences)\"\r\nlevel: \"beginner\" | \"intermediate\" | \"advanced\"\r\n---\r\n```\r\n\r\n### 2. MAIN TEXT (MUST BE IN ENGLISH):\r\n- Story should consist of 4-6 sections\r\n- Each section starts with heading: `## Section Title in English`\r\n- Each section should contain 3-6 verbs for exercises\r\n- Focus on story content - section check buttons are added automatically\r\n\r\n### 3. VERB ARRAYS FORMAT:\r\nReplace key verbs with arrays in square brackets:\r\n`[\"correct_form\", \"option_2\", \"option_3\", \"option_4\", \"option_5\", \"option_6\"]`\r\n\r\n**VERB RULES:**\r\n- First element = correct form for the context\r\n- Include different tenses: Present Simple, Past Simple, Future Simple, Present Perfect, Past Perfect, Future Perfect\r\n- Add auxiliary verb forms where appropriate\r\n- Minimum 4, maximum 6 options in each array\r\n- Options should be grammatically plausible but incorrect in this context\r\n- ALL VERB OPTIONS MUST BE IN ENGLISH\r\n\r\n## STORY REQUIREMENTS:\r\n- 350-600 words in ENGLISH\r\n- Engaging plot with characters\r\n- Include dialogue for variety\r\n- Logical connection between sections\r\n- Variety of verb tenses\r\n- Appropriate vocabulary for the specified level\r\n- **THE ENTIRE STORY TEXT MUST BE IN ENGLISH LANGUAGE**\r\n- **COMPLETE THE STORY FULLY** - make sure the story has a proper ending\r\n- Focus on creating engaging content for each section\r\n- The story must have a satisfying conclusion\r\n\r\n## ПРИМЕР ФОРМАТА:\r\n\r\n```markdown\r\n---\r\ntitle: \"The Time Machine Adventure\"\r\ndescription: \"История о путешествии во времени и неожиданных открытиях\"\r\nlevel: \"intermediate\"\r\n---\r\n\r\n## The Discovery\r\nDr. Smith [\"found\", \"finds\", \"will find\", \"has found\", \"had found\"] an old machine in his grandfather's attic. The strange device [\"looked\", \"looks\", \"will look\", \"has looked\"] like nothing he [\"saw\", \"sees\", \"will see\", \"has seen\", \"had seen\"] before.\r\n\r\n\"What is this?\" he [\"wondered\", \"wonders\", \"will wonder\", \"has wondered\"], examining the mysterious buttons.\r\n\r\n## The First Journey\r\nWhen he [\"pressed\", \"presses\", \"will press\", \"has pressed\"] the red button, everything [\"changed\", \"changes\", \"will change\", \"has changed\"]. Suddenly, he [\"stood\", \"stands\", \"will stand\", \"has stood\"] in ancient Rome!\r\n\r\nRomans [\"walked\", \"walk\", \"will walk\", \"have walked\"] past him in togas while he [\"tried\", \"tries\", \"will try\", \"has tried\"] to understand what [\"happened\", \"happens\", \"will happen\", \"has happened\"].\r\n```\r\n\r\nCreate a similar story on the topic \"{topic}\". Use rich imagination, create vivid characters and exciting plot twists. Make sure verbs fit naturally into the context and provide meaningful practice of different tenses.\r\n\r\n**CRITICAL REMINDER: \r\n- Write the ENTIRE story in ENGLISH LANGUAGE\r\n- Only the description in YAML front matter should be in Russian\r\n- All text content, headings, dialogue, and narrative must be in English\r\n- All verb options in arrays must be English verbs\r\n- COMPLETE THE ENTIRE STORY - do not leave it unfinished\r\n- Focus on creating engaging narrative content\r\n- Provide a satisfying conclusion to the story**",
+  "inputText": "Создай историю в Markdown формате на тему: Цветы",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:20:17.439Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "---\ntitle: \"The Magical Garden of Flowers\"\ndescription: \"История о волшебном саду и его обитателях\"\nlevel: \"intermediate\"\n---\n\n## The Discovery\nEmily [\"had always been\", \"was\", \"is\", \"will be\", \"has been\"] fascinated by flowers. One day, while [\"walking\", \"walks\", \"will walk\", \"has walked\", \"had walked\"] through the forest, she [\"stumbled upon\", \"stumbles upon\", \"will stumble upon\", \"has stumbled upon\", \"had stumbled upon\"] a hidden path. The path [\"led\", \"leads\", \"will lead\", \"has led\", \"had led\"] her to a magical garden filled with the most beautiful flowers she [\"had ever seen\", \"sees\", \"will see\", \"has seen\", \"had seen\"].\n\n\"Oh, wow!\" Emily [\"exclaimed\", \"exclaims\", \"will exclaim\", \"has exclaimed\", \"had exclaimed\"], her eyes [\"widening\", \"widen\", \"will widen\", \"have widened\", \"had widened\"] with wonder.\n\n## The Guardian of the Garden\nAs she [\"explored\", \"explores\", \"will explore\", \"has explored\", \"had explored\"] the garden, Emily [\"met\", \"meets\", \"will meet\", \"has met\", \"had met\"] a friendly fairy who [\"introduced herself\", \"introduces herself\", \"will introduce herself\", \"has introduced herself\", \"had introduced herself\"] as the guardian of the garden. The fairy [\"explained\", \"explains\", \"will explain\", \"has explained\", \"had explained\"] that the garden [\"was\", \"is\", \"will be\", \"has been\", \"had been\"] created by the ancient magic of the forest.\n\n\"The flowers [\"bloom\", \"blooms\", \"will bloom\", \"have bloomed\", \"had bloomed\"] in every color of the rainbow,\" the fairy [\"said\", \"says\", \"will say\", \"has said\", \"had said\"], \"and each one [\"has\", \"have\", \"will have\", \"has had\", \"had had\"] its own special power.\"\n\n## The Language of Flowers\nAs Emily [\"learned\", \"learns\", \"will learn\", \"has learned\", \"had learned\"] about the different flowers, she [\"discovered\", \"discovers\", \"will discover\", \"has discovered\", \"had discovered\"] that they [\"could\", \"can\", \"will be able to\", \"have been able to\", \"had been able to\"] communicate with her. The roses [\"whispered\", \"whisper\", \"will whisper\", \"have whispered\", \"had whispered\"] secrets of love, while the sunflowers [\"shared\", \"share\", \"will share\", \"have shared\", \"had shared\"] stories of happiness.\n\n\"I [\"never knew\", \"don't know\", \"won't know\", \"haven't known\", \"didn't know\"] that flowers [\"could\", \"can\", \"will be able to\", \"have been able to\", \"had been able to\"] talk,\" Emily [\"said\", \"says\", \"will say\", \"has said\", \"had said\"], amazed by the magical world she [\"had entered\", \"enters\", \"will enter\", \"has entered\", \"had entered\"].\n\n## The Flower Festival\nAs the days [\"passed\", \"pass\", \"will pass\", \"have passed\", \"had passed\"], Emily [\"helped\", \"helps\", \"will help\", \"has helped\", \"had helped\"] the fairy prepare for the annual Flower Festival. The festival [\"was\", \"is\", \"will be\", \"has been\", \"had been\"] a celebration of the garden's beauty and magic. The flowers [\"danced\", \"dance\", \"will dance\", \"have danced\", \"had danced\"] in the breeze, and the fairy [\"invited\", \"invites\", \"will invite\", \"has invited\", \"had invited\"] all the creatures of the forest to join in the fun.\n\n\"We [\"will have\", \"have\", \"will be having\", \"have had\", \"had had\"] the most wonderful time,\" the fairy [\"said\", \"says\", \"will say\", \"has said\", \"had said\"], smiling at Emily.\n\n## The Gift of the Garden\nAs the festival [\"came to a close\", \"comes to a close\", \"will come to a close\", \"has come to a close\", \"had come to a close\"], the fairy [\"gave\", \"gives\", \"will give\", \"has given\", \"had given\"] Emily a special gift - a bouquet of flowers that [\"would\", \"will\", \"can\", \"have been able to\", \"had been able to\"] bloom forever. Emily [\"thanked\", \"thanks\", \"will thank\", \"has thanked\", \"had thanked\"] the fairy and [\"promised\", \"promises\", \"will promise\", \"has promised\", \"had promised\"] to return to the garden soon",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.21134383,
+    "prompt_tokens": 854,
+    "prompt_time": 0.070209837,
+    "completion_tokens": 1024,
+    "completion_time": 2.3075948840000002,
+    "total_tokens": 1878,
+    "total_time": 2.377804721
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T17:20:03.087Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T17:20:03.087Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:20:03.087Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T17:11:47.918Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T17:11:47.918Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "**IMPORTANT: Create an engaging educational story in ENGLISH LANGUAGE for learning English verb tenses in Markdown format.**\r\n\r\nTopic: Цветы\r\n\r\n## STRUCTURE AND FORMAT:\r\n\r\n### 1. YAML Front Matter (required):\r\n```yaml\r\n---\r\ntitle: \"Story title in English\"\r\ndescription: \"Brief description in Russian (1-2 sentences)\"\r\nlevel: \"beginner\" | \"intermediate\" | \"advanced\"\r\n---\r\n```\r\n\r\n### 2. MAIN TEXT (MUST BE IN ENGLISH):\r\n- Story should consist of 4-6 sections\r\n- Each section starts with heading: `## Section Title in English`\r\n- Each section should contain 3-6 verbs for exercises\r\n- After each section add button: `{checkSection(number), \"Проверить этот раздел\"}`\r\n\r\n### 3. VERB ARRAYS FORMAT:\r\nReplace key verbs with arrays in square brackets:\r\n`[\"correct_form\", \"option_2\", \"option_3\", \"option_4\", \"option_5\", \"option_6\"]`\r\n\r\n**VERB RULES:**\r\n- First element = correct form for the context\r\n- Include different tenses: Present Simple, Past Simple, Future Simple, Present Perfect, Past Perfect, Future Perfect\r\n- Add auxiliary verb forms where appropriate\r\n- Minimum 4, maximum 6 options in each array\r\n- Options should be grammatically plausible but incorrect in this context\r\n- ALL VERB OPTIONS MUST BE IN ENGLISH\r\n\r\n## STORY REQUIREMENTS:\r\n- 350-600 words in ENGLISH\r\n- Engaging plot with characters\r\n- Include dialogue for variety\r\n- Logical connection between sections\r\n- Variety of verb tenses\r\n- Appropriate vocabulary for the specified level\r\n- **THE ENTIRE STORY TEXT MUST BE IN ENGLISH LANGUAGE**\r\n- **COMPLETE THE STORY FULLY** - make sure the story has a proper ending\r\n- Each section should have a concluding check button\r\n- The story must have a satisfying conclusion\r\n\r\n## ПРИМЕР ФОРМАТА:\r\n\r\n```markdown\r\n---\r\ntitle: \"The Time Machine Adventure\"\r\ndescription: \"История о путешествии во времени и неожиданных открытиях\"\r\nlevel: \"intermediate\"\r\n---\r\n\r\n## The Discovery\r\nDr. Smith [\"found\", \"finds\", \"will find\", \"has found\", \"had found\"] an old machine in his grandfather's attic. The strange device [\"looked\", \"looks\", \"will look\", \"has looked\"] like nothing he [\"saw\", \"sees\", \"will see\", \"has seen\", \"had seen\"] before.\r\n\r\n\"What is this?\" he [\"wondered\", \"wonders\", \"will wonder\", \"has wondered\"], examining the mysterious buttons.\r\n{checkSection(1), \"Проверить этот раздел\"}\r\n\r\n## The First Journey\r\nWhen he [\"pressed\", \"presses\", \"will press\", \"has pressed\"] the red button, everything [\"changed\", \"changes\", \"will change\", \"has changed\"]. Suddenly, he [\"stood\", \"stands\", \"will stand\", \"has stood\"] in ancient Rome!\r\n\r\nRomans [\"walked\", \"walk\", \"will walk\", \"have walked\"] past him in togas while he [\"tried\", \"tries\", \"will try\", \"has tried\"] to understand what [\"happened\", \"happens\", \"will happen\", \"has happened\"].\r\n{checkSection(2), \"Проверить этот раздел\"}\r\n```\r\n\r\nCreate a similar story on the topic \"{topic}\". Use rich imagination, create vivid characters and exciting plot twists. Make sure verbs fit naturally into the context and provide meaningful practice of different tenses.\r\n\r\n**CRITICAL REMINDER: \r\n- Write the ENTIRE story in ENGLISH LANGUAGE\r\n- Only the description in YAML front matter should be in Russian\r\n- All text content, headings, dialogue, and narrative must be in English\r\n- All verb options in arrays must be English verbs\r\n- COMPLETE THE ENTIRE STORY - do not leave it unfinished\r\n- End each section with {checkSection(N), \"Проверить этот раздел\"}\r\n- Provide a satisfying conclusion to the story**",
+  "inputText": "Создай историю в Markdown формате на тему: Цветы",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:11:47.918Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "---\ntitle: \"The Magical Garden of Flowers\"\ndescription: \"История о волшебном саду и его обитателях\"\nlevel: \"intermediate\"\n---\n\n## Introduction to the Garden\nIn a small village, there [\"was\", \"is\", \"will be\", \"has been\", \"had been\"] a magical garden filled with the most beautiful and rare [\"flowers\", \"flower\", \"will flower\", \"has flowered\", \"had flowered\"] anyone [\"had\", \"has\", \"will have\", \"has had\", \"had had\"] ever seen. The garden [\"belonged\", \"belongs\", \"will belong\", \"has belonged\", \"had belonged\"] to a kind old witch who [\"loved\", \"loves\", \"will love\", \"has loved\", \"had loved\"] nothing more than tending to her lovely flowers.\n\nAs the sun [\"rose\", \"rises\", \"will rise\", \"has risen\", \"had risen\"] over the garden, the flowers [\"began\", \"begin\", \"will begin\", \"have begun\", \"had begun\"] to bloom, filling the air with their sweet fragrance. The witch [\"smiled\", \"smiles\", \"will smile\", \"has smiled\", \"had smiled\"] as she [\"walked\", \"walks\", \"will walk\", \"has walked\", \"had walked\"] through the garden, admiring her handiwork.\n{checkSection(1), \"Проверить этот раздел\"}\n\n## The Secret of the Flowers\nThe witch [\"had\", \"has\", \"will have\", \"has had\", \"had had\"] a secret: she [\"could\", \"can\", \"will be able to\", \"has been able to\", \"had been able to\"] talk to the flowers. She [\"would\", \"will\", \"would have\", \"will have\", \"had\"] often [\"spoke\", \"speaks\", \"will speak\", \"has spoken\", \"had spoken\"] to them, and they [\"would\", \"will\", \"would have\", \"will have\", \"had\"] respond with their sweet fragrance.\n\nOne day, a young girl [\"named\", \"names\", \"will name\", \"has named\", \"had named\"] Lily [\"discovered\", \"discovers\", \"will discover\", \"has discovered\", \"had discovered\"] the garden and [\"met\", \"meets\", \"will meet\", \"has met\", \"had met\"] the witch. The witch [\"told\", \"tells\", \"will tell\", \"has told\", \"had told\"] Lily the secret of the flowers, and Lily [\"promised\", \"promises\", \"will promise\", \"has promised\", \"had promised\"] to keep it.\n{checkSection(2), \"Проверить этот раздел\"}\n\n## The Magical Powers of the Flowers\nAs Lily [\"spent\", \"spends\", \"will spend\", \"has spent\", \"had spent\"] more time in the garden, she [\"began\", \"begins\", \"will begin\", \"has begun\", \"had begun\"] to notice that the flowers [\"had\", \"have\", \"will have\", \"has had\", \"had had\"] magical powers. The roses [\"would\", \"will\", \"would have\", \"will have\", \"had\"] heal any wound, the sunflowers [\"could\", \"can\", \"will be able to\", \"has been able to\", \"had been able to\"] bring good luck, and the daisies [\"would\", \"will\", \"would have\", \"will have\", \"had\"] grant wishes.\n\nLily [\"was\", \"is\", \"will be\", \"has been\", \"had been\"] amazed by the magical powers of the flowers and [\"asked\", \"asks\", \"will ask\", \"has asked\", \"had asked\"] the witch to teach her how to harness their power. The witch [\"agreed\", \"agrees\", \"will agree\", \"has agreed\", \"had agreed\"] to teach Lily, and together they [\"worked\", \"work\", \"will work\", \"have worked\", \"had worked\"] to unlock the secrets of the flowers.\n{checkSection(3), \"Проверить этот раздел\"}\n\n## The Garden's Greatest Challenge\nOne day, a terrible storm [\"threatened\", \"threatens\", \"will threaten\", \"has threatened\", \"had threatened\"] to destroy the garden. The winds [\"howled\", \"howl\", \"will howl\", \"have howled\", \"had howled\"] and the rain [\"poured\", \"pours\", \"will pour\", \"has poured\", \"had poured\"] down, threatening to uproot the flowers. The witch and Lily [\"knew\", \"know\", \"will know\", \"has known\", \"had known\"] they [\"had\", \"have\", \"will have\", \"has had\", \"had had\"] to act fast to save the garden.\n\nThe witch [\"used\", \"uses\", \"will use\", \"has used\", \"had used\"] her magic to calm",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.214362489,
+    "prompt_tokens": 900,
+    "prompt_time": 0.072922886,
+    "completion_tokens": 1024,
+    "completion_time": 2.156657082,
+    "total_tokens": 1924,
+    "total_time": 2.229579968
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T17:07:53.575Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T17:07:53.575Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "**IMPORTANT: Create an engaging educational story in ENGLISH LANGUAGE for learning English verb tenses in Markdown format.**\r\n\r\nTopic: Восстановление памяти после пробуждения от долгосрочной криоснастроки\r\n\r\n## STRUCTURE AND FORMAT:\r\n\r\n### 1. YAML Front Matter (required):\r\n```yaml\r\n---\r\ntitle: \"Story title in English\"\r\ndescription: \"Brief description in Russian (1-2 sentences)\"\r\nlevel: \"beginner\" | \"intermediate\" | \"advanced\"\r\n---\r\n```\r\n\r\n### 2. MAIN TEXT (MUST BE IN ENGLISH):\r\n- Story should consist of 4-6 sections\r\n- Each section starts with heading: `## Section Title in English`\r\n- Each section should contain 3-6 verbs for exercises\r\n- After each section add button: `{checkSection(number), \"Проверить этот раздел\"}`\r\n\r\n### 3. VERB ARRAYS FORMAT:\r\nReplace key verbs with arrays in square brackets:\r\n`[\"correct_form\", \"option_2\", \"option_3\", \"option_4\", \"option_5\", \"option_6\"]`\r\n\r\n**VERB RULES:**\r\n- First element = correct form for the context\r\n- Include different tenses: Present Simple, Past Simple, Future Simple, Present Perfect, Past Perfect, Future Perfect\r\n- Add auxiliary verb forms where appropriate\r\n- Minimum 4, maximum 6 options in each array\r\n- Options should be grammatically plausible but incorrect in this context\r\n- ALL VERB OPTIONS MUST BE IN ENGLISH\r\n\r\n## STORY REQUIREMENTS:\r\n- 350-600 words in ENGLISH\r\n- Engaging plot with characters\r\n- Include dialogue for variety\r\n- Logical connection between sections\r\n- Variety of verb tenses\r\n- Appropriate vocabulary for the specified level\r\n- **THE ENTIRE STORY TEXT MUST BE IN ENGLISH LANGUAGE**\r\n- **COMPLETE THE STORY FULLY** - make sure the story has a proper ending\r\n- Each section should have a concluding check button\r\n- The story must have a satisfying conclusion\r\n\r\n## ПРИМЕР ФОРМАТА:\r\n\r\n```markdown\r\n---\r\ntitle: \"The Time Machine Adventure\"\r\ndescription: \"История о путешествии во времени и неожиданных открытиях\"\r\nlevel: \"intermediate\"\r\n---\r\n\r\n## The Discovery\r\nDr. Smith [\"found\", \"finds\", \"will find\", \"has found\", \"had found\"] an old machine in his grandfather's attic. The strange device [\"looked\", \"looks\", \"will look\", \"has looked\"] like nothing he [\"saw\", \"sees\", \"will see\", \"has seen\", \"had seen\"] before.\r\n\r\n\"What is this?\" he [\"wondered\", \"wonders\", \"will wonder\", \"has wondered\"], examining the mysterious buttons.\r\n{checkSection(1), \"Проверить этот раздел\"}\r\n\r\n## The First Journey\r\nWhen he [\"pressed\", \"presses\", \"will press\", \"has pressed\"] the red button, everything [\"changed\", \"changes\", \"will change\", \"has changed\"]. Suddenly, he [\"stood\", \"stands\", \"will stand\", \"has stood\"] in ancient Rome!\r\n\r\nRomans [\"walked\", \"walk\", \"will walk\", \"have walked\"] past him in togas while he [\"tried\", \"tries\", \"will try\", \"has tried\"] to understand what [\"happened\", \"happens\", \"will happen\", \"has happened\"].\r\n{checkSection(2), \"Проверить этот раздел\"}\r\n```\r\n\r\nCreate a similar story on the topic \"{topic}\". Use rich imagination, create vivid characters and exciting plot twists. Make sure verbs fit naturally into the context and provide meaningful practice of different tenses.\r\n\r\n**CRITICAL REMINDER: \r\n- Write the ENTIRE story in ENGLISH LANGUAGE\r\n- Only the description in YAML front matter should be in Russian\r\n- All text content, headings, dialogue, and narrative must be in English\r\n- All verb options in arrays must be English verbs\r\n- COMPLETE THE ENTIRE STORY - do not leave it unfinished\r\n- End each section with {checkSection(N), \"Проверить этот раздел\"}\r\n- Provide a satisfying conclusion to the story**",
+  "inputText": "Создай историю в Markdown формате на тему: Восстановление памяти после пробуждения от долгосрочной криоснастроки",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:07:53.575Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "---\ntitle: \"The Awakening\"\ndescription: \"История о пробуждении после долгосрочной криоснастроки и восстановлении памяти\"\nlevel: \"intermediate\"\n---\n\n## The Awakening\nAs the cryopod [\"opened\", \"opens\", \"will open\", \"has opened\", \"had opened\"], Captain Lewis [\"felt\", \"feels\", \"will feel\", \"has felt\", \"had felt\"] a surge of confusion. He [\"looked\", \"looks\", \"will look\", \"has looked\", \"had looked\"] around, trying to remember where he [\"was\", \"is\", \"will be\", \"has been\", \"had been\"]. The cryopod [\"had\", \"has\", \"will have\", \"had had\"] been his home for centuries.\n\n\"What year [\"is\", \"was\", \"will be\", \"has been\", \"had been\"] it?\" he [\"asked\", \"asks\", \"will ask\", \"has asked\", \"had asked\"] the nurse, who [\"stood\", \"stands\", \"will stand\", \"has stood\", \"had stood\"] beside him.\n{checkSection(1), \"Проверить этот раздел\"}\n\n## The Recovery\nAs Captain Lewis [\"began\", \"begins\", \"will begin\", \"has begun\", \"had begun\"] to recover, he [\"discovered\", \"discovers\", \"will discover\", \"has discovered\", \"had discovered\"] that his memories [\"were\", \"are\", \"will be\", \"have been\", \"had been\"] hazy. He [\"tried\", \"tries\", \"will try\", \"has tried\", \"had tried\"] to recall his life before the cryosleep, but it [\"seemed\", \"seems\", \"will seem\", \"has seemed\", \"had seemed\"] like a distant dream.\n\nThe doctor [\"explained\", \"explains\", \"will explain\", \"has explained\", \"had explained\"] that the cryosleep [\"had\", \"has\", \"will have\", \"had had\"] affected his brain, and it [\"would\", \"will\", \"would have\", \"will have\"] take time to recover. Captain Lewis [\"felt\", \"feels\", \"will feel\", \"has felt\", \"had felt\"] frustrated, but he [\"knew\", \"knows\", \"will know\", \"has known\", \"had known\"] he [\"had\", \"has\", \"will have\", \"had had\"] to be patient.\n{checkSection(2), \"Проверить этот раздел\"}\n\n## The Flashbacks\nAs the days [\"passed\", \"pass\", \"will pass\", \"have passed\", \"had passed\"], Captain Lewis [\"began\", \"begins\", \"will begin\", \"has begun\", \"had begun\"] to experience flashbacks. He [\"saw\", \"sees\", \"will see\", \"has seen\", \"had seen\"] glimpses of his life before the cryosleep, and it [\"seemed\", \"seems\", \"will seem\", \"has seemed\", \"had seemed\"] like his memories [\"were\", \"are\", \"will be\", \"have been\", \"had been\"] returning.\n\nIn one flashback, he [\"remembered\", \"remembers\", \"will remember\", \"has remembered\", \"had remembered\"] his wife, who [\"had\", \"has\", \"will have\", \"had had\"] been his rock before the cryosleep. He [\"felt\", \"feels\", \"will feel\", \"has felt\", \"had felt\"] a pang of sadness, knowing she [\"had\", \"has\", \"will have\", \"had had\"] passed away centuries ago.\n{checkSection(3), \"Проверить этот раздел\"}\n\n## The Revelation\nOne day, Captain Lewis [\"discovered\", \"discovers\", \"will discover\", \"has discovered\", \"had discovered\"] a hidden log from his past self. As he [\"read\", \"reads\", \"will read\", \"has read\", \"had read\"] the log, he [\"learned\", \"learns\", \"will learn\", \"has learned\", \"had learned\"] that he [\"had\", \"has\", \"will have\", \"had had\"] been part of a secret mission to save humanity.\n\nThe log [\"revealed\", \"reveals\", \"will reveal\", \"has revealed\", \"had revealed\"] that he [\"had\", \"has\", \"will have\", \"had had\"] been chosen for his bravery and skill, and that he [\"would\", \"will\", \"would have\", \"will have\"] play a crucial role in the future of humanity. Captain Lewis [\"felt\", \"feels\", \"will feel\", \"has felt\", \"had felt\"] a sense of purpose, knowing he [\"had\", \"has\", \"will have\", \"had had\"] a mission to complete.\n{checkSection(4), \"Проверить этот раздел\"}\n\n## The New Beginning\nAs Captain Lewis [\"finished\", \"finishes\", \"will finish\", \"has finished\", \"had finished\"]",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.21286246200000003,
+    "prompt_tokens": 936,
+    "prompt_time": 0.075548768,
+    "completion_tokens": 1024,
+    "completion_time": 2.149848081,
+    "total_tokens": 1960,
+    "total_time": 2.225396849
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T17:07:33.626Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-02T17:07:33.626Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Предложи 10 интересных и разнообразных тем для создания обучающих историй на английском языке для изучения времен глаголов.\n\nТемы должны быть:\n- Увлекательными и современными\n- Подходящими для разных возрастов (подростки и взрослые)\n- Разнообразными по жанрам (приключения, фантастика, детектив, повседневная жизнь, история, будущее)\n- Способствующими использованию разных времен глаголов\n\nФормат: простой список тем, каждая тема в одну строку.\n\nПример:\n- Путешествие во времени в Древний Рим\n- Расследование киберпреступления\n- Первый день на работе в космической станции",
+  "inputText": "Предложи темы для историй",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:07:33.626Z
+
+--- Response Body ---
+{
+  "success": true,
+  "content": "- Создание приложения для путешественников во времени\n- Расследование таинственного исчезновения в футуристическом городе\n- Первый день на новой работе в команде разработчиков искусственного интеллекта\n- Восстановление памяти после пробуждения от долгосрочной криоснастроки\n- Путешествие на Марс с целью создания первой человеческой колонии\n- Расследование загадочного сообщения из прошлого\n- Путешествие через параллельные миры в поисках потерянного друга\n- Создание робота для участия в соревнованиях по робототехнике\n- Расследование кражи ценностей в музее современного искусства\n- Путешествие в прошлое, чтобы предотвратить катастрофическое событие в будущем",
+  "model": "llama-3.3-70b-versatile",
+  "usage": {
+    "queue_time": 0.21081807100000002,
+    "prompt_tokens": 219,
+    "prompt_time": 0.023263876,
+    "completion_tokens": 203,
+    "completion_time": 0.737766497,
+    "total_tokens": 422,
+    "total_time": 0.761030373
+  },
+  "provider": "groq",
+  "rag": null
+}
+
+
+================================================================================
+Log Entry: 2025-08-02T17:07:16.909Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T17:07:16.909Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:07:16.909Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T17:03:56.528Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T17:03:56.528Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:03:56.528Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T17:02:05.049Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T17:02:05.049Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:02:05.049Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T17:01:45.594Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T17:01:45.594Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:01:45.594Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T17:01:35.213Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T17:01:35.213Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T17:01:35.213Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
+Log Entry: 2025-08-02T16:54:59.471Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-02T16:54:59.471Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-02T16:54:59.471Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
 Log Entry: 2025-08-02T16:39:03.612Z
 ================================================================================
 

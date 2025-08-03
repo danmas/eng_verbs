@@ -17,7 +17,7 @@ level: "beginner" | "intermediate" | "advanced"
 - Story should consist of 4-6 sections
 - Each section starts with heading: `## Section Title in English`
 - Each section should contain 3-6 verbs for exercises
-- After each section add button: `{checkSection(number), "Проверить этот раздел"}`
+- Focus on story content - section check buttons are added automatically
 
 ### 3. VERB ARRAYS FORMAT:
 Replace key verbs with arrays in square brackets:
@@ -39,6 +39,9 @@ Replace key verbs with arrays in square brackets:
 - Variety of verb tenses
 - Appropriate vocabulary for the specified level
 - **THE ENTIRE STORY TEXT MUST BE IN ENGLISH LANGUAGE**
+- **COMPLETE THE STORY FULLY** - make sure the story has a proper ending
+- Focus on creating engaging content for each section
+- The story must have a satisfying conclusion
 
 ## ПРИМЕР ФОРМАТА:
 
@@ -53,13 +56,11 @@ level: "intermediate"
 Dr. Smith ["found", "finds", "will find", "has found", "had found"] an old machine in his grandfather's attic. The strange device ["looked", "looks", "will look", "has looked"] like nothing he ["saw", "sees", "will see", "has seen", "had seen"] before.
 
 "What is this?" he ["wondered", "wonders", "will wonder", "has wondered"], examining the mysterious buttons.
-{checkSection(1), "Проверить этот раздел"}
 
 ## The First Journey
 When he ["pressed", "presses", "will press", "has pressed"] the red button, everything ["changed", "changes", "will change", "has changed"]. Suddenly, he ["stood", "stands", "will stand", "has stood"] in ancient Rome!
 
 Romans ["walked", "walk", "will walk", "have walked"] past him in togas while he ["tried", "tries", "will try", "has tried"] to understand what ["happened", "happens", "will happen", "has happened"].
-{checkSection(2), "Проверить этот раздел"}
 ```
 
 Create a similar story on the topic "{topic}". Use rich imagination, create vivid characters and exciting plot twists. Make sure verbs fit naturally into the context and provide meaningful practice of different tenses.
@@ -68,4 +69,7 @@ Create a similar story on the topic "{topic}". Use rich imagination, create vivi
 - Write the ENTIRE story in ENGLISH LANGUAGE
 - Only the description in YAML front matter should be in Russian
 - All text content, headings, dialogue, and narrative must be in English
-- All verb options in arrays must be English verbs**
+- All verb options in arrays must be English verbs
+- COMPLETE THE ENTIRE STORY - do not leave it unfinished
+- Focus on creating engaging narrative content
+- Provide a satisfying conclusion to the story**
