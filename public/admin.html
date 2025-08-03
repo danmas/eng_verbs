@@ -59,55 +59,10 @@
             </div>
 
             <div class="editor-content">
-                <!-- Story Metadata -->
-                <div class="metadata-section">
-                    <h3>Информация об истории</h3>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="story-id">ID истории:</label>
-                            <input type="text" id="story-id" placeholder="например: space-adventure" pattern="[a-z0-9\-]+" title="Только строчные буквы, цифры и дефисы">
-                        </div>
-                        <div class="form-group">
-                            <label for="story-title">Название:</label>
-                            <input type="text" id="story-title" placeholder="The Space Adventure">
-                        </div>
-                        <div class="form-group">
-                            <label for="story-level">Уровень:</label>
-                            <select id="story-level">
-                                <option value="beginner">Начинающий</option>
-                                <option value="intermediate">Средний</option>
-                                <option value="advanced">Продвинутый</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="story-description">Описание:</label>
-                            <textarea id="story-description" placeholder="Краткое описание истории"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Editor Mode Toggle -->
-                <div class="editor-mode-section">
-                    <h3>Режим редактирования</h3>
-                    <div class="mode-toggle">
-                        <button type="button" id="md-mode-btn" class="mode-btn active">📝 Markdown (простой)</button>
-                        <button type="button" id="visual-mode-btn" class="mode-btn">🎨 Визуальный (старый)</button>
-                    </div>
-                </div>
-
-                <!-- Markdown Editor -->
-                <div id="md-editor-section" class="md-editor-section">
-                    <h3>Markdown редактор</h3>
-                    <div class="md-toolbar">
-                        <button type="button" class="md-tool-btn" data-action="add-md-section">📋 Раздел</button>
-                        <button type="button" class="md-tool-btn" data-action="add-md-verb">🔤 Глагол</button>
-                        <button type="button" class="md-tool-btn" data-action="toggle-fullscreen">🔍 Полный экран</button>
-                        <button type="button" class="md-tool-btn" data-action="md-help">❓ Помощь</button>
-                    </div>
-                    <div class="md-editor-container">
-                        <div class="md-input-panel">
-                            <h4>Markdown код:</h4>
-                            <textarea id="md-editor" class="md-editor-textarea" placeholder="---
+                <!-- Simple Markdown Editor -->
+                <div class="simple-editor-section">
+                    <h3>Редактор истории (Markdown)</h3>
+                    <textarea id="story-editor" class="story-editor-textarea" placeholder="---
 title: &quot;Название истории&quot;
 description: &quot;Описание на русском&quot;
 level: &quot;intermediate&quot;
@@ -116,34 +71,13 @@ level: &quot;intermediate&quot;
 ## Первый раздел
 This is a story about someone who [&quot;walked&quot;, &quot;walks&quot;, &quot;will walk&quot;] to the market.
 
-{checkSection(1), &quot;Проверить этот раздел&quot;}"></textarea>
-                        </div>
-                        <div class="md-preview-panel">
-                            <h4>Предпросмотр:</h4>
-                            <div id="md-preview" class="md-preview"></div>
-                        </div>
-                    </div>
-                </div>
+## Второй раздел
+The character [&quot;decided&quot;, &quot;decides&quot;, &quot;will decide&quot;] to continue the journey.
 
-                <!-- Text Editor (Legacy) -->
-                <div id="visual-editor-section" class="text-editor-section" style="display: none;">
-                    <h3>Визуальный редактор (устаревший)</h3>
-                    <div class="editor-toolbar">
-                        <button type="button" class="tool-btn" data-action="add-heading">📋 Заголовок</button>
-                        <button type="button" class="tool-btn" data-action="add-paragraph">📝 Параграф</button>
-                        <button type="button" class="tool-btn" data-action="add-verb">🔤 Глагол</button>
-                        <button type="button" class="tool-btn" data-action="add-section-check">✅ Кнопка проверки</button>
-                        <button type="button" class="tool-btn" data-action="clear-editor">🗑 Очистить</button>
-                    </div>
-                    <div id="text-editor" class="text-editor" contenteditable="true" placeholder="Начните вводить текст истории..."></div>
-                </div>
-
-                <!-- Verb Manager -->
-                <div class="verb-manager-section">
-                    <h3>Управление глаголами</h3>
-                    <div id="verb-list" class="verb-list">
-                        <div class="no-verbs">Глаголы будут добавляться автоматически при их вставке в текст</div>
-                    </div>
+Примеры синтаксиса:
+- Глаголы: [&quot;правильная форма&quot;, &quot;вариант 1&quot;, &quot;вариант 2&quot;, &quot;вариант 3&quot;]
+- Разделы: ## Название раздела
+- Кнопки добавляются автоматически после каждого раздела"></textarea>
                 </div>
             </div>
         </div>

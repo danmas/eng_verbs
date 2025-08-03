@@ -133,30 +133,80 @@ function showStoryList() {
 }
 
 // Populate editor with story data
-function populateEditor() {
+async function populateEditor() {
     if (!currentStory) return;
     
-    document.getElementById('story-id').value = currentStory.id;
-    document.getElementById('story-title').value = currentStory.title;
-    document.getElementById('story-description').value = currentStory.description;
-    document.getElementById('story-level').value = currentStory.level;
+    // Load raw MD content for simple editor
+    try {
+        const response = await fetch(`/api/stories/${currentStory.id}/raw`);
+        if (response.ok) {
+            const rawContent = await response.text();
+            document.getElementById('story-editor').value = rawContent;
+        } else {
+            // Fallback: try to reconstruct MD from story data
+            const mdContent = reconstructMdFromStory(currentStory);
+            document.getElementById('story-editor').value = mdContent;
+        }
+    } catch (error) {
+        console.error('Error loading raw content:', error);
+        // Fallback: try to reconstruct MD from story data
+        const mdContent = reconstructMdFromStory(currentStory);
+        document.getElementById('story-editor').value = mdContent;
+    }
+}
+
+// Reconstruct Markdown content from story object
+function reconstructMdFromStory(story) {
+    let mdContent = `---
+title: "${story.title}"
+description: "${story.description}"
+level: "${story.level}"
+---
+
+`;
+
+    // Try to reconstruct sections from storyText HTML
+    if (story.storyText) {
+        // Simple conversion - this is a fallback
+        let text = story.storyText;
+        
+        // Convert <h2> to ## 
+        text = text.replace(/<h2[^>]*>(.*?)<\/h2>/g, '## $1');
+        
+        // Convert verb spans back to arrays (simplified)
+        text = text.replace(/<span[^>]*class="verb"[^>]*>\.{3}<\/span>/g, '["verb", "option1", "option2"]');
+        
+        // Remove other HTML tags
+        text = text.replace(/<[^>]*>/g, '');
+        
+        // Clean up extra whitespace
+        text = text.replace(/\n\s*\n\s*\n/g, '\n\n');
+        
+        mdContent += text.trim();
+    } else {
+        mdContent += `## Первый раздел
+This is a story about someone who ["walked", "walks", "will walk"] to the market.
+
+## Второй раздел  
+The character ["decided", "decides", "will decide"] to continue the journey.`;
+    }
     
-    // Convert HTML back to editable format
-    const editor = document.getElementById('text-editor');
-    editor.innerHTML = htmlToEditorFormat(currentStory.storyText);
-    
-    updateVerbManager();
+    return mdContent;
 }
 
 // Clear editor
 function clearEditor() {
-    document.getElementById('story-id').value = '';
-    document.getElementById('story-title').value = '';
-    document.getElementById('story-description').value = '';
-    document.getElementById('story-level').value = 'beginner';
-    document.getElementById('text-editor').innerHTML = '';
-    document.getElementById('verb-list').innerHTML = '<div class="no-verbs">Глаголы будут добавляться автоматически при их вставке в текст</div>';
-    currentSectionNumber = 1;
+    document.getElementById('story-editor').value = `---
+title: "Новая история"
+description: "Описание новой истории"
+level: "intermediate"
+---
+
+## Первый раздел
+This is a story about someone who ["walked", "walks", "will walk"] to the market.
+
+## Второй раздел
+The character ["decided", "decides", "will decide"] to continue the journey.`;
 }
 
 // Handle toolbar actions
@@ -327,50 +377,111 @@ function validateStory() {
     return true;
 }
 
-// Collect story data
+// Collect story data from simple editor
 function collectStoryData() {
-    const editor = document.getElementById('text-editor');
-    const verbPlaceholders = editor.querySelectorAll('.verb-placeholder');
+    const content = document.getElementById('story-editor').value.trim();
     
-    // Collect verb data
-    const verbData = {};
-    verbPlaceholders.forEach(placeholder => {
-        const verbName = placeholder.dataset.verb;
-        if (!verbData[verbName]) {
-            // Find verb item by iterating through them
-            const verbItems = document.querySelectorAll('.verb-item');
-            let verbTenses = [];
-            let correctForm = verbName;
-            
-            verbItems.forEach(item => {
-                const h4 = item.querySelector('h4');
-                if (h4 && h4.textContent === verbName) {
-                    verbTenses = Array.from(item.querySelectorAll('.verb-form')).map(form => form.textContent);
-                    const correctElement = item.querySelector('.verb-form.correct');
-                    if (correctElement) {
-                        correctForm = correctElement.textContent;
-                    }
+    if (!content) {
+        return {
+            id: 'preview-story',
+            title: 'Предпросмотр',
+            description: 'Нет содержимого',
+            level: 'intermediate',
+            verbCount: 0,
+            verbData: {},
+            storyText: '<p>Пожалуйста, введите содержимое истории</p>'
+        };
+    }
+    
+    // Parse MD content for preview
+    try {
+        const parsed = parseSimpleMDForPreview(content);
+        return {
+            id: parsed.id || 'preview-story',
+            title: parsed.title || 'Предпросмотр истории',
+            description: parsed.description || 'Предпросмотр',
+            level: parsed.level || 'intermediate',
+            verbCount: parsed.verbCount,
+            verbData: parsed.verbData,
+            storyText: parsed.html
+        };
+    } catch (error) {
+        console.error('Error parsing MD for preview:', error);
+        return {
+            id: 'preview-story',
+            title: 'Ошибка парсинга',
+            description: 'Ошибка в формате Markdown',
+            level: 'intermediate',
+            verbCount: 0,
+            verbData: {},
+            storyText: `<p style="color: red;">Ошибка парсинга: ${error.message}</p><pre>${content}</pre>`
+        };
+    }
+}
+
+// Parse simple MD content for preview (simplified version of server-side parser)
+function parseSimpleMDForPreview(content) {
+    const lines = content.split('\n');
+    let yamlData = { title: 'Предпросмотр', description: '', level: 'intermediate' };
+    let mdContent = content;
+    
+    // Extract YAML front matter
+    if (lines[0] === '---') {
+        let yamlEnd = -1;
+        for (let i = 1; i < lines.length; i++) {
+            if (lines[i] === '---') {
+                yamlEnd = i;
+                break;
+            }
+        }
+        
+        if (yamlEnd > 0) {
+            const yamlLines = lines.slice(1, yamlEnd);
+            yamlLines.forEach(line => {
+                const match = line.match(/^(\w+):\s*"?([^"]*)"?$/);
+                if (match) {
+                    yamlData[match[1]] = match[2];
                 }
             });
-            
-            verbData[verbName] = {
-                tenses: verbTenses.length > 0 ? verbTenses : generateDefaultTenses(verbName),
-                correct: correctForm
-            };
+            mdContent = lines.slice(yamlEnd + 1).join('\n');
+        }
+    }
+    
+    // Process verb arrays and count them
+    let verbCount = 0;
+    let processedContent = mdContent;
+    
+    // Replace verb arrays with placeholders and count them
+    processedContent = processedContent.replace(/\["([^"]+)"(?:,\s*"([^"]+)")*\]/g, (match) => {
+        verbCount++;
+        return `<span class="verb preview-verb">[выбор глагола]</span>`;
+    });
+    
+    // Convert ## headers to <h2>
+    processedContent = processedContent.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    
+    // Convert paragraphs (simple approach)
+    const paragraphs = processedContent.split('\n\n').filter(p => p.trim());
+    let html = '';
+    
+    paragraphs.forEach(paragraph => {
+        const trimmed = paragraph.trim();
+        if (trimmed.startsWith('<h2>')) {
+            html += trimmed + '\n';
+            html += '<div class="preview-section-note" style="color: #666; font-style: italic; margin: 10px 0;">📝 После этого раздела будет добавлена кнопка проверки автоматически</div>\n';
+        } else if (trimmed) {
+            html += `<p>${trimmed}</p>\n`;
         }
     });
     
-    // Convert editor content to HTML
-    const storyText = editorToHtmlFormat(editor.innerHTML);
-    
     return {
-        id: document.getElementById('story-id').value.trim(),
-        title: document.getElementById('story-title').value.trim(),
-        description: document.getElementById('story-description').value.trim(),
-        level: document.getElementById('story-level').value,
-        verbCount: Object.keys(verbData).length,
-        verbData: verbData,
-        storyText: storyText
+        id: yamlData.id,
+        title: yamlData.title,
+        description: yamlData.description,
+        level: yamlData.level,
+        verbCount: verbCount,
+        verbData: {}, // For preview, we don't need full verb data
+        html: html
     };
 }
 
@@ -1075,15 +1186,80 @@ level: "${storyData.level || 'intermediate'}"
     updateMDPreview();
 }
 
-// Handle save story - choose MD or Visual mode
+// Handle save story - simple editor mode
 function handleSaveStory() {
-    const mdSection = document.getElementById('md-editor-section');
-    const isMDMode = mdSection.style.display !== 'none';
+    saveSimpleStory();
+}
+
+// Save story using simple editor
+async function saveSimpleStory() {
+    const content = document.getElementById('story-editor').value.trim();
     
-    if (isMDMode) {
-        saveMDStory();
-    } else {
-        saveStory(); // Old visual editor save function
+    if (!content) {
+        alert('Пожалуйста, введите содержимое истории');
+        return;
+    }
+    
+    // Validate MD content by trying to parse it
+    try {
+        const lines = content.split('\n');
+        let hasTitle = false;
+        let hasSection = false;
+        
+        // Check for YAML front matter
+        if (lines[0] === '---') {
+            for (let i = 1; i < lines.length; i++) {
+                if (lines[i] === '---') break;
+                if (lines[i].startsWith('title:')) hasTitle = true;
+            }
+        }
+        
+        // Check for sections
+        for (const line of lines) {
+            if (line.startsWith('## ')) hasSection = true;
+        }
+        
+        if (!hasTitle) {
+            if (!confirm('В истории не найден заголовок (title:). Продолжить сохранение?')) return;
+        }
+        
+        if (!hasSection) {
+            if (!confirm('В истории не найдены разделы (## Название). Продолжить сохранение?')) return;
+        }
+        
+    } catch (error) {
+        console.error('Error validating content:', error);
+    }
+    
+    try {
+        const response = await fetch('/api/admin/save-md-story', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                content: content
+            })
+        });
+
+        const result = await response.json();
+        
+        if (result.success) {
+            alert(`История успешно сохранена!\nID: ${result.story.id}\nНазвание: ${result.story.title}`);
+            
+            // Refresh story list
+            loadExistingStories();
+            
+            // Clear editor
+            document.getElementById('story-editor').value = '';
+            
+        } else {
+            throw new Error(result.error || 'Ошибка сохранения истории');
+        }
+        
+    } catch (error) {
+        console.error('Error saving story:', error);
+        alert('Ошибка при сохранении истории: ' + error.message);
     }
 }
 

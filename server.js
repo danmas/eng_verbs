@@ -256,6 +256,30 @@ app.get('/api/stories/:id', async (req, res) => {
   }
 });
 
+// Get raw story content for editing
+app.get('/api/stories/:id/raw', async (req, res) => {
+  const storyId = req.params.id;
+  const storiesPath = path.join(__dirname, 'public', 'texts');
+  
+  try {
+    // Try to load MD file directly
+    const mdPath = path.join(storiesPath, `${storyId}.md`);
+    
+    try {
+      await fs.access(mdPath);
+      const mdContent = await fs.readFile(mdPath, 'utf8');
+      res.set('Content-Type', 'text/plain');
+      res.send(mdContent);
+    } catch (error) {
+      // If only JSON exists, return 404 - we can't edit JSON stories in simple editor
+      res.status(404).json({ error: 'Raw content not available - story is in JSON format' });
+    }
+  } catch (error) {
+    console.error(`Error loading raw story ${storyId}:`, error);
+    res.status(500).json({ error: 'Failed to load raw story content' });
+  }
+});
+
 // Admin endpoints for story management
 app.post('/api/admin/save-story', express.json(), async (req, res) => {
   const storyData = req.body;
