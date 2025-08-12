@@ -1,5 +1,163 @@
 
 ================================================================================
+Log Entry: 2025-08-12T16:10:00.623Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-12T16:10:00.623Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: No Response
+Timestamp: 2025-08-12T16:10:00.623Z
+
+--- Response Body ---
+{
+  "error": "",
+  "code": "ECONNREFUSED"
+}
+
+
+================================================================================
+Log Entry: 2025-08-12T09:04:07.990Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-12T09:04:07.990Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "**IMPORTANT: Create an engaging educational story in ENGLISH LANGUAGE for learning English verb tenses in Markdown format.**\r\n\r\nTopic: космическое путешествие\r\n\r\n## STRUCTURE AND FORMAT:\r\n\r\n### 1. YAML Front Matter (required):\r\n```yaml\r\n---\r\ntitle: \"Story title in English\"\r\ndescription: \"Brief description in Russian (1-2 sentences)\"\r\nlevel: \"beginner\" | \"intermediate\" | \"advanced\"\r\n---\r\n```\r\n\r\n### 2. MAIN TEXT (MUST BE IN ENGLISH):\r\n- Story should consist of 4-6 sections\r\n- Each section starts with heading: `## Section Title in English`\r\n- Each section should contain 3-6 verbs for exercises\r\n- Focus on story content - section check buttons are added automatically\r\n\r\n### 3. VERB ARRAYS FORMAT:\r\nReplace key verbs with arrays in square brackets:\r\n`[\"correct_form\", \"option_2\", \"option_3\", \"option_4\", \"option_5\", \"option_6\"]`\r\n\r\n**VERB RULES:**\r\n- First element = correct form for the context\r\n- Include different tenses: Present Simple, Past Simple, Future Simple, Present Perfect, Past Perfect, Future Perfect\r\n- Add auxiliary verb forms where appropriate\r\n- Minimum 4, maximum 6 options in each array\r\n- Options should be grammatically plausible but incorrect in this context\r\n- ALL VERB OPTIONS MUST BE IN ENGLISH\r\n\r\n## STORY REQUIREMENTS:\r\n- 350-600 words in ENGLISH\r\n- Engaging plot with characters\r\n- Include dialogue for variety\r\n- Logical connection between sections\r\n- Variety of verb tenses\r\n- Appropriate vocabulary for the specified level\r\n- **THE ENTIRE STORY TEXT MUST BE IN ENGLISH LANGUAGE**\r\n- **COMPLETE THE STORY FULLY** - make sure the story has a proper ending\r\n- Focus on creating engaging content for each section\r\n- The story must have a satisfying conclusion\r\n\r\n## ПРИМЕР ФОРМАТА:\r\n\r\n```markdown\r\n---\r\ntitle: \"The Time Machine Adventure\"\r\ndescription: \"История о путешествии во времени и неожиданных открытиях\"\r\nlevel: \"intermediate\"\r\n---\r\n\r\n## The Discovery\r\nDr. Smith [\"found\", \"finds\", \"will find\", \"has found\", \"had found\"] an old machine in his grandfather's attic. The strange device [\"looked\", \"looks\", \"will look\", \"has looked\"] like nothing he [\"saw\", \"sees\", \"will see\", \"has seen\", \"had seen\"] before.\r\n\r\n\"What is this?\" he [\"wondered\", \"wonders\", \"will wonder\", \"has wondered\"], examining the mysterious buttons.\r\n\r\n## The First Journey\r\nWhen he [\"pressed\", \"presses\", \"will press\", \"has pressed\"] the red button, everything [\"changed\", \"changes\", \"will change\", \"has changed\"]. Suddenly, he [\"stood\", \"stands\", \"will stand\", \"has stood\"] in ancient Rome!\r\n\r\nRomans [\"walked\", \"walk\", \"will walk\", \"have walked\"] past him in togas while he [\"tried\", \"tries\", \"will try\", \"has tried\"] to understand what [\"happened\", \"happens\", \"will happen\", \"has happened\"].\r\n```\r\n\r\nCreate a similar story on the topic \"{topic}\". Use rich imagination, create vivid characters and exciting plot twists. Make sure verbs fit naturally into the context and provide meaningful practice of different tenses.\r\n\r\n**CRITICAL REMINDER: \r\n- Write the ENTIRE story in ENGLISH LANGUAGE\r\n- Only the description in YAML front matter should be in Russian\r\n- All text content, headings, dialogue, and narrative must be in English\r\n- All verb options in arrays must be English verbs\r\n- COMPLETE THE ENTIRE STORY - do not leave it unfinished\r\n- Focus on creating engaging narrative content\r\n- Provide a satisfying conclusion to the story**",
+  "inputText": "Создай историю в Markdown формате на тему: космическое путешествие",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 500
+Timestamp: 2025-08-12T09:04:07.990Z
+
+--- Response Body ---
+{
+  "error": "GROQ API Error: 404 {\"error\":{\"message\":\"Not Found\"}}",
+  "details": {
+    "stack": "Error: GROQ API Error: 404 {\"error\":{\"message\":\"Not Found\"}}\n    at GroqService.sendRequest (C:\\ERV\\projects-ex\\aian-model\\groq-service.js:91:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\ERV\\projects-ex\\aian-model\\server.js:461:30"
+  }
+}
+
+
+================================================================================
+Log Entry: 2025-08-12T08:54:04.811Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-12T08:54:04.811Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Предложи 10 интересных и разнообразных тем для создания обучающих историй на английском языке для изучения времен глаголов.\n\nТемы должны быть:\n- Увлекательными и современными\n- Подходящими для разных возрастов (подростки и взрослые)\n- Разнообразными по жанрам (приключения, фантастика, детектив, повседневная жизнь, история, будущее)\n- Способствующими использованию разных времен глаголов\n\nФормат: простой список тем, каждая тема в одну строку.\n\nПример:\n- Путешествие во времени в Древний Рим\n- Расследование киберпреступления\n- Первый день на работе в космической станции",
+  "inputText": "Предложи темы для историй",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 500
+Timestamp: 2025-08-12T08:54:04.811Z
+
+--- Response Body ---
+{
+  "error": "GROQ API Error: 404 {\"error\":{\"message\":\"Not Found\"}}",
+  "details": {
+    "stack": "Error: GROQ API Error: 404 {\"error\":{\"message\":\"Not Found\"}}\n    at GroqService.sendRequest (C:\\ERV\\projects-ex\\aian-model\\groq-service.js:91:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\ERV\\projects-ex\\aian-model\\server.js:461:30"
+  }
+}
+
+
+================================================================================
+Log Entry: 2025-08-12T08:54:01.168Z
+================================================================================
+
+[REQUEST] -> POST http://localhost:3002/api/send-request
+Timestamp: 2025-08-12T08:54:01.168Z
+
+--- Request Payload ---
+{
+  "model": "llama-3.3-70b-versatile",
+  "prompt": "Предложи 10 интересных и разнообразных тем для создания обучающих историй на английском языке для изучения времен глаголов.\n\nТемы должны быть:\n- Увлекательными и современными\n- Подходящими для разных возрастов (подростки и взрослые)\n- Разнообразными по жанрам (приключения, фантастика, детектив, повседневная жизнь, история, будущее)\n- Способствующими использованию разных времен глаголов\n\nФормат: простой список тем, каждая тема в одну строку.\n\nПример:\n- Путешествие во времени в Древний Рим\n- Расследование киберпреступления\n- Первый день на работе в космической станции",
+  "inputText": "Предложи темы для историй",
+  "saveResponse": false
+}
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 500
+Timestamp: 2025-08-12T08:54:01.168Z
+
+--- Response Body ---
+{
+  "error": "GROQ API Error: 404 {\"error\":{\"message\":\"Not Found\"}}",
+  "details": {
+    "stack": "Error: GROQ API Error: 404 {\"error\":{\"message\":\"Not Found\"}}\n    at GroqService.sendRequest (C:\\ERV\\projects-ex\\aian-model\\groq-service.js:91:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\ERV\\projects-ex\\aian-model\\server.js:461:30"
+  }
+}
+
+
+================================================================================
+Log Entry: 2025-08-12T08:53:54.300Z
+================================================================================
+
+[REQUEST] -> GET http://localhost:3002/api/available-models
+Timestamp: 2025-08-12T08:53:54.300Z
+
+--- Request Payload ---
+null
+
+--------------------------------------------------------------------------------
+
+[RESPONSE] <- Status: 200
+Timestamp: 2025-08-12T08:53:54.300Z
+
+--- Response Body ---
+[
+  "llama-3.3-70b-versatile",
+  "llama3-8b-8192",
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma2-9b-it",
+  "moonshotai/kimi-dev-72b:free",
+  "moonshotai/kimi-k2:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "google/gemini-2.5-pro-exp-03-25",
+  "google/gemma-3-27b-it:free",
+  "google/gemini-2.0-flash-exp:free",
+  "google/gemini-2.0-flash-lite-preview-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp-1219:free",
+  "google/gemini-2.0-pro-exp-02-05:free",
+  "google/gemini-2.0-flash-thinking-exp:free",
+  "deepseek/deepseek-chat:free",
+  "deepseek/deepseek-r1-zero:free",
+  "deepseek/deepseek-r1-distill-llama-70b:free",
+  "deepseek/deepseek-r1:free",
+  "qwen/qwq-32b:free",
+  "qwen/qwen2.5-vl-72b-instruct:free",
+  "moonshotai/moonlight-16b-a3b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
+  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+  "cognitivecomputations/dolphin3.0-mistral-24b:free",
+  "sophosympatheia/rogue-rose-103b-v0.2:free",
+  "qwen/qwen-2.5-coder-32b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "gryphe/mythomax-l2-13b:free"
+]
+
+
+================================================================================
 Log Entry: 2025-08-03T11:07:18.192Z
 ================================================================================
 
